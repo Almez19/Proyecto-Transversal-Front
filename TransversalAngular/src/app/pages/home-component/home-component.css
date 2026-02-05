@@ -1,0 +1,29 @@
+.cuerpo{
+
+    background-color: #FE7000;
+    color:#FFFFFF;
+    width: 100%;
+    height: 100%;
+
+}
+
+#bienvenido{
+
+    margin-top:3vh;
+
+}
+
+#carouselExampleAutoplaying {
+
+  width: 60%;
+  margin: 0 auto;
+  
+
+}
+
+@media (max-width: 768px) {
+  #carouselExampleAutoplaying {
+    width: 90%;
+  }
+}
+
