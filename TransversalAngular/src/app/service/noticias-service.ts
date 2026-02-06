@@ -1,13 +1,30 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { NoticiasInterface } from '../interfaces/noticias-interface';
 import { UUIDTypes } from "uuid";
 import { v4 as uuidv4 } from 'uuid';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoticiasService {
   
+  private httpClient = inject(HttpClient);
+
+  baseURL : string = "localhost:8080/api/noticias";
+
+  private noticiasSubject = new BehaviorSubject
+
+  Noticias : NoticiasInterface[] = []
+
+
+  async ngOnInit (){
+
+    this.Noticias = lastValueFrom(this.httpClient.get<NoticiasInterface>(this.baseURL).subscribe);
+
+  }
+
   mockNoticias: NoticiasInterface[] = [
 
       {
@@ -39,9 +56,11 @@ export class NoticiasService {
 
   ];
 
-  public getUltimasNoticias (): NoticiasInterface[]{
+ 
 
-    return this.mockNoticias;
+  public getUltimasNoticias (): Promise<NoticiasInterface>{
+
+    return 
 
 
   }

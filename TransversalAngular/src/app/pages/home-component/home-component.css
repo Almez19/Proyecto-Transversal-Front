@@ -4,14 +4,10 @@
     color:#FFFFFF;
     width: 100%;
     height: 100%;
-
+    padding-top:0.5vh;
 }
 
-#bienvenido{
 
-    margin-top:3vh;
-
-}
 
 #carouselExampleAutoplaying {
 

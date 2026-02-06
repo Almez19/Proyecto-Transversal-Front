@@ -4,6 +4,9 @@
     <h3 class="mt-5">Bienvenido a Basic Fit:</h3>
     <hr>
     <br>
+    <p>En Basic-Fit creemos que cuidarse debería ser fácil, accesible y para todo el mundo. Por eso ofrecemos espacios modernos, cómodos y totalmente equipados para que puedas entrenar a tu ritmo, sin complicaciones.
+        Da igual si estás empezando o si llevas tiempo entrenando: aquí encontrarás el ambiente perfecto para mejorar, superarte y sentirte bien cada día. ¡Este es tu sitio para moverte, crecer y disfrutar del entrenamiento!
+    </p>
 
     <h3>Aprende un poco sobre nosotros</h3>
     <hr>
@@ -16,8 +19,10 @@
         <div class="carousel-item active">
 
                 <img [src]="noticia.urlImagen" class="d-block w-100 img-fluid" alt="...">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
+
                     <h5>{{noticia.titulo}}</h5>
+                    <button [routerLink]="['/noticias/',noticia.id]">Ver noticia</button>
                     
 
                 </div>

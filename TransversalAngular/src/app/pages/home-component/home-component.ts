@@ -13,13 +13,14 @@ export class HomeComponent {
 
   NoticiasService = inject(NoticiasService);
 
-  Noticias : NoticiasInterface[];
+  Noticias : NoticiasInterface[] = [];
 
   constructor(){
 
-    this.Noticias = this.NoticiasService.getUltimasNoticias();
+    
 
   }
 
+ 
 
 }
