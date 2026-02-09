@@ -18,7 +18,7 @@
 
             @for (noticia of Noticias; track noticia.id) {
 
-                <div class="carousel-item @($index == 0 ? 'active' : '')">
+                <div class="carousel-item" [class.active]="noticia === Noticias[0]">
 
                         <img [src]="noticia.urlImagen" class="d-block w-100 img-fluid" alt="...">
                         <div class="carousel-caption">

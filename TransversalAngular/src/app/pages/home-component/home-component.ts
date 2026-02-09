@@ -17,7 +17,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
 
-    this.noticiasService.getAllNoticias().then(noticias => {
+    this.noticiasService.getUltimasNoticias().then(noticias => {
 
       this.Noticias = noticias;
 

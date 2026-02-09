@@ -10,9 +10,11 @@ export class NoticiasService {
 
   private httpClient = inject(HttpClient);
 
-  baseURL: string = 'http://localhost:8080/api/noticias';
+  baseURL: string = 'http://localhost:8080/api/noticias/';
 
   private noticiasPromise!: Promise<NoticiasInterface[]>;
+
+  private ultimasNoticiasPromise!: Promise<NoticiasInterface[]>;
 
   constructor() {
     this.cargarNoticias();
@@ -26,5 +28,13 @@ export class NoticiasService {
 
   public getAllNoticias(): Promise<NoticiasInterface[]> {
     return this.noticiasPromise;
+  }
+
+  public getUltimasNoticias (): Promise<NoticiasInterface[]>{
+
+    return this.noticiasPromise = lastValueFrom(
+      this.httpClient.get<NoticiasInterface[]>(this.baseURL+'ultimas')
+    );
+
   }
 }
