@@ -14,22 +14,27 @@
 
     <div class="carousel-inner noticias">
 
-        @for (noticia of Noticias; track noticia.id) {
+        @if(Noticias&& Noticias.length > 0){
 
-        <div class="carousel-item active">
+            @for (noticia of Noticias; track noticia.id) {
 
-                <img [src]="noticia.urlImagen" class="d-block w-100 img-fluid" alt="...">
-                <div class="carousel-caption">
+                <div class="carousel-item @($index == 0 ? 'active' : '')">
 
-                    <h5>{{noticia.titulo}}</h5>
-                    <button [routerLink]="['/noticias/',noticia.id]">Ver noticia</button>
-                    
+                        <img [src]="noticia.urlImagen" class="d-block w-100 img-fluid" alt="...">
+                        <div class="carousel-caption">
 
-                </div>
+                            <h5>{{noticia.titulo}}</h5>
+                            <button [routerLink]="['/noticias/',noticia.id]">Ver noticia</button>
+                            
 
-            </div>
+                        </div>
+
+                    </div>
+
+            }
 
         }
+
 
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

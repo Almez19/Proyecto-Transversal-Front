@@ -11,16 +11,23 @@ import { RouterLink } from "@angular/router";
 })
 export class HomeComponent {
 
-  NoticiasService = inject(NoticiasService);
+  noticiasService = inject(NoticiasService);
 
   Noticias : NoticiasInterface[] = [];
 
-  constructor(){
+  ngOnInit(): void {
+
+    this.noticiasService.getAllNoticias().then(noticias => {
+
+      this.Noticias = noticias;
+
+      console.log(this.Noticias);
+
+    });
 
     
 
   }
-
  
 
 }
