@@ -7,6 +7,8 @@ import { ReservasComponent } from './pages/reservas-component/reservas-component
 import { RutinasComponent } from './pages/rutinas-component/rutinas-component';
 import { NoticiasComponent } from './pages/noticias-component/noticias-component';
 import { PerfilComponent } from './pages/perfil-component/perfil-component';
+import { authGuardGuard } from './guard/auth-guard-guard';
+import { LoginPage } from './pages/login-page/login-page';
 
 export const routes: Routes = [
 
@@ -16,7 +18,10 @@ export const routes: Routes = [
     {path:"reservas", pathMatch: "full", component: ReservasComponent},
     {path:"rutinas", pathMatch: "full", component: RutinasComponent},
     {path:"noticias", pathMatch: "full", component: NoticiasComponent},
-    {path:"perfil", pathMatch: "full", component: PerfilComponent},
+
+    {path:"perfil", pathMatch: "full", component: PerfilComponent, canActivate: [authGuardGuard]},
+    {path:"login", pathMatch: "full", component: LoginPage},
+
     {path: "404", pathMatch: "full", component: Page404},
     {path:"**", redirectTo:"404" }, // Error 404, mantener siempre al final del array
 
