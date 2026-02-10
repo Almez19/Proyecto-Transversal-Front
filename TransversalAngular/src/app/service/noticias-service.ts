@@ -33,7 +33,7 @@ export class NoticiasService {
   public getUltimasNoticias (): Promise<NoticiasInterface[]>{
 
     return this.noticiasPromise = lastValueFrom(
-      this.httpClient.get<NoticiasInterface[]>(this.baseURL+'ultimas')
+      this.httpClient.get<NoticiasInterface[]>(this.baseURL+"ultimas")
     );
 
   }
