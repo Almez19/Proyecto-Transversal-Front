@@ -1,6 +1,9 @@
 
 <section class="cuerpo">
 
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+
+
     <h3 class="mt-5">Bienvenido a Basic Fit:</h3>
     <hr>
     <br>
@@ -24,7 +27,7 @@
                         <div class="carousel-caption">
 
                             <h5>{{noticia.titulo}}</h5>
-                            <button [routerLink]="['/noticias/',noticia.id]">Ver noticia</button>
+                         <!--   <button [routerLink]="['/noticias/',noticia.id]">Ver noticia</button> -->
                             
 
                         </div>
@@ -52,7 +55,7 @@
 
     </div>
 
-    <button [routerLink]="['/noticias']">Ver todas las noticias</button>
+   <!-- <button [routerLink]="['/noticias']">Ver todas las noticias</button>-->
 
 
 </section>

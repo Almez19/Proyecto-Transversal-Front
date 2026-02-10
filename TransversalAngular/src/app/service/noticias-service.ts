@@ -10,7 +10,7 @@ export class NoticiasService {
 
   private httpClient = inject(HttpClient);
 
-  baseURL: string = 'http://localhost:8080/api/noticias/';
+  baseURL: string = 'http://localhost:8080/api/noticias';
 
   private noticiasPromise!: Promise<NoticiasInterface[]>;
 
@@ -33,7 +33,7 @@ export class NoticiasService {
   public getUltimasNoticias (): Promise<NoticiasInterface[]>{
 
     return this.noticiasPromise = lastValueFrom(
-      this.httpClient.get<NoticiasInterface[]>(this.baseURL+"ultimas")
+      this.httpClient.get<NoticiasInterface[]>(this.baseURL+"/ultimas")
     );
 
   }

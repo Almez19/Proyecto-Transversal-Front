@@ -1,33 +1,45 @@
 import { Component, inject } from '@angular/core';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { NoticiasService } from '../../service/noticias-service';
 import { NoticiasInterface } from '../../interfaces/noticias-interface';
-import { RouterLink } from "@angular/router";
+
 
 @Component({
   selector: 'app-home-component',
-  imports: [RouterLink],
+  standalone: true,
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
+  imports: [RouterOutlet],
 })
 export class HomeComponent {
 
   noticiasService = inject(NoticiasService);
+  router = inject(Router);
 
-  Noticias : NoticiasInterface[] = [];
+  Noticias: NoticiasInterface[] = [];
+
+  onActivate(component: any) {
+  
+    this.cargarNoticias();
+  
+  }
+
 
   ngOnInit(): void {
 
-    this.noticiasService.getUltimasNoticias().then(noticias => {
+   
+    this.cargarNoticias();
 
-      this.Noticias = noticias;
-
-      console.log(this.Noticias);
-
-    });
-
-    
 
   }
- 
 
+  cargarNoticias() {
+    console.log('Cargando noticias...');
+    this.noticiasService.getUltimasNoticias().then(noticias => {
+      this.Noticias = noticias;
+    });
+  }
 }
+
