@@ -1,1 +1,48 @@
-<p>login-page works!</p>
+
+<form [formGroup]="modelForm" class card p2- shadow (ngSubmit)="getDataForm()">
+
+    <div class="mb-3">
+
+        <label for="email" class="form-label">Introduzca su email:</label>
+        <input type="email" 
+        class="form-control" 
+        id="email" 
+        name="email"
+        placeholder="Introduzca su nombre"
+        aria-describedby="email"
+        formControlName = "email">
+
+        @if(modelForm.get('email')?.hasError('pattern') && modelForm.get('email')?.touched ){
+
+            <p class="error">El email no cumple el formato adecuado</p>
+
+        }
+
+    </div>
+
+    <div class="mb-3">
+
+        <label for="contrasena" class="form-label">Introduzca su contraseña:</label>
+        <input type="password" 
+        class="form-control" 
+        id="contrasena" 
+        name="contrasena"
+        placeholder="Introduzca la url de su imagen"
+        aria-describedby="contrasena"
+        formControlName = "contrasena">
+
+
+        @if(modelForm.get('contrasena')?.hasError('pattern') && modelForm.get('contrasena')?.touched ){
+
+            <p class="error">La contraseña no cumple con el formato adecuado</p>
+
+        }
+
+    </div>
+
+
+    
+
+    <input type="submit" value="Enviar" class="btn btn-secondary mt-5" [disabled]="!modelForm.valid">
+
+</form>

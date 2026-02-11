@@ -1,0 +1,13 @@
+
+.cuerpo {
+
+    min-width: 100%;;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido {
+  flex: 1;
+  margin-top:3vh;
+}
