@@ -25,7 +25,4 @@ export const routes: Routes = [
     {path: "404", pathMatch: "full", component: Page404},
     {path:"**", redirectTo:"404" }, // Error 404, mantener siempre al final del array
 
-
-
-
 ];
