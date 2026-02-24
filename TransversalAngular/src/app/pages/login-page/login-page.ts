@@ -19,7 +19,7 @@ export class LoginPage {
     this.modelForm = new FormGroup({
 
       email : new FormControl (null, [ Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$' ) ] ) ,
-      contrasena : new FormControl (null, [ Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&._-])[A-Za-z\\d@$!%*?&._-]{8,}$') ] ),
+      contrasena : new FormControl (null, [ Validators.required,/* Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&._-])[A-Za-z\\d@$!%*?&._-]{8,}$') */] ),
 
 
   })
@@ -28,8 +28,16 @@ export class LoginPage {
 
   getDataForm() {
 
-    
+    this.loginService.login(
 
-}
+      {
+        email: this.modelForm.value.email,
+        contrasena: this.modelForm.value.contrasena,
+
+      }
+
+    )
+
+  }
 
 }
