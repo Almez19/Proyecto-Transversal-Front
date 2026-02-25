@@ -1,1 +1,53 @@
-<p>reservas-card works!</p>
+<div class="card basicfit-card mb-3 p-3">
+
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+    <div>
+      <h5 class="fw-bold mb-1">
+        @if (nombreClase) {
+          {{ nombreClase }}
+        } @else {
+          Clase: {{ reserva?.claseId }}
+        }
+      </h5>
+
+      @if (fechaClase) {
+        <div class="text-muted small">
+          Fecha: {{ fechaClase }}
+          @if (horaInicio && horaFinal) {
+            · {{ horaInicio }} - {{ horaFinal }}
+          }
+        </div>
+      }
+
+      <div class="text-muted small">
+        Cliente:
+        @if (nombreCliente) {
+          {{ nombreCliente }}
+        } @else {
+          {{ reserva?.clienteId }}
+        }
+      </div>
+
+      <div class="mt-2">
+        @if (reserva?.estado) {
+          <span class="badge bg-success">Activa</span>
+        } @else {
+          <span class="badge bg-danger">Cancelada</span>
+        }
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-basicfit btn-sm" type="button" (click)="onCancelar()">
+        Cancelar
+      </button>
+
+      <button class="btn btn-basicfit-dark btn-sm" type="button" (click)="onEliminar()">
+        Eliminar
+      </button>
+    </div>
+
+  </div>
+
+</div>

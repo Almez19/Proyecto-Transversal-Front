@@ -1,12 +1,12 @@
 
-<form [formGroup]="modelForm" class card p2- shadow (ngSubmit)="getDataForm()">
+<form [formGroup]="modelForm" class="card p-2 shadow" (ngSubmit)="getDataForm()">
 
     <div class="mb-3">
 
         <label for="email" class="form-label">Introduzca su email:</label>
-        <input type="email" 
-        class="form-control" 
-        id="email" 
+        <input type="email"
+        class="form-control"
+        id="email"
         name="email"
         placeholder="Introduzca su nombre"
         aria-describedby="email"
@@ -23,9 +23,9 @@
     <div class="mb-3">
 
         <label for="contrasena" class="form-label">Introduzca su contraseña:</label>
-        <input type="password" 
-        class="form-control" 
-        id="contrasena" 
+        <input type="password"
+        class="form-control"
+        id="contrasena"
         name="contrasena"
         placeholder="Introduzca la url de su imagen"
         aria-describedby="contrasena"
@@ -41,7 +41,7 @@
     </div>
 
 
-    
+
 
     <input type="submit" value="Enviar" class="btn btn-secondary mt-5" [disabled]="!modelForm.valid">
 

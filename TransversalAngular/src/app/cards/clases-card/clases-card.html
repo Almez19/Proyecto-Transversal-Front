@@ -1,1 +1,40 @@
-<p>clases-card works!</p>
+<div class="bf-class-card">
+
+  <div class="bf-class-header">
+    <span class="bf-badge">{{ obtenerDeporte() }}</span>
+
+    <div class="bf-date">
+      <span class="bf-date-label">Fecha</span>
+      <span class="bf-date-value">{{ formatearFecha(obtenerFecha()) }}</span>
+    </div>
+  </div>
+
+  <div class="bf-class-body">
+
+    <div class="bf-time-row">
+      <div class="bf-time">
+        <span class="bf-time-label">Inicio</span>
+        <span class="bf-time-value">{{ formatearHora(obtenerHoraInicio()) }}</span>
+      </div>
+
+      <div class="bf-time">
+        <span class="bf-time-label">Fin</span>
+        <span class="bf-time-value">{{ formatearHora(obtenerHoraFinal()) }}</span>
+      </div>
+    </div>
+
+    <div class="bf-chips">
+      <span class="bf-chip">{{ textoSala || ('Sala (' + obtenerSalaId() + ')') }}</span>
+      <span class="bf-chip">{{ textoEntrenador || ('Entrenador (' + obtenerEntrenadorId() + ')') }}</span>
+    </div>
+
+    <button class="bf-btn-primary" type="button">
+      Reservar
+    </button>
+
+    <small class="bf-hint">
+      Para reservar, ve a “Reservas” y selecciona la clase.
+    </small>
+
+  </div>
+</div>

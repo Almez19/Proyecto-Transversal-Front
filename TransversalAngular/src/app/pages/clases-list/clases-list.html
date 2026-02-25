@@ -1,1 +1,80 @@
-<p>clases-list works!</p>
+<section class="basicfit-clases">
+
+  <header>
+    <div>
+      <span>Clases colectivas</span>
+      <h1>Entrena en grupo. Motívate más.</h1>
+      <p>
+        Descubre nuestras clases.
+      </p>
+    </div>
+  </header>
+
+  <div class="container contenido">
+
+    <div class="panel-filtros">
+      <div class="panel-filtros_titulo">
+        <h2>Buscar clases</h2>
+        <!-- <button class="btn btn-limpiar" type="button" (click)="limpiarFiltros()">Limpiar</button> -->
+      </div>
+
+      <div class="panel-filtros__grid">
+        <div class="campo">
+          <label>Nombre / tipo</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Ej: cardio, fuerza..."
+            [(ngModel)]="textoBusqueda"
+            (input)="aplicarFiltros()"
+          />
+        </div>
+
+        <div class="campo">
+          <label>Fecha</label>
+          <input
+            class="form-control"
+            type="date"
+            [(ngModel)]="filtroFecha"
+            (change)="aplicarFiltros()"
+          />
+        </div>
+
+        <div class="campo campo--check">
+          <label class="check">
+            <input type="checkbox" [(ngModel)]="soloFuturas" (change)="aplicarFiltros()" />
+            <span>Solo futuras</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    @if (error) {
+      <div class="alerta alerta--warning">
+        {{ error }}
+      </div>
+    }
+
+    @if (cargando) {
+      <div class="alerta alerta--info">
+        Cargando clases.
+      </div>
+    } @else {
+
+      @if (clasesFiltradas && clasesFiltradas.length > 0) {
+        <div class="grid-clases">
+          @for (clase of clasesFiltradas; track clase.id) {
+            <app-clases-card [clase]="clase"></app-clases-card>
+          }
+        </div>
+      } @else {
+        <div class="estado-vacio">
+          <h3>No se encuentra la clase buscada</h3>
+          <p>Prueba con otra fecha o tipo.</p>
+        </div>
+      }
+    }
+
+  </div>
+
+</section>

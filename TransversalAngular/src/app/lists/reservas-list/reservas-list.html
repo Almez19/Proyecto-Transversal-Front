@@ -1,1 +1,11 @@
-<p>reservas-list works!</p>
+@if (reservas && reservas.length > 0) {
+  @for (reserva of reservas; track reserva.id) {
+    <app-reservas-card
+      [reserva]="reserva"
+      (cancelar)="onCancelar($event)"
+      (eliminar)="onEliminar($event)"
+    ></app-reservas-card>
+  }
+} @else {
+  <div class="alert alert-info">No hay reservas para mostrar.</div>
+}

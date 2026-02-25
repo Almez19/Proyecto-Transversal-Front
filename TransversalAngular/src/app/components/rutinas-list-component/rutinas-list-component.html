@@ -1,1 +1,7 @@
-<p>rutinas-list-component works!</p>
+@if (rutinas && rutinas.length > 0) {
+  @for (rutina of rutinas; track rutina.id) {
+    <app-rutinas-card-component [rutina]="rutina" (ver)="onVer($event)" (eliminar)="onEliminar($event)"></app-rutinas-card-component>
+  }
+} @else {
+  <div class="alert alert-info">No hay rutinas.</div>
+}

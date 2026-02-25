@@ -1,1 +1,76 @@
-<p>reservas-component works!</p>
+<section class="cuerpo container mt-4 bf-section">
+
+  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+    <h2 class="bf-title mb-0">Reservas</h2>
+    <span class="bf-chip">Basic-Fit</span>
+  </div>
+  <hr class="bf-hr">
+
+  @if (mensaje) {
+    <div class="alert alert-success">{{ mensaje }}</div>
+  }
+  @if (error) {
+    <div class="alert alert-danger">{{ error }}</div>
+  }
+
+  <div class="row g-3 mb-4">
+
+    <div class="col-12 col-lg-6">
+      <div class="card bf-card">
+        <div class="card-body">
+          <h5 class="card-title bf-card-title">Filtrar</h5>
+          <div class="mb-2">
+            <label class="form-label">Cliente</label>
+            <input class="form-control" [(ngModel)]="filtroClienteId" placeholder="Cliente" />
+          </div>
+          <div class="mb-2">
+            <label class="form-label">Clase</label>
+            <input class="form-control" [(ngModel)]="filtroClaseId" placeholder="Clase" />
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="soloActivas" [(ngModel)]="soloActivas" />
+            <label class="form-check-label" for="soloActivas">Solo activas</label>
+          </div>
+          <button class="btn btn-basicfit" (click)="cargarReservas()">Cargar reservas</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div class="card bf-card">
+        <div class="card-body">
+          <h5 class="card-title bf-card-title">Crear reserva</h5>
+          <div class="mb-2">
+            <label class="form-label">Cliente</label>
+            <input class="form-control" [(ngModel)]="nuevoClienteId" placeholder="Cliente" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Clase</label>
+            <input class="form-control" [(ngModel)]="nuevaClaseId" placeholder="Clase" />
+          </div>
+          <button class="btn btn-basicfit" (click)="crearReserva()">Crear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="card bf-card">
+        <div class="card-body">
+          <h5 class="card-title bf-card-title">Buscar</h5>
+          <div class="input-group">
+            <input class="form-control" [(ngModel)]="buscarId" placeholder="Reserva" />
+            <button class="btn btn-basicfit-dark" (click)="buscarReservaPorId()">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <app-reservas-list
+    [reservas]="reservas"
+    (cancelar)="cancelarReserva($event)"
+    (eliminar)="eliminarReserva($event)"
+  ></app-reservas-list>
+
+</section>

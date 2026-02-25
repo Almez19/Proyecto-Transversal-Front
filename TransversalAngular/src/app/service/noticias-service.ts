@@ -27,6 +27,7 @@ export class NoticiasService {
   }
 
   public getAllNoticias(): Promise<NoticiasInterface[]> {
+
     return this.noticiasPromise;
   }
 

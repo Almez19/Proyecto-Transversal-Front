@@ -1,1 +1,25 @@
-<p>rutinas-view-component works!</p>
+@if (rutinaId) {
+  <div class="card bf-card mt-3">
+    <div class="card-body">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+        <h5 class="mb-0 bf-card-title">Ejercicios de la rutina</h5>
+        <span class="bf-pill">ID: {{ rutinaId }}</span>
+      </div>
+
+      @if (ejercicios && ejercicios.length > 0) {
+        <ul class="list-group bf-list">
+          @for (ejercicio of ejercicios; track ejercicio.id) {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="fw-semibold">{{ ejercicio.nombre }}</span>
+              @if (ejercicio.maquinaId || ejercicio.maquinaId) {
+                <span class="badge bf-badge">Máquina</span>
+              }
+            </li>
+          }
+        </ul>
+      } @else {
+        <div class="alert alert-light mb-0">No hay ejercicios para mostrar.</div>
+      }
+    </div>
+  </div>
+}

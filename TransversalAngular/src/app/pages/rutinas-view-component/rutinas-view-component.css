@@ -1,0 +1,38 @@
+
+:host {
+  --basicfit-orange: #ff6a00;
+  --basicfit-dark: #111111;
+  --basicfit-border: rgba(255, 106, 0, 0.35);
+}
+
+.bf-card {
+  border: 1px solid var(--basicfit-border);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.bf-card-title {
+  font-weight: 800;
+  color: var(--basicfit-dark);
+}
+
+.bf-pill {
+  border: 1px solid var(--basicfit-border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--basicfit-dark);
+  background: #fff;
+}
+
+.bf-list .list-group-item {
+  border-color: rgba(0,0,0,0.06);
+}
+
+.bf-badge {
+  background: var(--basicfit-dark);
+  color: #fff;
+  font-weight: 800;
+}
+

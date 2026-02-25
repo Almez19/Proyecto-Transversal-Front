@@ -1,1 +1,80 @@
-<p>rutinas-component works!</p>
+<section class="cuerpo container mt-4 bf-section">
+
+  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+    <h2 class="bf-title mb-0">Rutinas</h2>
+    <span class="bf-chip">Basic-Fit</span>
+  </div>
+  <hr class="bf-hr">
+
+  @if (mensaje) {
+    <div class="alert alert-success">{{ mensaje }}</div>
+  }
+  @if (error) {
+    <div class="alert alert-danger">{{ error }}</div>
+  }
+
+  <div class="row g-3 mb-4">
+
+    <div class="col-12 col-lg-6">
+      <div class="card bf-card">
+        <div class="card-body">
+          <h5 class="card-title bf-card-title">Filtrar</h5>
+          <div class="mb-3">
+            <label class="form-label">Cliente (ID)</label>
+            <input class="form-control" [(ngModel)]="filtroClienteId" placeholder="Ej: b1b1..." />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre de rutina</label>
+            <input class="form-control" [(ngModel)]="filtroNombreRutina" (input)="aplicarFiltroNombreRutina()" placeholder="Ej: cardio, fuerza..." />
+            <div class="form-text">Filtra por el nombre.</div>
+          </div>
+
+          <button class="btn btn-basicfit" (click)="cargarRutinas()">Cargar rutinas</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div class="card bf-card">
+        <div class="card-body">
+          <h5 class="card-title bf-card-title">Crear rutina</h5>
+          <div class="mb-2">
+            <label class="form-label">Nombre</label>
+            <input class="form-control" [(ngModel)]="nuevoNombre" placeholder="Ej: Full body" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Cliente</label>
+            <input class="form-control" [(ngModel)]="nuevoClienteId" placeholder="Cliente" />
+          </div>
+          <button class="btn btn-basicfit" (click)="crearRutina()">Crear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="card bf-card">
+        <div class="card-body">
+          <h5 class="card-title bf-card-title">Buscar</h5>
+          <div class="input-group">
+            <input class="form-control" [(ngModel)]="buscarId" placeholder="Rutina" />
+            <button class="btn btn-basicfit-dark" (click)="buscarRutinaPorId()">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <app-rutinas-list-component
+    [rutinas]="rutinasFiltradas"
+    (ver)="verEjercicios($event)"
+    (eliminar)="eliminarRutina($event)"
+  ></app-rutinas-list-component>
+
+  <app-rutinas-view-component
+    [rutinaId]="rutinaSeleccionadaId"
+    [ejercicios]="ejercicios"
+  ></app-rutinas-view-component>
+
+</section>
