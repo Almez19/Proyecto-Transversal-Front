@@ -37,6 +37,18 @@ export class LoginPage {
       }
 
     )
+    .subscribe({
+    next: (response) => {
+      console.log("Login correcto", response);
+      this.loginService.isLoggedIn = true;
+    },
+    error: (error) => {
+      console.error("Error en login", error);
+    }
+  });
+
+
+    console.log("Estoy aqui")
 
   }
 
