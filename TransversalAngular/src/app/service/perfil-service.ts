@@ -2,8 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import { ClientesInterface } from '../interfaces/clientes-interface';
 import { EmpleadoInterface } from '../interfaces/empleado-interface';
 import { RolInterface } from '../interfaces/rol-interface';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -19,6 +20,7 @@ export class PerfilService {
 
   EmpleadoPromise! : Promise <EmpleadoInterface>;
   
+
   //Rol y token
   rol! : RolInterface;
   token! : string;
@@ -28,21 +30,25 @@ export class PerfilService {
 
    
 
+  //Guarda el token y obtiene el rol
   public constructor (){
 
     this.token = localStorage.getItem("token") ?? "" ;
     
-    this.rol = this.httpClient.post<RolInterface>(this.baseURL + "/rol", this.token);
+    this.rol.rol = localStorage.getItem("rol");
 
   }
 
+
+
+ /*
   public getPerfilPorToken () : Observable<any>{
 
     
 
     //if (){}
 
-    /* return this.httpClient.post<LoginInterface>(this.baseURL, credentials)
+    return this.httpClient.post<LoginInterface>(this.baseURL, credentials)
         .pipe(
           tap( response =>{
     
@@ -51,8 +57,8 @@ export class PerfilService {
     
         })
       )
-*/
-  }
+
+  }*/
 
 
 

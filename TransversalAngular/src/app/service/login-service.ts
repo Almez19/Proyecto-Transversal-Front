@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { LoginInterface } from '../interfaces/login-interface';
+import { RolInterface } from '../interfaces/rol-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,7 @@ import { LoginInterface } from '../interfaces/login-interface';
 export class LoginService {
   
   public isLoggedIn :boolean = false;
+
 
   private httpClient = inject(HttpClient);
   private baseURL : string = "http://localhost:8080/api/login";
@@ -22,10 +24,24 @@ export class LoginService {
       tap( response =>{
 
       localStorage.setItem('token', response.token)
-        console.log("EStoy aqui 2")
+      this.obtenerRol();
 
     })
   )
+
+  }
+
+    private obtenerRol (){
+
+    this.httpClient.post<RolInterface>(this.baseURL + "/rol", localStorage.getItem("token"))
+    .pipe(
+      tap(response => {
+
+        localStorage.setItem("rol", response.rol)
+
+
+      })
+    );
 
   }
 
