@@ -15,10 +15,12 @@ export class GimnasioService {
 
   constructor(){}
 
-  async getAllGimnasios(): Promise<Igimnasio>{
-    const resp = await lastValueFrom(this.httpCient.get<Igimnasio>(`${this.baseUrl}`)); 
-    console.log(resp);
-    return resp;
+  async getAllGimnasios(): Promise<Igimnasio[]>{
+  const resp = await lastValueFrom(
+    this.httpCient.get<Igimnasio[]>(this.baseUrl)
+  );
+  console.log("RESPUESTA:", resp);
+  return resp;
   }
 
   async eliminarGimnasioId(id: UUIDTypes): Promise<Igimnasio>{

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Igimnasio } from '../../interfaces/igimnasio';
 import { GimnasioService } from '../../service/gimnasio-service';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,7 @@ import { GimnasioViewComponent } from '../../components/gimnasio-view-component/
   templateUrl: './gimnasios-list.html',
   styleUrl: './gimnasios-list.css',
 })
-export class GimnasiosList {
+export class GimnasiosList implements OnInit {
 
   gimnasioArr: Igimnasio[];
   gimnasioService = inject(GimnasioService);
@@ -21,18 +21,20 @@ export class GimnasiosList {
   }
 
 
-  async cargarGimnasios(): Promise<any> {
+async cargarGimnasios(): Promise<any> {
 
-    try {
-      const response = await this.gimnasioService.getAllGimnasios();
+  try {
+    const response = await this.gimnasioService.getAllGimnasios();
+    this.gimnasioArr = response;
+    return response;
+    console.log(this.gimnasioArr);
+  } catch (error) {
+    alert("error al cargar los gimnasios");
+  }
+}
 
-      return response;
-    }catch (error){
-
-      alert("error al cargar los gimnasios")
-
-    }
-
+  async ngOnInit(): Promise<void>{
+    await this.cargarGimnasios();
   }
 
 

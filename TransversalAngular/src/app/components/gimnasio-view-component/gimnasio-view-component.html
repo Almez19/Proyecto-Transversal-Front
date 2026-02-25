@@ -1,7 +1,11 @@
 <div class="card h-100 shadow-sm">
     <div class="card-body">
         <h5 class="card-title">{{ gimnasio.nombre }}</h5>
-        <p class="card-text text-muted">{{ gimnasio.estado }}</p>
+        @if (gimnasio.estado) {
+        <p class="card-text text-muted">Abierto</p>
+        } @else {
+        <p class="card-text text-muted">Cerrado</p>
+        }
         <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="badge" [ngClass]="gimnasio.ciudad">
             </span>
