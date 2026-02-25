@@ -2,7 +2,7 @@ import { UUIDTypes } from "uuid";
 
 export interface Igimnasio {
 
-    id: UUIDTypes;
+    id: string;
     ubicacion: string;
     ciudad : string;
     nombre: string;
