@@ -1,4 +1,5 @@
 <div class="card h-100 shadow-sm">
+    <img [src]="gimnasio.UrlImagen" class="card-img-top" [alt]="gimnasio.nombre" style="height: 300px; object-fit: cover;">
     <div class="card-body">
         <h5 class="card-title">{{ gimnasio.nombre }}</h5>
         @if (gimnasio.estado) {
