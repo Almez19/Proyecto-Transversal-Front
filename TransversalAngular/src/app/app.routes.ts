@@ -10,12 +10,14 @@ import { PerfilComponent } from './pages/perfil-component/perfil-component';
 import { authGuardGuard } from './guard/auth-guard-guard';
 import { LoginPage } from './pages/login-page/login-page';
 import { ClasesList } from './pages/clases-list/clases-list';
+import { GimnasioInfo } from './pages/gimnasio-info/gimnasio-info';
 
 export const routes: Routes = [
 
     {path:"home", pathMatch: "full", component: HomeComponent},
     {path:"", pathMatch: "full", redirectTo: "home"},
     {path:"gimnasios", pathMatch: "full", component: GimnasiosList},
+    {path: "gimnasios/:id", pathMatch: "full", component: GimnasioInfo},
     {path:"clases", pathMatch: "full", component: ClasesList},
     {path:"reservas", pathMatch: "full", component: ReservasComponent},
     {path:"rutinas", pathMatch: "full", component: RutinasComponent},

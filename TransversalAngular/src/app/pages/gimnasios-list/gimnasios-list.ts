@@ -39,10 +39,6 @@ export class GimnasiosList implements OnInit {
     }
   }
 
-  async ngOnInit(): Promise<void>{
-    await this.cargarGimnasios();
-  }
-
   //MÉTODO FILTRO
   async filtrarGimnasios(): Promise<void> {
 
@@ -66,6 +62,10 @@ export class GimnasiosList implements OnInit {
 
     });
 
+  }
+
+  async ngOnInit(): Promise<void>{
+    await this.cargarGimnasios();
   }
 
 }

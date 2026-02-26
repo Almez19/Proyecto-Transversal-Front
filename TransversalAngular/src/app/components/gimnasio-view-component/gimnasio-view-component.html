@@ -3,18 +3,12 @@
     <img [src]="gimnasio.UrlImagen" class="card-img-top" [alt]="gimnasio.nombre" style="height: 300px; object-fit: cover;">
     <div class="card-body">
         <h5 class="card-title">{{ gimnasio.nombre }}</h5>
-        @if (gimnasio.estado) {
-        <p class="card-text text-muted">Abierto</p>
-        } @else {
-        <p class="card-text text-muted">Cerrado</p>
-        }
         <div class="d-flex justify-content-between align-items-center mb-2">
             <p class="card-title">{{ gimnasio.ciudad }}</p>
             <span class="badge" [ngClass]="gimnasio.ciudad">
             </span>
-            <small class="text-muted">{{ gimnasio.ubicacion }}</small>
         </div>
-        <button class="btn btn-primary w-100" [routerLink]="['/', gimnasio.id]">
+        <button class="btn btn-primary w-100" [routerLink]="['/gimnasios', gimnasio.id]">
             Ver Detalles
         </button>
     </div>

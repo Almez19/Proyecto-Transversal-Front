@@ -1,0 +1,119 @@
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+
+            <!-- Card principal -->
+            <div class="card shadow-lg border-0 overflow-hidden">
+
+                <!-- Header con imagen -->
+                <div class="position-relative">
+                    <img [src]="gimnasio.UrlImagen" [alt]="gimnasio.nombre" class="w-100"
+                        style="height: 320px; object-fit: cover;">
+
+                    <!-- Overlay degradado -->
+                    <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                        style="background: linear-gradient(transparent, rgba(0,0,0,0.75));">
+                        <h2 class="text-white fw-bold mb-0">{{ gimnasio.nombre }}</h2>
+                        <small class="text-warning">
+                            <i class="bi bi-geo-alt-fill me-1"></i>{{ gimnasio.ciudad }}
+                        </small>
+                    </div>
+
+                    <!-- Badge estado -->
+                    <span class="position-absolute top-0 end-0 m-3 badge fs-6 px-3 py-2"
+                        [ngClass]="gimnasio.estado ? 'bg-success' : 'bg-danger'">
+                        <i class="bi me-1"
+                            [ngClass]="gimnasio.estado ? 'bi-check-circle-fill' : 'bi-x-circle-fill'"></i>
+                        {{ gimnasio.estado ? 'Activo' : 'Inactivo' }}
+                    </span>
+                </div>
+
+                <!-- Cuerpo de la card -->
+                <div class="card-body p-4" style="background-color: #1a1a2e; color: #f0f0f0;">
+
+                    <!-- Info general -->
+                    <h5 class="fw-semibold mb-3" style="color: #FE7000;">
+                        <i class="bi bi-info-circle-fill me-2"></i>Información General
+                    </h5>
+
+                    <div class="row g-3 mb-4">
+
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-building me-1"></i>Nombre
+                                </small>
+                                <span class="fw-bold fs-6">{{ gimnasio.nombre }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-geo-alt me-1"></i>Ciudad
+                                </small>
+                                <span class="fw-bold fs-6">{{ gimnasio.ciudad }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-pin-map me-1"></i>Ubicación
+                                </small>
+                                <span class="fw-bold fs-6">{{ gimnasio.ubicacion }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-hash me-1"></i>ID
+                                </small>
+                                <span class="fw-bold fs-6 text-secondary" style="font-size: 0.85rem !important;">{{
+                                    gimnasio.id }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="p-3 rounded-3 d-flex align-items-center justify-content-between"
+                                style="background-color: #16213e;">
+                                <div>
+                                    <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                        <i class="bi bi-activity me-1"></i>Estado del Gimnasio
+                                    </small>
+                                </div>
+                                <div class="ms-3">
+                                    <span class="badge rounded-pill px-3 py-2 fs-6"
+                                        [ngClass]="gimnasio.estado ? 'bg-success' : 'bg-danger'">
+                                        {{ gimnasio.estado ? 'Activo' : 'Inactivo' }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Divisor -->
+                    <hr style="border-color: #FE7000; opacity: 0.4;">
+
+                    <!-- Botones de acción -->
+                    <div class="d-flex flex-wrap gap-2 justify-content-end mt-3">
+
+                        <a class="btn btn-outline-light px-4" [routerLink]="['/gimnasios']">
+                            <i class="bi bi-arrow-left me-2"></i>Volver
+                        </a>
+
+                        <a class="btn px-4 fw-semibold" style="background-color: #FE7000; color: white; border: none;"
+                            [routerLink]="['/gimnasios/editar', gimnasio.id]">
+                            <i class="bi bi-pencil-fill me-2"></i>Editar
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
