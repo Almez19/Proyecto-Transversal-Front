@@ -4,6 +4,7 @@ import { EmpleadoInterface } from '../interfaces/empleado-interface';
 import { RolInterface } from '../interfaces/rol-interface';
 import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from './login-service';
 
 
 
@@ -12,8 +13,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PerfilService {
   
-  //Httpclient
+  //Servicios
   httpClient = inject(HttpClient);
+  loginService = inject(LoginService);
 
   //Promise
   ClientePromise! : Promise <ClientesInterface>;
@@ -22,7 +24,7 @@ export class PerfilService {
   
 
   //Rol y token
-  rol! : RolInterface;
+  rol : RolInterface = ;
   token! : string;
 
   //Url base de la api

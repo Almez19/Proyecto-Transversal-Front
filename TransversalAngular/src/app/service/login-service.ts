@@ -10,6 +10,7 @@ import { RolInterface } from '../interfaces/rol-interface';
 export class LoginService {
   
   public isLoggedIn :boolean = false;
+  public rol! : RolInterface;
 
 
   private httpClient = inject(HttpClient);
@@ -37,7 +38,7 @@ export class LoginService {
     .pipe(
       tap(response => {
 
-        localStorage.setItem("rol", response.rol)
+       this.rol.rol= response.rol;
 
 
       })
