@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NoticiasService } from '../../service/noticias-service';
@@ -11,7 +11,7 @@ import { NoticiasInterface } from '../../interfaces/noticias-interface';
   standalone: true,
   templateUrl: './home-component.html',
   styleUrl: './home-component.css',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLinkWithHref, RouterLink],
 })
 export class HomeComponent {
 
@@ -29,7 +29,6 @@ export class HomeComponent {
 
   ngOnInit(): void {
 
-   
     this.cargarNoticias();
 
 

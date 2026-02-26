@@ -3,12 +3,12 @@ import { UUIDTypes } from "uuid";
 
 export interface NoticiasInterface {
 
-    id: UUIDTypes;
+    id: string;
     titulo: string;
     cuerpo : string;
     urlImagen: string;
     fecha: Date;
-    gimnasioId: UUIDTypes;
+    gimnasioId: string;
     
     /**
      * Estructura para referencia

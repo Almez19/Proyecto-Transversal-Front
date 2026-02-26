@@ -1,1 +1,9 @@
-<p>noticias-component works!</p>
+<div class="container">
+    <div class="row">
+        @for (noticias of noticiasArr; track noticias.id) {
+        <div class="col-md-4 mb-4">
+            <app-noticias-card [noticias]="noticias"></app-noticias-card>
+        </div>
+        }
+    </div>
+</div>

@@ -1,62 +1,69 @@
-
-<section class="cuerpo">
+<section class="home-section">
 
     <router-outlet (activate)="onActivate($event)"></router-outlet>
 
+    <!-- HERO -->
+    <div class="hero">
+        <div class="container hero-content">
+            <h1>Más que un gimnasio</h1>
+            <p>
+                Entrena cuando quieras, como quieras y sin complicaciones.
+                Espacios modernos y equipamiento profesional al mejor precio.
+            </p>
+            <a class="btn btn-basic" [routerLink]="['/gimnasios']">Encuentra tu gimnasio</a>
+        </div>
+    </div>
 
-    <h3 class="mt-5">Bienvenido a Basic Fit:</h3>
-    <hr>
-    <br>
-    <p>En Basic-Fit creemos que cuidarse debería ser fácil, accesible y para todo el mundo. Por eso ofrecemos espacios modernos, cómodos y totalmente equipados para que puedas entrenar a tu ritmo, sin complicaciones.
-        Da igual si estás empezando o si llevas tiempo entrenando: aquí encontrarás el ambiente perfecto para mejorar, superarte y sentirte bien cada día. ¡Este es tu sitio para moverte, crecer y disfrutar del entrenamiento!
-    </p>
+    <!-- INTRO -->
+    <div class="intro-section container">
+        <h2 class="section-title">Bienvenido a Basic-Fit</h2>
+        <p class="section-text">
+            En Basic-Fit creemos que el fitness debe ser accesible para todos.
+            Nuestros centros están diseñados para que entrenes con libertad,
+            comodidad y tecnología de última generación. Empieza hoy y forma
+            parte de una comunidad que no deja de crecer.
+        </p>
+    </div>
 
-    <h3>Aprende un poco sobre nosotros</h3>
-    <hr>
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <!-- NOTICIAS -->
+    <div class="news-section">
 
-    <div class="carousel-inner noticias">
+        <div class="container">
 
-        @if(Noticias&& Noticias.length > 0){
+            <h2 class="section-title text-center">Últimas novedades</h2>
 
-            @for (noticia of Noticias; track noticia.id) {
+            <div id="carouselExampleAutoplaying" class="carousel slide custom-carousel" data-bs-ride="carousel">
 
-                <div class="carousel-item" [class.active]="noticia === Noticias[0]">
+                <div class="carousel-inner">
 
-                        <img [src]="noticia.urlImagen" class="d-block w-100 img-fluid" alt="...">
-                        <div class="carousel-caption">
-
-                            <h5>{{noticia.titulo}}</h5>
-                         <!--   <button [routerLink]="['/noticias/',noticia.id]">Ver noticia</button> -->
-                            
-
+                    @for (noticia of Noticias; track noticia.id) {
+                    <div class="carousel-item" [class.active]="noticia === Noticias[0]">
+                        <div class="carousel-card">
+                            <img [src]="noticia.urlImagen" class="d-block w-100" alt="noticia">
+                            <div class="carousel-info">
+                                <h4>{{noticia.titulo}}</h4>
+                                <p>{{noticia.cuerpo}}</p>
+                            </div>
                         </div>
-
                     </div>
+                    }
 
-            }
+                </div>
 
-        }
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
 
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
 
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            </div>
 
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-        <span class="visually-hidden">Previous</span>
-
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-
-    </button>
+        </div>
 
     </div>
-
-   <!-- <button [routerLink]="['/noticias']">Ver todas las noticias</button>-->
-
 
 </section>
-

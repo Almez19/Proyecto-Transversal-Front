@@ -1,1 +1,11 @@
-<p>noticias-card works!</p>
+<div class="card h-100 shadow-sm" style="border: 2px solid #FE7000;">
+    <img [src]="noticias.urlImagen" class="card-img-top" [alt]="noticias.titulo" style="height: 300px; object-fit: cover;">
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ noticias.titulo }}</h5>
+        <p class="card-text flex-grow-1">{{ noticias.cuerpo }}</p>
+        <small class="text-muted mb-3">{{ noticias.fecha }}</small>
+        <button class="btn btn-primary w-100 mt-auto" [routerLink]="['/', noticias.id]">
+            Ver Detalles
+        </button>
+    </div>
+</div>

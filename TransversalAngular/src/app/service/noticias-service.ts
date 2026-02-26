@@ -20,7 +20,7 @@ export class NoticiasService {
     this.cargarNoticias();
   }
 
-  private cargarNoticias(): void {
+  public cargarNoticias(): void {
     this.noticiasPromise = lastValueFrom(
       this.httpClient.get<NoticiasInterface[]>(this.baseURL)
     );

@@ -14,28 +14,60 @@ import { GimnasioViewComponent } from '../../components/gimnasio-view-component/
 export class GimnasiosList implements OnInit {
 
   gimnasioArr: Igimnasio[];
+  gimnasioFiltradoArr: Igimnasio[];
+
   gimnasioService = inject(GimnasioService);
+
+  searchText: string = '';
+  soloAbiertos: boolean = false;
+  soloCerrados: boolean = false;
 
   constructor(){
     this.gimnasioArr = [];
+    this.gimnasioFiltradoArr = [];
   }
 
+  async cargarGimnasios(): Promise<any> {
 
-async cargarGimnasios(): Promise<any> {
-
-  try {
-    const response = await this.gimnasioService.getAllGimnasios();
-    this.gimnasioArr = response;
-    return response;
-    console.log(this.gimnasioArr);
-  } catch (error) {
-    alert("error al cargar los gimnasios");
+    try {
+      const response = await this.gimnasioService.getAllGimnasios();
+      this.gimnasioArr = response;
+      this.gimnasioFiltradoArr = response;
+      return response;
+    } catch (error) {
+      alert("error al cargar los gimnasios");
+    }
   }
-}
 
   async ngOnInit(): Promise<void>{
     await this.cargarGimnasios();
   }
 
+  //MÉTODO FILTRO
+  async filtrarGimnasios(): Promise<void> {
+
+    this.gimnasioFiltradoArr = this.gimnasioArr.filter(g => {
+
+      const coincideTexto =
+        g.nombre.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        g.ciudad.toLowerCase().includes(this.searchText.toLowerCase());
+
+      let coincideEstado = true;
+
+      if (this.soloAbiertos) {
+        coincideEstado = g.estado === true;
+      }
+
+      if (this.soloCerrados) {
+        coincideEstado = g.estado === false;
+      }
+
+      return coincideTexto && coincideEstado;
+
+    });
+
+  }
 
 }
+
+
