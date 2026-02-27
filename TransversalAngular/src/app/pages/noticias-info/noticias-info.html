@@ -1,0 +1,120 @@
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-11">
+
+            <div class="card shadow-lg border-0 overflow-hidden">
+
+                <!-- Header con imagen -->
+                <div class="position-relative">
+                    <img [src]="noticia.urlImagen" [alt]="noticia.titulo" class="w-100"
+                        style="height: 380px; object-fit: cover;">
+
+                    <!-- Overlay degradado -->
+                    <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                        style="background: linear-gradient(transparent, rgba(0,0,0,0.85));">
+                        <h2 class="text-white fw-bold mb-1">{{ noticia.titulo }}</h2>
+                        <small style="color: #FE7000;">
+                            <i class="bi bi-calendar-event-fill me-1"></i>
+                            {{ noticia.fecha | date: 'dd MMMM yyyy, HH:mm' }}
+                        </small>
+                    </div>
+
+                    <!-- Badge fecha flotante -->
+                    <div class="position-absolute top-0 start-0 m-3 px-3 py-2 rounded-3 text-center"
+                        style="background-color: #FE7000; min-width: 60px;">
+                        <div class="fw-bold text-white fs-4 lh-1">{{ noticia.fecha | date: 'dd' }}</div>
+                        <div class="text-white" style="font-size: 0.7rem; text-transform: uppercase;">
+                            {{ noticia.fecha | date: 'MMM' }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cuerpo -->
+                <div class="card-body p-4" style="background-color: #1a1a2e; color: #f0f0f0;">
+
+                    <!-- Metadatos -->
+                    <h5 class="fw-semibold mb-3" style="color: #FE7000;">
+                        <i class="bi bi-newspaper me-2"></i>Detalles de la Noticia
+                    </h5>
+
+                    <div class="row g-3 mb-4">
+
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-hash me-1"></i>ID Noticia
+                                </small>
+                                <span class="fw-bold text-secondary" style="font-size: 0.82rem;">{{ noticia.id
+                                    }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-building me-1"></i>Gimnasio Asociado
+                                </small>
+                                <span class="fw-bold" style="font-size: 0.82rem;">{{ noticia.gimnasioId }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-1">
+                                    <i class="bi bi-type-h1 me-1"></i>Título
+                                </small>
+                                <span class="fw-bold fs-6">{{ noticia.titulo }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="p-3 rounded-3" style="background-color: #16213e;">
+                                <small class="text-uppercase text-secondary fw-semibold d-block mb-2">
+                                    <i class="bi bi-clock-history me-1"></i>Fecha de Publicación
+                                </small>
+                                <span class="fw-bold fs-6">
+                                    {{ noticia.fecha | date: "EEEE, dd 'de' MMMM 'de' yyyy" }}
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Divisor con título -->
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <hr class="flex-grow-1" style="border-color: #FE7000; opacity: 0.4;">
+                        <span class="fw-semibold" style="color: #FE7000; white-space: nowrap;">
+                            <i class="bi bi-text-paragraph me-1"></i>Contenido
+                        </span>
+                        <hr class="flex-grow-1" style="border-color: #FE7000; opacity: 0.4;">
+                    </div>
+
+                    <!-- Cuerpo de la noticia -->
+                    <div class="p-4 rounded-3 mb-4"
+                        style="background-color: #16213e; line-height: 1.85; font-size: 1rem; color: #dce3f0;">
+                        {{ noticia.cuerpo }}
+                    </div>
+
+                    <!-- Divisor -->
+                    <hr style="border-color: #FE7000; opacity: 0.4;">
+
+                    <!-- Botones -->
+                    <div class="d-flex flex-wrap gap-2 justify-content-end mt-3">
+
+                        <a class="btn btn-outline-light px-4" [routerLink]="['/noticias']">
+                            <i class="bi bi-arrow-left me-2"></i>Volver
+                        </a>
+
+                        <a class="btn px-4 fw-semibold" style="background-color: #FE7000; color: white; border: none;"
+                            [routerLink]="[]">
+                            <i class="bi bi-pencil-fill me-2"></i>Editar
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -23,7 +23,7 @@ export class GimnasioService {
   return resp;
   }
 
-  async eliminarGimnasioId(id: UUIDTypes): Promise<Igimnasio>{
+  async eliminarGimnasioId(id: string): Promise<Igimnasio>{
     return lastValueFrom(this.httpCient.delete<Igimnasio>(`${this.baseUrl}/${id}`));
   }
 

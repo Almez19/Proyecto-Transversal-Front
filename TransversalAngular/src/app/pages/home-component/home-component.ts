@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet, RouterLinkWithHref } from '@angular/router';
 import { RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -13,31 +13,27 @@ import { NoticiasInterface } from '../../interfaces/noticias-interface';
   styleUrl: './home-component.css',
   imports: [RouterOutlet, RouterLinkWithHref, RouterLink],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
   noticiasService = inject(NoticiasService);
   router = inject(Router);
+  cdr = inject(ChangeDetectorRef);
 
   Noticias: NoticiasInterface[] = [];
 
   onActivate(component: any) {
-  
     this.cargarNoticias();
-  
   }
 
-
   ngOnInit(): void {
-
     this.cargarNoticias();
-
-
   }
 
   cargarNoticias() {
     console.log('Cargando noticias...');
-    this.noticiasService.getUltimasNoticias().then(noticias => {
+    this.noticiasService.getUltimasNoticias().then((noticias: NoticiasInterface[]) => {
       this.Noticias = noticias;
+      this.cdr.detectChanges();
     });
   }
 }

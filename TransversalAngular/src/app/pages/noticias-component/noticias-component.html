@@ -1,9 +1,68 @@
-<div class="container">
+<div class="container mt-4">
+
+    <!-- Filtros -->
+    <div class="p-4 rounded-3 mb-4 shadow-sm" style="background-color: #ffffff; border: 1px solid #dee2e6;">
+        <h5 class="fw-semibold mb-3" style="color: #FE7000;">
+            <i class="bi bi-funnel-fill me-2"></i>Filtros
+        </h5>
+
+        <div class="row g-3">
+
+            <!-- Filtro por título -->
+            <div class="col-md-6">
+                <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+                    <i class="bi bi-type me-1"></i>Buscar por título
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text" style="color: #FE7000; border-right: 0;">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control" style="border-left: 0;" placeholder="Escribe el título..."
+                        [(ngModel)]="searchTitulo" (ngModelChange)="filtrar()">
+                </div>
+            </div>
+
+            <!-- Filtro por fecha -->
+            <div class="col-md-4">
+                <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+                    <i class="bi bi-calendar3 me-1"></i>Filtrar por fecha
+                </label>
+                <input type="date" class="form-control" [(ngModel)]="searchFecha" (ngModelChange)="filtrar()">
+            </div>
+
+            <!-- Botón limpiar -->
+            <div class="col-md-2 d-flex align-items-end">
+                <button class="btn btn-outline-secondary w-100" (click)="limpiarFiltros()">
+                    <i class="bi bi-x-circle me-1"></i>Limpiar
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Contador resultados -->
+        <small class="mt-3 d-block" style="color: #FE7000;">
+            <i class="bi bi-newspaper me-1"></i>
+            {{ noticiasFiltradas.length }} noticia{{ noticiasFiltradas.length !== 1 ? 's' : '' }} encontrada{{
+            noticiasFiltradas.length !== 1 ? 's' : '' }}
+        </small>
+
+    </div>
+
+    <!-- Lista de noticias -->
     <div class="row">
-        @for (noticias of noticiasArr; track noticias.id) {
+        @for (noticias of noticiasFiltradas; track noticias.id) {
         <div class="col-md-4 mb-4">
             <app-noticias-card [noticias]="noticias"></app-noticias-card>
         </div>
+        } @empty {
+        <div class="text-center py-5" style="color: #555;">
+            <i class="bi bi-search fs-1" style="color: #FE7000;"></i>
+            <p class="mt-3 fs-5">No se encontraron noticias con esos filtros.</p>
+            <button class="btn btn-outline-secondary mt-2" (click)="limpiarFiltros()">
+                <i class="bi bi-x-circle me-1"></i>Limpiar filtros
+            </button>
+        </div>
         }
     </div>
+
 </div>

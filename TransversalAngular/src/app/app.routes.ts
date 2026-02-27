@@ -11,6 +11,7 @@ import { authGuardGuard } from './guard/auth-guard-guard';
 import { LoginPage } from './pages/login-page/login-page';
 import { ClasesList } from './pages/clases-list/clases-list';
 import { GimnasioInfo } from './pages/gimnasio-info/gimnasio-info';
+import { NoticiasInfo } from './pages/noticias-info/noticias-info';
 
 export const routes: Routes = [
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
     {path:"reservas", pathMatch: "full", component: ReservasComponent},
     {path:"rutinas", pathMatch: "full", component: RutinasComponent},
     {path:"noticias", pathMatch: "full", component: NoticiasComponent},
+    {path:"noticias/:id", pathMatch: "full", component: NoticiasInfo},
 
     {path:"perfil", pathMatch: "full", component: PerfilComponent, canActivate: [authGuardGuard]},
     {path:"login", pathMatch: "full", component: LoginPage},

@@ -12,30 +12,26 @@ export class NoticiasService {
 
   baseURL: string = 'http://localhost:8080/api/noticias';
 
-  private noticiasPromise!: Promise<NoticiasInterface[]>;
+  constructor() {}
 
-  private ultimasNoticiasPromise!: Promise<NoticiasInterface[]>;
-
-  constructor() {
-    this.cargarNoticias();
-  }
-
-  public cargarNoticias(): void {
-    this.noticiasPromise = lastValueFrom(
+  async getAllNoticias(): Promise<NoticiasInterface[]>{
+    const resp = await lastValueFrom(
       this.httpClient.get<NoticiasInterface[]>(this.baseURL)
     );
+    console.log("Respuesta", resp);
+    return resp;
   }
 
-  public getAllNoticias(): Promise<NoticiasInterface[]> {
-
-    return this.noticiasPromise;
+  async getNoticiasById(id: string): Promise<NoticiasInterface>{
+    return lastValueFrom(this.httpClient.get<NoticiasInterface>(`${this.baseURL}/${id}`))
   }
 
-  public getUltimasNoticias (): Promise<NoticiasInterface[]>{
-
-    return this.noticiasPromise = lastValueFrom(
-      this.httpClient.get<NoticiasInterface[]>(this.baseURL+"/ultimas")
+  async getUltimasNoticias(): Promise<NoticiasInterface[]>{
+    const resp = await lastValueFrom(
+      this.httpClient.get<NoticiasInterface[]>(`${this.baseURL}/ultimas`)
     );
-
+    return resp;
   }
+
+
 }
