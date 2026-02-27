@@ -48,8 +48,7 @@ export class LoginPage {
   });
 
 
-    console.log("Estoy aqui")
-
+    
   }
 
 }

@@ -18,18 +18,14 @@ export class LoginService {
 
   public login (credentials:{email: string, contrasena : string}) : Observable<LoginInterface>{
 
-    console.log("EStoy aqui 3")
+    
 
     return this.httpClient.post<LoginInterface>(this.baseURL, credentials)
     .pipe(
       tap( response =>{
 
       localStorage.setItem('token', response.token)
-<<<<<<< HEAD
       this.obtenerRol();
-=======
-        console.log("EStoy aqui 2")
->>>>>>> e461b7fde3e29b222bbc8a558fcc3366eba219d8
 
     })
   )

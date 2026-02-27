@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { inject, Injectable } from '@angular/core';
 import { ClientesInterface } from '../interfaces/clientes-interface';
 import { EmpleadoInterface } from '../interfaces/empleado-interface';
@@ -7,11 +6,6 @@ import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from './login-service';
 
-=======
-import { Injectable } from '@angular/core';
-import { ClientesInterface } from '../interfaces/clientes-interface';
-import { EmpleadoInterface } from '../interfaces/empleado-interface';
->>>>>>> e461b7fde3e29b222bbc8a558fcc3366eba219d8
 
 
 @Injectable({
@@ -19,22 +13,18 @@ import { EmpleadoInterface } from '../interfaces/empleado-interface';
 })
 export class PerfilService {
   
-<<<<<<< HEAD
   //Servicios
   httpClient = inject(HttpClient);
   loginService = inject(LoginService);
 
   //Promise
-=======
->>>>>>> e461b7fde3e29b222bbc8a558fcc3366eba219d8
-  ClientePromise! : Promise <ClientesInterface>;
+  Cliente! : ClientesInterface;
 
-  EmpleadoPromise! : Promise <EmpleadoInterface>;
+  Empleado! : EmpleadoInterface;
   
 
-<<<<<<< HEAD
   //Rol y token
-  rol : RolInterface = ;
+  rol : RolInterface = this.loginService.rol;
   token! : string;
 
   //Url base de la api
@@ -46,34 +36,42 @@ export class PerfilService {
   public constructor (){
 
     this.token = localStorage.getItem("token") ?? "" ;
-    
-    this.rol.rol = localStorage.getItem("rol");
 
   }
 
 
 
- /*
+ 
   public getPerfilPorToken () : Observable<any>{
 
     
 
-    //if (){}
+    if (this.rol.rol === "CLIENTE"){
 
-    return this.httpClient.post<LoginInterface>(this.baseURL, credentials)
-        .pipe(
-          tap( response =>{
-    
-          localStorage.setItem('token', response.token)
-            console.log("EStoy aqui 2")
-    
-        })
-      )
+      return this.httpClient.post<ClientesInterface>(this.baseURL + "clientes/getportoken", this.token)
+            .pipe(
+              tap( response =>{
+        
+             this.Cliente = response;
+        
+            })
+          )
 
-  }*/
+    }else {
+
+            return this.httpClient.post<EmpleadoInterface>(this.baseURL + "usuarios/getportoken", this.token)
+            .pipe(
+              tap( response =>{
+        
+                this.Empleado = response;
+        
+            })
+          )
+
+    }
+
+  }
 
 
-=======
->>>>>>> e461b7fde3e29b222bbc8a558fcc3366eba219d8
 
 }
