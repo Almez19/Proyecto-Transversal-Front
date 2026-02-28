@@ -1,0 +1,106 @@
+<div class="container mt-4 bf-container">
+  <a routerLink="/rutinas" class="btn btn-bf-outline mb-3">
+    <i class="bi bi-arrow-left me-2"></i>Volver a rutinas
+  </a>
+
+  @if (cargando) {
+    <div class="estado">Cargando rutina…</div>
+  } @else if (error) {
+    <div class="estado error">{{ error }}</div>
+  } @else if (rutina) {
+    <div class="card shadow-sm bf-card mb-4">
+      @if (rutina.imagenUrl) {
+        <img [src]="rutina.imagenUrl" class="card-img-top" alt="{{ rutina.nombre }}"
+             style="height: 260px; object-fit: cover;" />
+      }
+
+      <div class="card-body p-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+          <div>
+            <h2 class="mb-2 bf-title">{{ rutina.nombre }}</h2>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge" style="background: #FE7000;">{{ rutina.objetivo | textoEnum }}</span>
+              <span class="badge" style="background: #6f2dbd;">{{ rutina.nivel | textoEnum }}</span>
+              <span class="badge text-dark" style="background: #f8f9fa; border: 1px solid #dee2e6;">
+                {{ rutina.diasPorSemana }} días/sem
+              </span>
+              <span class="badge text-dark" style="background: #f8f9fa; border: 1px solid #dee2e6;">
+                {{ rutina.duracionMinutos }} min
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-muted mt-3 mb-4">{{ rutina.descripcion }}</p>
+
+        <div class="row g-4">
+          <div class="col-lg-5">
+            <div class="p-3 rounded-3 bf-panel h-100">
+              <div class="fw-semibold mb-2" style="color:#FE7000;">
+                <i class="bi bi-check2-circle me-2"></i>Puntos clave
+              </div>
+              <ul class="mb-0">
+                @for (p of rutina.puntosClave; track p) {
+                  <li>{{ p }}</li>
+                }
+              </ul>
+
+              <div class="fw-semibold mt-4 mb-2" style="color:#FE7000;">
+                <i class="bi bi-lightning-charge me-2"></i>Ejercicios (ejemplo)
+              </div>
+              <ul class="mb-0">
+                @for (ej of rutina.ejerciciosEjemplo; track ej) {
+                  <li>{{ ej }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="p-3 rounded-3 bf-panel h-100">
+              <div class="fw-semibold mb-2" style="color:#FE7000;">
+                <i class="bi bi-list-ol me-2"></i>Plan detallado
+              </div>
+
+              @if (!rutina.plan || rutina.plan.length === 0) {
+                <div class="text-muted">Esta rutina no tiene plan detallado.</div>
+              } @else {
+                <div class="table-responsive">
+                  <table class="table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Ejercicio</th>
+                        <th>Series</th>
+                        <th>Reps</th>
+                        <th>Descanso</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for (e of rutina.plan; track e.orden) {
+                        <tr>
+                          <td class="fw-semibold">{{ e.orden }}</td>
+                          <td>
+                            <div class="fw-semibold">{{ e.nombre }}</div>
+                            <div class="text-muted" style="font-size: .9rem;">
+                              <i class="bi bi-gear me-1"></i>{{ e.maquinaSugerida }}
+                              <span class="mx-2">·</span>
+                              <i class="bi bi-info-circle me-1"></i>{{ e.explicacion }}
+                            </div>
+                          </td>
+                          <td>{{ e.series }}</td>
+                          <td>{{ e.repeticiones }}</td>
+                          <td>{{ e.descansoSegundos }}s</td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

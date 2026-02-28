@@ -1,8 +1,12 @@
-import { UUIDTypes } from "uuid";
+export type EstadoReserva = 'activa' | 'cancelada';
 
 export interface ReservaInterface {
-  id: UUIDTypes;
-  clienteId: UUIDTypes;
-  claseId: UUIDTypes;
-  estado: boolean;
+  id: string;
+  clienteId?: string;
+  dniNie?: string;
+  claseId: string;
+  estado: EstadoReserva;
+  fechaCreacion?: string;
+  fechaCancelacion?: string | null;
+  motivoCancelacion?: string | null;
 }

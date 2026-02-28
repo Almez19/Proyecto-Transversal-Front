@@ -63,7 +63,7 @@ export class GimnasiosList implements OnInit {
     this.cdr.detectChanges();
   }
 
-  limpiarFiltros(): void { 
+  limpiarFiltros(): void {
     this.searchText = '';
     this.soloAbiertos = false;
     this.soloCerrados = false;

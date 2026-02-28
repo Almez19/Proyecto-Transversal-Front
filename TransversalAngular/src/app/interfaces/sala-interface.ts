@@ -1,7 +1,7 @@
 export interface SalaInterface {
   id: string;
-  numeroSala?: number;
-  numero_sala?: number;
-  gimnasioId?: string;
-  gimnasio_id_s?: string;
+  numeroSala: number;
+  gimnasioId: string;
+  nombre?: string | null;
+  estado: boolean;
 }

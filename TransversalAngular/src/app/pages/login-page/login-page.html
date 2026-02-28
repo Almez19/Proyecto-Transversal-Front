@@ -43,6 +43,11 @@
 
 
 
-    <input type="submit" value="Enviar" class="btn btn-secondary mt-5" [disabled]="!modelForm.valid">
+    <input type="submit" value="Enviar" class="btn btn-secondary mt-4" [disabled]="!modelForm.valid">
+
+    <div class="d-flex justify-content-between mt-3">
+        <a routerLink="/registro" class="small-link">Crear cuenta</a>
+        <a routerLink="/recuperar-contrasena" class="small-link">¿Has olvidado tu contraseña?</a>
+    </div>
 
 </form>

@@ -1,0 +1,11 @@
+/* Estilo unificado Basifit (como Gimnasios/Noticias) */
+.card{
+  border: 2px solid var(--bf-orange);
+  border-radius: 1rem;
+}
+.card-title{
+  color: var(--bf-orange);
+}
+.badge.text-bg-secondary{
+  background: var(--bf-purple) !important;
+}

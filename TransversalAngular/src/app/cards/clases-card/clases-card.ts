@@ -1,96 +1,97 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { ClaseInterface } from '../../interfaces/clase-interface';
-import { SalasService } from '../../service/salas-service';
-import { UsuariosService } from '../../service/usuarios-service';
+import { AuthService } from '../../service/auth-service';
+import { ClasesService } from '../../service/clases-service';
+import { InfoClasesService, InfoClase } from '../../service/info-clases-service';
 
 @Component({
   selector: 'app-clases-card',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './clases-card.html',
-  styleUrls: ['./clases-card.css']
+  styleUrl: './clases-card.css',
 })
 export class ClasesCard {
-  @Input() clase!: ClaseInterface;
+  private auth = inject(AuthService);
+  private clasesService = inject(ClasesService);
+  private infoService = inject(InfoClasesService);
 
-  private salasService = inject(SalasService);
-  private usuariosService = inject(UsuariosService);
+  @Input({ required: true }) clase!: ClaseInterface;
+  @Input() nombreGimnasio: string | null = null;
 
-  public textoSala: string = '';
-  public textoEntrenador: string = '';
+  reservando = false;
+  mensaje = '';
+  error = '';
+
+  detallesAbiertos = false;
+  info: InfoClase | null = null;
 
   async ngOnInit(): Promise<void> {
-    await this.resolverNombresRelacionados();
+    try {
+      const mapa = await this.infoService.getInfoClases();
+      this.info = mapa[this.clase.nombre] ?? null;
+    } catch {
+      this.info = null;
+    }
   }
 
-  private async resolverNombresRelacionados(): Promise<void> {
-    // Sala
-    const salaId = this.obtenerSalaId();
-    if (salaId) {
-      try {
-        const sala = await this.salasService.getSalaById(salaId);
-        const numeroSala = (sala as any).numero_sala ?? (sala as any).numeroSala;
-        this.textoSala = numeroSala != null ? `Sala ${numeroSala}` : `Sala (${salaId})`;
-      } catch {
-        this.textoSala = `Sala (${salaId})`;
+  private obtenerMensajeDeError(error: unknown, mensajePorDefecto: string): string {
+    if (typeof error === 'object' && error !== null) {
+      const registro = error as Record<string, unknown>;
+
+      const mensajeDirecto = registro['message'];
+      if (typeof mensajeDirecto === 'string' && mensajeDirecto.trim()) {
+        return mensajeDirecto;
+      }
+
+      const errorInterno = registro['error'];
+      if (typeof errorInterno === 'object' && errorInterno !== null) {
+        const registroInterno = errorInterno as Record<string, unknown>;
+        const mensajeInterno = registroInterno['message'];
+        if (typeof mensajeInterno === 'string' && mensajeInterno.trim()) {
+          return mensajeInterno;
+        }
       }
     }
 
-    // Entrenador
-    const entrenadorId = this.obtenerEntrenadorId();
-    if (entrenadorId) {
-      try {
-        const usuario = await this.usuariosService.getUsuarioById(entrenadorId);
-        const nombreCompleto = `${usuario.nombre} ${usuario.apellido1} ${usuario.apellido2}`.trim();
-        this.textoEntrenador = nombreCompleto || `Entrenador (${entrenadorId})`;
-      } catch {
-        this.textoEntrenador = `Entrenador (${entrenadorId})`;
-      }
+    return mensajePorDefecto;
+  }
+
+  get esCliente(): boolean {
+    return this.auth.esCliente();
+  }
+
+  get esFutura(): boolean {
+    const fecha = (this.clase.fecha || '').slice(0, 10);
+    if (!fecha) return false;
+    const dt = new Date(`${fecha}T${this.clase.horaInicio || '00:00:00'}`);
+    return dt.getTime() >= Date.now();
+  }
+
+  formatearHora(hora: string): string {
+    return (hora ?? '').slice(0, 5);
+  }
+
+  alternarDetalles(): void {
+    this.detallesAbiertos = !this.detallesAbiertos;
+  }
+
+  async reservar(): Promise<void> {
+    if (!this.esCliente) return;
+    this.mensaje = '';
+    this.error = '';
+    this.reservando = true;
+    try {
+      await this.clasesService.reservarClase(this.clase.id);
+      this.mensaje = 'Reserva creada. Puedes verla en “Reservas”.';
+    } catch (error: unknown) {
+      this.error = this.obtenerMensajeDeError(
+        error,
+        'No se pudo reservar (puede que ya estés apuntado o no haya plazas).'
+      );
+    } finally {
+      this.reservando = false;
     }
-  }
-
-  obtenerDeporte(): string {
-    return (this.clase as any).deporte ?? 'Clase';
-  }
-
-  obtenerFecha(): string {
-    return (this.clase as any).fecha ?? '';
-  }
-
-  obtenerHoraInicio(): string {
-    return (this.clase as any).hora_inicio ?? (this.clase as any).horaInicio ?? '';
-  }
-
-  obtenerHoraFinal(): string {
-    return (this.clase as any).hora_final ?? (this.clase as any).horaFinal ?? '';
-  }
-
-  obtenerSalaId(): string {
-    return (this.clase as any).sala_id ?? (this.clase as any).salaId ?? '';
-  }
-
-  obtenerEntrenadorId(): string {
-    return (this.clase as any).id_usuarios_c ?? (this.clase as any).idUsuariosC ?? '';
-  }
-
-  formatearFecha(valorFecha: string): string {
-    if (!valorFecha) return '';
-    const partes = valorFecha.split('-');
-    if (partes.length === 3) {const [yyyy, mm, dd] = partes;
-      return `${dd}/${mm}/${yyyy}`;
-    }
-    return valorFecha;
-  }
-
-  formatearHora(valorHora: string): string {
-    if (!valorHora) return '';
-    if (valorHora.includes(' ')) {const hora = valorHora.split(' ')[1] ?? '';
-      return hora.substring(0, 5);
-    }
-    if (valorHora.includes('T')) {const hora = valorHora.split('T')[1] ?? '';
-      return hora.substring(0, 5);
-    }
-    return valorHora.substring(0, 5);
   }
 }

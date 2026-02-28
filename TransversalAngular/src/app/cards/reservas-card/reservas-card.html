@@ -7,7 +7,7 @@
         @if (nombreClase) {
           {{ nombreClase }}
         } @else {
-          Clase: {{ reserva?.claseId }}
+          Clase: {{ reserva.claseId }}
         }
       </h5>
 
@@ -25,12 +25,12 @@
         @if (nombreCliente) {
           {{ nombreCliente }}
         } @else {
-          {{ reserva?.clienteId }}
+          {{ reserva.clienteId }}
         }
       </div>
 
       <div class="mt-2">
-        @if (reserva?.estado) {
+        @if (reserva.estado) {
           <span class="badge bg-success">Activa</span>
         } @else {
           <span class="badge bg-danger">Cancelada</span>

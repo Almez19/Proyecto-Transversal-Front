@@ -1,0 +1,531 @@
+{
+  "Spinning": {
+    "queTrabajas": [
+      "Cardio",
+      "Piernas",
+      "Resistencia",
+      "Capacidad aeróbica",
+      "Coordinación"
+    ],
+    "beneficios": [
+      "Mejora la salud cardiovascular y la capacidad pulmonar",
+      "Gran gasto calórico en poco tiempo",
+      "Fortalece piernas y glúteos sin impacto",
+      "Aumenta la resistencia mental y física",
+      "Ideal para complementar fuerza"
+    ],
+    "recomendaciones": [
+      "Ajusta sillín y manillar antes de empezar (altura cadera/pecho)",
+      "Mantén core activo y hombros relajados",
+      "Hidrátate: trae botella y toalla",
+      "Controla la intensidad por sensaciones: no todo es ir al máximo",
+      "Al acabar, pedalea suave 3–5 min y estira cuádriceps/isquios"
+    ]
+  },
+  "Body Pump": {
+    "queTrabajas": [
+      "Fuerza",
+      "Cuerpo completo",
+      "Resistencia muscular",
+      "Técnica con barra",
+      "Core"
+    ],
+    "beneficios": [
+      "Tonifica y mejora la resistencia muscular",
+      "Aumenta el gasto calórico post-entreno",
+      "Mejora la coordinación y el control del movimiento",
+      "Ideal para iniciarte en el trabajo con barra",
+      "Sesión motivante y dinámica"
+    ],
+    "recomendaciones": [
+      "Empieza con poco peso y súbelo progresivamente",
+      "Prioriza rango completo con control (bajada lenta)",
+      "Cuida postura en sentadillas y bisagra de cadera",
+      "Respira: exhala en el esfuerzo",
+      "Si sientes dolor articular, reduce rango o peso"
+    ]
+  },
+  "Yoga": {
+    "queTrabajas": [
+      "Movilidad",
+      "Flexibilidad",
+      "Respiración",
+      "Equilibrio",
+      "Relajación"
+    ],
+    "beneficios": [
+      "Reduce estrés y mejora el descanso",
+      "Mejora postura y movilidad articular",
+      "Disminuye rigidez y riesgo de lesión",
+      "Aumenta equilibrio y control corporal",
+      "Complemento perfecto para fuerza y cardio"
+    ],
+    "recomendaciones": [
+      "Llega 5 min antes para centrarte y preparar material",
+      "No fuerces rangos: busca tensión cómoda, no dolor",
+      "Respira por nariz y alarga exhalación en posturas",
+      "Usa bloques/correa si lo necesitas",
+      "Hidrátate y evita comer justo antes"
+    ]
+  },
+  "Pilates": {
+    "queTrabajas": [
+      "Core",
+      "Postura",
+      "Estabilidad",
+      "Control motor",
+      "Respiración"
+    ],
+    "beneficios": [
+      "Mejora estabilidad lumbo-pélvica y reduce dolor lumbar",
+      "Aumenta conciencia corporal y control",
+      "Mejora la postura y el alineamiento",
+      "Fortalece sin impacto",
+      "Muy útil para prevenir lesiones"
+    ],
+    "recomendaciones": [
+      "Piensa en ‘costillas abajo’ y pelvis neutra",
+      "Movimientos lentos y precisos: calidad > cantidad",
+      "Respira coordinando el esfuerzo (exhala al contraer)",
+      "Evita tensión en cuello/hombros",
+      "Si notas dolor, reduce rango y pregunta al instructor"
+    ]
+  },
+  "Zumba": {
+    "queTrabajas": [
+      "Cardio",
+      "Coordinación",
+      "Cuerpo completo",
+      "Ritmo",
+      "Movilidad"
+    ],
+    "beneficios": [
+      "Quema calorías mientras te diviertes",
+      "Mejora coordinación, agilidad y ritmo",
+      "Aumenta resistencia cardiovascular",
+      "Reduce estrés y mejora el estado de ánimo",
+      "Apta para todos con opciones"
+    ],
+    "recomendaciones": [
+      "Usa zapatillas con buena amortiguación",
+      "Empieza suave y aumenta intensidad poco a poco",
+      "Si te pierdes, sigue el paso base y vuelve a engancharte",
+      "Hidrátate y trae toalla",
+      "Cuida rodillas: aterriza suave y evita impactos excesivos"
+    ]
+  },
+  "HIIT": {
+    "queTrabajas": [
+      "Cardio intenso",
+      "Fuerza funcional",
+      "Core",
+      "Potencia",
+      "Resistencia anaeróbica"
+    ],
+    "beneficios": [
+      "Gran estímulo en poco tiempo",
+      "Mejora VO2 y capacidad anaeróbica",
+      "Aumenta el gasto calórico",
+      "Mejora la condición física general",
+      "Variedad de ejercicios para todo el cuerpo"
+    ],
+    "recomendaciones": [
+      "Calienta mínimo 8–10 min antes",
+      "Mantén técnica: si se rompe, baja intensidad",
+      "Descansa activo en recuperaciones (camina/respira)",
+      "Si eres principiante, elige opciones sin salto",
+      "Termina con 5 min suaves y estiramientos"
+    ]
+  },
+  "Cross Training": {
+    "queTrabajas": [
+      "Fuerza",
+      "Cardio",
+      "Coordinación",
+      "Potencia",
+      "Cuerpo completo"
+    ],
+    "beneficios": [
+      "Mejora rendimiento global",
+      "Aumenta fuerza y resistencia a la vez",
+      "Entrenamiento variado y motivante",
+      "Mejora movilidad y control",
+      "Te prepara para actividades del día a día"
+    ],
+    "recomendaciones": [
+      "Aprende la técnica de los movimientos básicos antes de ir rápido",
+      "En WODs, regula ritmo: mejor constante que reventar al inicio",
+      "No sacrifiques rango por velocidad",
+      "Modifica ejercicios si hay molestias",
+      "Enfría 5 min y estira al terminar"
+    ]
+  },
+  "Boxeo Fitness": {
+    "queTrabajas": [
+      "Cardio",
+      "Core",
+      "Hombros y brazos",
+      "Coordinación",
+      "Reflejos"
+    ],
+    "beneficios": [
+      "Aumenta resistencia y quema calorías",
+      "Mejora coordinación y agilidad",
+      "Fortalece core y tren superior",
+      "Libera estrés y mejora confianza",
+      "Mejora postura y movilidad de hombros"
+    ],
+    "recomendaciones": [
+      "Mantén muñecas alineadas y puños cerrados",
+      "Gira cadera/hombro en golpes: la fuerza viene del cuerpo, no del brazo",
+      "Guarda la barbilla y protege la cara con la otra mano",
+      "Si hay saco, usa vendas/guantes y técnica controlada",
+      "Hidrátate y respira con cada golpe"
+    ]
+  },
+  "GAP": {
+    "queTrabajas": [
+      "Glúteos",
+      "Abdomen",
+      "Piernas",
+      "Resistencia muscular",
+      "Estabilidad"
+    ],
+    "beneficios": [
+      "Tonificación específica de tren inferior y core",
+      "Mejora fuerza y estabilidad de cadera",
+      "Reduce riesgo de lesión de rodilla/lumbar",
+      "Mejora postura y equilibrio",
+      "Sesión ideal para complementar fuerza"
+    ],
+    "recomendaciones": [
+      "Siente el glúteo: empuja desde talones en puentes y sentadillas",
+      "Controla la bajada (2–3 s)",
+      "No arquees lumbar en ejercicios de glúteo",
+      "Añade banda elástica si buscas más intensidad",
+      "Estira al final: glúteo, cuádriceps e isquios"
+    ]
+  },
+  "Core Express": {
+    "queTrabajas": [
+      "Abdomen",
+      "Estabilidad",
+      "Antirotación",
+      "Postura",
+      "Respiración"
+    ],
+    "beneficios": [
+      "Mejora rendimiento en todos los entrenos",
+      "Protege la zona lumbar",
+      "Mejora postura y control corporal",
+      "Ayuda a definir con constancia",
+      "Se puede hacer 2–3 veces/semana"
+    ],
+    "recomendaciones": [
+      "Calidad: sin dolor lumbar ni tirones de cuello",
+      "Exhala al contraer y no aguantes la respiración",
+      "Mantén costillas abajo",
+      "Si tiembla la técnica, descansa y vuelve",
+      "Combina con movilidad de cadera y torácica"
+    ]
+  },
+  "Stretching": {
+    "queTrabajas": [
+      "Movilidad",
+      "Flexibilidad",
+      "Recuperación",
+      "Respiración",
+      "Relajación"
+    ],
+    "beneficios": [
+      "Reduce rigidez y acelera recuperación",
+      "Mejora rango articular",
+      "Disminuye estrés",
+      "Mejora postura y respiración",
+      "Te ayuda a entrenar mejor sin molestias"
+    ],
+    "recomendaciones": [
+      "Mantén cada estiramiento 30–45 s sin rebotes",
+      "Respira profundo y relaja al exhalar",
+      "No fuerces: tensión sí, dolor no",
+      "Enfócate en lo que entrenaste ese día",
+      "Ideal tras cardio suave o al final del entrenamiento"
+    ]
+  },
+  "Pilates Suelo": {
+    "queTrabajas": [
+      "Core",
+      "Postura",
+      "Estabilidad",
+      "Control",
+      "Respiración"
+    ],
+    "beneficios": [
+      "Más estabilidad y menos dolor lumbar",
+      "Mejora control del movimiento",
+      "Fortalece sin impacto",
+      "Mejor postura",
+      "Complementa fuerza y cardio"
+    ],
+    "recomendaciones": [
+      "Activa abdomen profundo (transverso)",
+      "No tenses cuello",
+      "Respira con control",
+      "Haz rangos pequeños si cuesta",
+      "Prioriza técnica"
+    ]
+  },
+  "HIIT avanzada": {
+    "queTrabajas": [
+      "Cardio intenso",
+      "Fuerza funcional",
+      "Core",
+      "Potencia",
+      "Resistencia anaeróbica"
+    ],
+    "beneficios": [
+      "Gran estímulo en poco tiempo",
+      "Mejora VO2 y capacidad anaeróbica",
+      "Aumenta el gasto calórico",
+      "Mejora la condición física general",
+      "Variedad de ejercicios para todo el cuerpo"
+    ],
+    "recomendaciones": [
+      "Calienta mínimo 8–10 min antes",
+      "Mantén técnica: si se rompe, baja intensidad",
+      "Descansa activo en recuperaciones (camina/respira)",
+      "Si eres principiante, elige opciones sin salto",
+      "Termina con 5 min suaves y estiramientos"
+    ]
+  },
+  "Yoga Express": {
+    "queTrabajas": [
+      "Movilidad",
+      "Flexibilidad",
+      "Respiración",
+      "Equilibrio",
+      "Relajación"
+    ],
+    "beneficios": [
+      "Reduce estrés y mejora el descanso",
+      "Mejora postura y movilidad articular",
+      "Disminuye rigidez y riesgo de lesión",
+      "Aumenta equilibrio y control corporal",
+      "Complemento perfecto para fuerza y cardio"
+    ],
+    "recomendaciones": [
+      "Llega 5 min antes para centrarte y preparar material",
+      "No fuerces rangos: busca tensión cómoda, no dolor",
+      "Respira por nariz y alarga exhalación en posturas",
+      "Usa bloques/correa si lo necesitas",
+      "Hidrátate y evita comer justo antes"
+    ]
+  },
+  "Yoga express": {
+    "queTrabajas": [
+      "Movilidad",
+      "Flexibilidad",
+      "Respiración",
+      "Equilibrio",
+      "Relajación"
+    ],
+    "beneficios": [
+      "Reduce estrés y mejora el descanso",
+      "Mejora postura y movilidad articular",
+      "Disminuye rigidez y riesgo de lesión",
+      "Aumenta equilibrio y control corporal",
+      "Complemento perfecto para fuerza y cardio"
+    ],
+    "recomendaciones": [
+      "Llega 5 min antes para centrarte y preparar material",
+      "No fuerces rangos: busca tensión cómoda, no dolor",
+      "Respira por nariz y alarga exhalación en posturas",
+      "Usa bloques/correa si lo necesitas",
+      "Hidrátate y evita comer justo antes"
+    ]
+  },
+  "Boxeo fitness": {
+    "queTrabajas": [
+      "Cardio",
+      "Core",
+      "Hombros y brazos",
+      "Coordinación",
+      "Reflejos"
+    ],
+    "beneficios": [
+      "Aumenta resistencia y quema calorías",
+      "Mejora coordinación y agilidad",
+      "Fortalece core y tren superior",
+      "Libera estrés y mejora confianza",
+      "Mejora postura y movilidad de hombros"
+    ],
+    "recomendaciones": [
+      "Mantén muñecas alineadas y puños cerrados",
+      "Gira cadera/hombro en golpes: la fuerza viene del cuerpo, no del brazo",
+      "Guarda la barbilla y protege la cara con la otra mano",
+      "Si hay saco, usa vendas/guantes y técnica controlada",
+      "Hidrátate y respira con cada golpe"
+    ]
+  },
+  "Ciclo Indoor": {
+    "queTrabajas": [
+      "Cardio",
+      "Piernas",
+      "Resistencia",
+      "Capacidad aeróbica",
+      "Coordinación"
+    ],
+    "beneficios": [
+      "Mejora la salud cardiovascular y la capacidad pulmonar",
+      "Gran gasto calórico en poco tiempo",
+      "Fortalece piernas y glúteos sin impacto",
+      "Aumenta la resistencia mental y física",
+      "Ideal para complementar fuerza"
+    ],
+    "recomendaciones": [
+      "Ajusta sillín y manillar antes de empezar (altura cadera/pecho)",
+      "Mantén core activo y hombros relajados",
+      "Hidrátate: trae botella y toalla",
+      "Controla la intensidad por sensaciones: no todo es ir al máximo",
+      "Al acabar, pedalea suave 3–5 min y estira cuádriceps/isquios"
+    ]
+  },
+  "Ciclo indoor": {
+    "queTrabajas": [
+      "Cardio",
+      "Piernas",
+      "Resistencia",
+      "Capacidad aeróbica",
+      "Coordinación"
+    ],
+    "beneficios": [
+      "Mejora la salud cardiovascular y la capacidad pulmonar",
+      "Gran gasto calórico en poco tiempo",
+      "Fortalece piernas y glúteos sin impacto",
+      "Aumenta la resistencia mental y física",
+      "Ideal para complementar fuerza"
+    ],
+    "recomendaciones": [
+      "Ajusta sillín y manillar antes de empezar (altura cadera/pecho)",
+      "Mantén core activo y hombros relajados",
+      "Hidrátate: trae botella y toalla",
+      "Controla la intensidad por sensaciones: no todo es ir al máximo",
+      "Al acabar, pedalea suave 3–5 min y estira cuádriceps/isquios"
+    ]
+  },
+  "Indoor Cycling": {
+    "queTrabajas": [
+      "Cardio",
+      "Piernas",
+      "Resistencia",
+      "Capacidad aeróbica",
+      "Coordinación"
+    ],
+    "beneficios": [
+      "Mejora la salud cardiovascular y la capacidad pulmonar",
+      "Gran gasto calórico en poco tiempo",
+      "Fortalece piernas y glúteos sin impacto",
+      "Aumenta la resistencia mental y física",
+      "Ideal para complementar fuerza"
+    ],
+    "recomendaciones": [
+      "Ajusta sillín y manillar antes de empezar (altura cadera/pecho)",
+      "Mantén core activo y hombros relajados",
+      "Hidrátate: trae botella y toalla",
+      "Controla la intensidad por sensaciones: no todo es ir al máximo",
+      "Al acabar, pedalea suave 3–5 min y estira cuádriceps/isquios"
+    ]
+  },
+  "BodyPump": {
+    "queTrabajas": [
+      "Fuerza",
+      "Cuerpo completo",
+      "Resistencia muscular",
+      "Técnica con barra",
+      "Core"
+    ],
+    "beneficios": [
+      "Tonifica y mejora la resistencia muscular",
+      "Aumenta el gasto calórico post-entreno",
+      "Mejora la coordinación y el control del movimiento",
+      "Ideal para iniciarte en el trabajo con barra",
+      "Sesión motivante y dinámica"
+    ],
+    "recomendaciones": [
+      "Empieza con poco peso y súbelo progresivamente",
+      "Prioriza rango completo con control (bajada lenta)",
+      "Cuida postura en sentadillas y bisagra de cadera",
+      "Respira: exhala en el esfuerzo",
+      "Si sientes dolor articular, reduce rango o peso"
+    ]
+  },
+  "Stretching & Mobility": {
+    "queTrabajas": [
+      "Movilidad",
+      "Flexibilidad",
+      "Recuperación",
+      "Respiración",
+      "Relajación"
+    ],
+    "beneficios": [
+      "Reduce rigidez y acelera recuperación",
+      "Mejora rango articular",
+      "Disminuye estrés",
+      "Mejora postura y respiración",
+      "Te ayuda a entrenar mejor sin molestias"
+    ],
+    "recomendaciones": [
+      "Mantén cada estiramiento 30–45 s sin rebotes",
+      "Respira profundo y relaja al exhalar",
+      "No fuerces: tensión sí, dolor no",
+      "Enfócate en lo que entrenaste ese día",
+      "Ideal tras cardio suave o al final del entrenamiento"
+    ]
+  },
+  "Movilidad y estiramientos": {
+    "queTrabajas": [
+      "Movilidad",
+      "Flexibilidad",
+      "Recuperación",
+      "Respiración",
+      "Relajación"
+    ],
+    "beneficios": [
+      "Reduce rigidez y acelera recuperación",
+      "Mejora rango articular",
+      "Disminuye estrés",
+      "Mejora postura y respiración",
+      "Te ayuda a entrenar mejor sin molestias"
+    ],
+    "recomendaciones": [
+      "Mantén cada estiramiento 30–45 s sin rebotes",
+      "Respira profundo y relaja al exhalar",
+      "No fuerces: tensión sí, dolor no",
+      "Enfócate en lo que entrenaste ese día",
+      "Ideal tras cardio suave o al final del entrenamiento"
+    ]
+  },
+  "G.A.P": {
+    "queTrabajas": [
+      "Glúteos",
+      "Abdomen",
+      "Piernas",
+      "Resistencia muscular",
+      "Estabilidad"
+    ],
+    "beneficios": [
+      "Tonificación específica de tren inferior y core",
+      "Mejora fuerza y estabilidad de cadera",
+      "Reduce riesgo de lesión de rodilla/lumbar",
+      "Mejora postura y equilibrio",
+      "Sesión ideal para complementar fuerza"
+    ],
+    "recomendaciones": [
+      "Siente el glúteo: empuja desde talones en puentes y sentadillas",
+      "Controla la bajada (2–3 s)",
+      "No arquees lumbar en ejercicios de glúteo",
+      "Añade banda elástica si buscas más intensidad",
+      "Estira al final: glúteo, cuádriceps e isquios"
+    ]
+  }
+}

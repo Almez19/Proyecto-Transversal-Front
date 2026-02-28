@@ -1,0 +1,50 @@
+/* Mantiene layout limpio y consistente con el tema global (blanco + morado + naranja).
+   No sobreescribe estilos de Bootstrap (botones, inputs, etc.). */
+
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ej-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.campo-full {
+  grid-column: 1 / -1;
+}
+
+.campo label {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ayuda {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 1rem;
+  background: #fff7f0;
+  border: 1px solid var(--bf-border);
+  border-left: 6px solid var(--bf-orange);
+}
+
+.ejercicio {
+  border: 1px solid var(--bf-border);
+  border-radius: 1rem;
+  padding: 12px;
+}
+
+@media (max-width: 960px) {
+  .grid-form,
+  .ej-grid {
+    grid-template-columns: 1fr;
+  }
+}

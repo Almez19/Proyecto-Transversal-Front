@@ -5,5 +5,6 @@ export interface MaquinasInterface {
     id: string,
     nombre: string,
     urlImagen: string,
+    grupoMuscular?: string,
 
 }

@@ -1,56 +1,58 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { UUIDTypes } from 'uuid';
+import { API_URL } from '../config/api';
 import { ReservaInterface } from '../interfaces/reserva-interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ReservasService {
+  private http = inject(HttpClient);
 
-  private httpClient = inject(HttpClient);
+  private baseUrl = `${API_URL}/reservas`;
+  private miCuentaUrl = `${API_URL}/mi-cuenta`;
 
-  baseUrl: string = 'http://localhost:8080/api/reservas';
-
-  constructor() {}
-
-  private authHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-
-    return token ? headers.set('Authorization', `Bearer ${token}`) : headers;
+  getMisReservas(): Promise<ReservaInterface[]> {
+    return lastValueFrom(this.http.get<ReservaInterface[]>(`${this.miCuentaUrl}/reservas`));
   }
 
-  async getAllReservas(filtros?: { clienteId?: string; claseId?: string; soloActivas?: boolean }): Promise<ReservaInterface[]> {
-    let params = new HttpParams();
-
-    if (filtros?.clienteId) params = params.set('clienteId', filtros.clienteId);
-    if (filtros?.claseId) params = params.set('claseId', filtros.claseId);
-    if (typeof filtros?.soloActivas === 'boolean') params = params.set('soloActivas', String(filtros.soloActivas));
-
-    return lastValueFrom(this.httpClient.get<ReservaInterface[]>(this.baseUrl, { headers: this.authHeaders(), params }));
+  cancelarReserva(id: string, motivo: string = ''): Promise<ReservaInterface> {
+    // Por defecto cancelamos como cliente (mi cuenta). Si el backend expone cancelación staff,
+    // se puede añadir otro método específico.
+    return lastValueFrom(this.http.put<ReservaInterface>(`${this.baseUrl}/${id}/cancelar`, { motivo }));
   }
 
-  async getReservaById(id: UUIDTypes | string): Promise<ReservaInterface> {
-
-    return lastValueFrom(this.httpClient.get<ReservaInterface>(`${this.baseUrl}/${id}`, { headers: this.authHeaders() }));
+  // staff
+  getReservas(filtros?: { dniNie?: string; claseId?: string; estado?: 'activa' | 'cancelada' }): Promise<ReservaInterface[]> {
+    let parametros = new HttpParams();
+    if (filtros?.dniNie) parametros = parametros.set('dniNie', filtros.dniNie);
+    if (filtros?.claseId) parametros = parametros.set('claseId', filtros.claseId);
+    if (filtros?.estado) parametros = parametros.set('estado', filtros.estado);
+    return lastValueFrom(this.http.get<ReservaInterface[]>(this.baseUrl, { params: parametros }));
   }
 
-  async createReserva(reserva: Partial<ReservaInterface>): Promise<ReservaInterface> {
-
-    return lastValueFrom(this.httpClient.post<ReservaInterface>(this.baseUrl, reserva, { headers: this.authHeaders() }));
+  // Alias (compatibilidad) por si hay código antiguo
+  getAllReservas(filtros?: { dniNie?: string; claseId?: string; soloActivas?: boolean }): Promise<ReservaInterface[]> {
+    const estado = filtros?.soloActivas ? 'activa' : undefined;
+    return this.getReservas({ dniNie: filtros?.dniNie, claseId: filtros?.claseId, estado });
   }
 
-  async cancelarReserva(id: UUIDTypes | string): Promise<ReservaInterface> {
-
-    return lastValueFrom(this.httpClient.put<ReservaInterface>(`${this.baseUrl}/${id}/cancelar`, {}, { headers: this.authHeaders() }));
+  async getReservaById(id: string): Promise<ReservaInterface> {
+    // Si el endpoint existe, perfecto. Si no, hacemos fallback buscando en la lista.
+    try {
+      return await lastValueFrom(this.http.get<ReservaInterface>(`${this.baseUrl}/${id}`));
+    } catch (error) {
+      const reservas = await this.getReservas();
+      const encontrada = reservas.find((r) => r.id === id);
+      if (!encontrada) throw error;
+      return encontrada;
+    }
   }
 
-  async deleteReserva(id: UUIDTypes | string): Promise<void> {
+  createReserva(reserva: Partial<ReservaInterface>): Promise<ReservaInterface> {
+    return lastValueFrom(this.http.post<ReservaInterface>(this.baseUrl, reserva));
+  }
 
-    await lastValueFrom(this.httpClient.delete<void>(`${this.baseUrl}/${id}`, { headers: this.authHeaders() }));
+  deleteReserva(id: string): Promise<void> {
+    return lastValueFrom(this.http.delete<void>(`${this.baseUrl}/${id}`));
   }
 }

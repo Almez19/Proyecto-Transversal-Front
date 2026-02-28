@@ -1,0 +1,31 @@
+<div class="page">
+  <section class="hero">
+    <div>
+      <h1>¿Has olvidado tu contraseña?</h1>
+      <p class="subtitle">Introduce tu email y te enviaremos un enlace para restablecerla.</p>
+    </div>
+    <a class="btn btn-outline" routerLink="/login">Volver al login</a>
+  </section>
+
+  <section class="panel">
+    <div class="campo">
+      <label>Email</label>
+      <input class="form-control" [(ngModel)]="email" type="email" placeholder="tu@email.com" />
+    </div>
+
+    @if (error) {
+      <div class="alert error">{{ error }}</div>
+    }
+    @if (mensaje) {
+      <div class="alert ok">{{ mensaje }}</div>
+    }
+
+    <div class="acciones">
+      <button class="btn btn-primary" (click)="enviar()" [disabled]="procesando">Enviar</button>
+    </div>
+  </section>
+
+  <section class="nota">
+    <strong>Nota:</strong> este formulario llama a <code>POST /auth/recuperar-contrasena</code>.
+  </section>
+</div>

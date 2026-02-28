@@ -1,47 +1,40 @@
-import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
+import { API_URL } from '../config/api';
 import { Igimnasio } from '../interfaces/igimnasio';
-import { last, lastValueFrom } from 'rxjs';
-import { UUIDTypes } from 'uuid';
+import { MaquinasInterface } from '../interfaces/maquinas-interface';
+import { ClaseInterface } from '../interfaces/clase-interface';
+import { NoticiasInterface } from '../interfaces/noticias-interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class GimnasioService {
+  private http = inject(HttpClient);
+  private baseUrl = `${API_URL}/gimnasios`;
 
-  private httpCient = inject(HttpClient);
-
-  baseUrl: string = 'http://localhost:8080/api/gimnasios';
-
-  constructor(){}
-
-  async getAllGimnasios(): Promise<Igimnasio[]>{
-  const resp = await lastValueFrom(
-    this.httpCient.get<Igimnasio[]>(this.baseUrl)
-  );
-  console.log("RESPUESTA:", resp);
-  return resp;
+  getAllGimnasios(): Promise<Igimnasio[]> {
+    return lastValueFrom(this.http.get<Igimnasio[]>(this.baseUrl));
   }
 
-  async eliminarGimnasioId(id: string): Promise<Igimnasio>{
-    return lastValueFrom(this.httpCient.delete<Igimnasio>(`${this.baseUrl}/${id}`));
+  getGimnasioById(id: string): Promise<Igimnasio> {
+    return lastValueFrom(this.http.get<Igimnasio>(`${this.baseUrl}/${id}`));
   }
 
-  async getGimnasioById(id: UUIDTypes): Promise <Igimnasio>{
-    return lastValueFrom(this.httpCient.get<Igimnasio>(`${this.baseUrl}/${id}`));
+  getMaquinasDeGimnasio(id: string): Promise<MaquinasInterface[]> {
+    return lastValueFrom(this.http.get<MaquinasInterface[]>(`${this.baseUrl}/${id}/maquinas`));
   }
 
-  async updateGimnasios(gimnasio: Igimnasio): Promise<Igimnasio>{
-    return lastValueFrom(this.httpCient.put<Igimnasio>(`${this.baseUrl}${gimnasio.id}`, gimnasio));
+  getNoticiasDeGimnasio(id: string): Promise<NoticiasInterface[]> {
+    return lastValueFrom(this.http.get<NoticiasInterface[]>(`${this.baseUrl}/${id}/noticias`));
   }
 
-  async createGimnasio(gimnasio: Igimnasio): Promise<Igimnasio>{
-    return lastValueFrom(this.httpCient.post<Igimnasio>(`${this.baseUrl}`, gimnasio));
+  getCatalogoClasesDeGimnasio(id: string): Promise<string[]> {
+    return lastValueFrom(this.http.get<string[]>(`${this.baseUrl}/${id}/catalogo-clases`));
   }
 
-  async deleteGimnasio(id: UUIDTypes): Promise<Igimnasio>{
-    return lastValueFrom(this.httpCient.delete<Igimnasio>(`${this.baseUrl}/${id}`));
+  getClasesConHorariosDeGimnasio(id: string, fecha?: string): Promise<ClaseInterface[]> {
+    let params = new HttpParams();
+    if (fecha) params = params.set('fecha', fecha);
+    return lastValueFrom(this.http.get<ClaseInterface[]>(`${this.baseUrl}/${id}/clases`, { params }));
   }
-
-
 }

@@ -1,0 +1,62 @@
+<div class="panel">
+  <div class="head">
+    <div>
+      <h2>Mis rutinas</h2>
+      <p class="muted">Rutinas guardadas y creadas por ti.</p>
+    </div>
+    <a class="btn btn-outline" routerLink="/rutinas/crear">Crear rutina</a>
+  </div>
+
+  @if (cargando) {
+    <div class="estado">Cargando…</div>
+  } @else if (error) {
+    <div class="estado error">{{ error }}</div>
+  } @else if (rutinasCatalogo.length === 0 && rutinasPersonalizadas.length === 0) {
+    <div class="estado">Todavía no tienes rutinas guardadas.</div>
+  } @else {
+    @if (rutinasCatalogo.length > 0) {
+      <h3 class="section">Guardadas del catálogo</h3>
+      <div class="grid">
+        @for (r of rutinasCatalogo; track r.id) {
+          <article class="card">
+            <div class="top">
+              <h3>{{ r.nombre }}</h3>
+              <button class="btn btn-danger" (click)="quitarCatalogo(r.id)">Quitar</button>
+            </div>
+            <div class="info">
+              <div><strong>Objetivo:</strong> {{ r.objetivo | textoEnum }}</div>
+              <div><strong>Nivel:</strong> {{ r.nivel | textoEnum }}</div>
+              <div><strong>Días/semana:</strong> {{ r.diasPorSemana }}</div>
+            </div>
+            @if (r.descripcion) {
+              <p class="notas">{{ r.descripcion }}</p>
+            }
+          </article>
+        }
+      </div>
+    }
+
+    @if (rutinasPersonalizadas.length > 0) {
+      <h3 class="section">Mis rutinas personalizadas</h3>
+      <div class="grid">
+        @for (r of rutinasPersonalizadas; track r.id) {
+          <article class="card">
+            <div class="top">
+              <h3>{{ r.nombre }}</h3>
+              <button class="btn btn-danger" (click)="borrarPersonalizada(r.id)">Borrar</button>
+            </div>
+            <div class="info">
+              <div><strong>Objetivo:</strong> {{ r.objetivo | textoEnum }}</div>
+              <div><strong>Nivel:</strong> {{ r.nivel | textoEnum }}</div>
+              <div><strong>Días/semana:</strong> {{ r.diasPorSemana }}</div>
+              <div><strong>Ejercicios:</strong> {{ r.ejercicios.length }}</div>
+            </div>
+            @if (r.notas) {
+              <p class="notas">{{ r.notas }}</p>
+            }
+          </article>
+        }
+      </div>
+    }
+  }
+</div>

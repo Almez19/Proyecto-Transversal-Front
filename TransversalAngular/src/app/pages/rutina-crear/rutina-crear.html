@@ -1,0 +1,149 @@
+<div class="container py-4 bf-container">
+  <section class="p-4 rounded-3 shadow-sm bf-panel mb-4">
+    <div>
+      <h1 class="bf-title fw-bold mb-2">Crear mi rutina</h1>
+      <p class="text-secondary mb-0">Crea una rutina a tu gusto. Puedes escribir todo a mano o ayudarte con los desplegables.</p>
+    </div>
+
+    <a class="btn btn-bf-outline mt-3 mt-md-0" routerLink="/rutinas">Volver al catálogo</a>
+  </section>
+
+  @if (cargando) {
+    <div class="estado">Cargando…</div>
+  } @else {
+    <section class="p-4 rounded-3 shadow-sm bf-panel mb-4">
+      <div class="grid-form">
+        <div class="campo">
+          <label>Nombre *</label>
+          <input class="form-control" [(ngModel)]="nombre" placeholder="Ej: Full body en 3 días" />
+        </div>
+
+        <div class="campo">
+          <label>Objetivo</label>
+          <select class="form-select" [(ngModel)]="objetivo">
+            <option value="salud">Salud</option>
+            <option value="perder_grasa">Pérdida de grasa</option>
+            <option value="ganar_masa">Ganar masa muscular</option>
+            <option value="mantenimiento">Mantenimiento</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label>Nivel</label>
+          <select class="form-select" [(ngModel)]="nivel">
+            <option value="principiante">Principiante</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="avanzado">Avanzado</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label>Días por semana</label>
+          <input type="number" class="form-control" [(ngModel)]="diasPorSemana" min="1" max="7" />
+        </div>
+
+        <div class="campo campo-full">
+          <label>Notas</label>
+          <textarea class="form-control" rows="2" [(ngModel)]="notas" placeholder="Consejos, descansos, progresión…"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section class="p-4 rounded-3 shadow-sm bf-panel">
+      <div class="d-flex justify-content-between align-items-center gap-3 flex-wrap mb-3">
+        <h2 class="h5 fw-semibold mb-0 bf-title">Ejercicios</h2>
+        <button class="btn btn-bf" (click)="agregarEjercicio()">+ Añadir ejercicio</button>
+      </div>
+
+      <div class="ayuda">
+        <div class="campo">
+          <label>Ayuda (opcional): seleccionar gimnasio para cargar sus máquinas</label>
+          <select class="form-select" [(ngModel)]="gimnasioSeleccionadoId" (change)="onCambioGimnasio()">
+            <option value="">— Sin gimnasio —</option>
+            @for (gim of gimnasios; track gim.id) {
+              <option [value]="gim.id">{{ gim.nombre }} ({{ gim.ciudad }})</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="lista">
+        @for (ej of ejercicios; track $index) {
+          <div class="ejercicio">
+            <div class="ej-head">
+              <h3>Ejercicio {{ $index + 1 }}</h3>
+              <button class="btn btn-danger" (click)="eliminarEjercicio($index)" [disabled]="ejercicios.length === 1">Eliminar</button>
+            </div>
+
+            <div class="ej-grid">
+              <div class="campo">
+                <label>Nombre *</label>
+                <input class="form-control" [(ngModel)]="ej.nombre" placeholder="Ej: Sentadilla, Press banca…" />
+              </div>
+
+              <div class="campo">
+                <label>Máquina (opcional)</label>
+                <select class="form-select" [(ngModel)]="ej.maquinaId" (change)="onSeleccionMaquina($index)" [disabled]="maquinas.length === 0">
+                  <option [ngValue]="null">— Sin máquina —</option>
+                  @for (m of maquinas; track m.id) {
+                    <option [ngValue]="m.id">{{ m.nombre }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="campo">
+                <label>Grupo muscular</label>
+                <select class="form-select" [(ngModel)]="ej.grupoMuscular">
+                  <option value="cuerpo_completo">Cuerpo completo</option>
+                  <option value="pecho">Pecho</option>
+                  <option value="espalda">Espalda</option>
+                  <option value="pierna">Pierna</option>
+                  <option value="hombro">Hombro</option>
+                  <option value="brazo">Brazo</option>
+                  <option value="core">Core</option>
+                  <option value="cardio">Cardio</option>
+                </select>
+              </div>
+
+              <div class="campo">
+                <label>Series</label>
+                <input type="number" class="form-control" [(ngModel)]="ej.series" min="1" />
+              </div>
+
+              <div class="campo">
+                <label>Repeticiones</label>
+                <input type="number" class="form-control" [(ngModel)]="ej.repeticiones" min="1" />
+              </div>
+
+              <div class="campo">
+                <label>Peso (kg)</label>
+                <input type="number" class="form-control" [(ngModel)]="ej.peso" min="0" step="0.5" />
+              </div>
+
+              <div class="campo">
+                <label>Descanso (s)</label>
+                <input type="number" class="form-control" [(ngModel)]="ej.descansoSegundos" min="0" />
+              </div>
+
+              <div class="campo campo-full">
+                <label>Notas</label>
+                <input class="form-control" [(ngModel)]="ej.notas" placeholder="Ej: controla la bajada, sin rebotes…" />
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (error) {
+        <div class="alert error">{{ error }}</div>
+      }
+      @if (mensaje) {
+        <div class="alert ok">{{ mensaje }}</div>
+      }
+
+      <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-bf" (click)="guardar()">Guardar rutina</button>
+      </div>
+    </section>
+  }
+</div>

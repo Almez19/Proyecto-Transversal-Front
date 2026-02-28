@@ -1,0 +1,1970 @@
+[
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000001",
+    "nombre": "Full Body Fuerza (3 días)",
+    "objetivo": "ganar_masa",
+    "nivel": "intermedio",
+    "diasPorSemana": 3,
+    "duracionMinutos": 60,
+    "descripcion": "Rutina de fuerza de cuerpo completo para 3 días/semana. Prioriza básicos, técnica y progresión (1–2 repeticiones en reserva). Ideal para ganar fuerza general y masa muscular sin complicarte.",
+    "puntosClave": [
+      "Calienta 8–10 min + 2 series de aproximación del primer ejercicio",
+      "Mantén 1–2 repeticiones en reserva (RIR) en la mayoría de series",
+      "Descansa 90–150 s en básicos; 60–90 s en accesorios",
+      "Progresión: cuando completes reps con buena técnica, sube 2–5 kg la semana siguiente"
+    ],
+    "ejerciciosEjemplo": [
+      "Sentadilla",
+      "Press banca",
+      "Remo",
+      "Peso muerto rumano",
+      "Press militar",
+      "Plancha"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Sentadilla (barra o multipower)",
+        "tipo": "pierna",
+        "maquinaSugerida": "Rack / Multipower",
+        "series": 4,
+        "repeticiones": 6,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Pies a la anchura de hombros, baja controlando y sube empujando el suelo. Espalda neutra."
+      },
+      {
+        "orden": 2,
+        "nombre": "Press banca",
+        "tipo": "pecho",
+        "maquinaSugerida": "Banco + barra / mancuernas",
+        "series": 4,
+        "repeticiones": 6,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Escápulas retraídas, pies firmes. Controla la bajada y empuja sin rebotar."
+      },
+      {
+        "orden": 3,
+        "nombre": "Remo sentado",
+        "tipo": "espalda",
+        "maquinaSugerida": "Remo en polea / máquina",
+        "series": 4,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Tira con codos hacia atrás, pecho alto. No encorves la zona lumbar."
+      },
+      {
+        "orden": 4,
+        "nombre": "Peso muerto rumano",
+        "tipo": "pierna",
+        "maquinaSugerida": "Barra / mancuernas",
+        "series": 3,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Bisagra de cadera: cadera atrás, rodillas suaves. Siente isquios y glúteo."
+      },
+      {
+        "orden": 5,
+        "nombre": "Press militar",
+        "tipo": "hombro",
+        "maquinaSugerida": "Máquina / mancuernas",
+        "series": 3,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Aprieta abdomen y glúteo. Evita arquear la zona lumbar."
+      },
+      {
+        "orden": 6,
+        "nombre": "Plancha + respiración",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Alinea hombros-cadera-tobillos. Respira sin perder tensión abdominal."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000002",
+    "nombre": "Cardio + Core (2-3 días)",
+    "objetivo": "perder_grasa",
+    "nivel": "principiante",
+    "diasPorSemana": 3,
+    "duracionMinutos": 45,
+    "descripcion": "Rutina centrada en mejorar resistencia y quemar grasa con cardio variado y un bloque sólido de core. 2–3 días/semana, perfecta si buscas salud y rendimiento sin priorizar fuerza máxima.",
+    "puntosClave": [
+      "Empieza con 5 min suaves antes de los intervalos",
+      "En Z2 deberías poder mantener conversación (sin ahogarte)",
+      "Core: calidad de movimiento, sin tirar del cuello ni arquear lumbar",
+      "Si notas dolor lumbar, reduce rango y refuerza respiración/bracing"
+    ],
+    "ejerciciosEjemplo": [
+      "Cinta Z2",
+      "Remo por intervalos",
+      "Bici suave",
+      "Plancha lateral",
+      "Dead bug",
+      "Pallof press"
+    ],
+    "imagenUrl": "https://palco23.mundodeportivo.com/thumb/eyJ0IjoiZCIsInciOjEyMDAsImgiOjY3NSwibSI6MSwidiI6IjEuMC4xIn0/palco23/files/2025/19-fitness/basic-fit/basic-fit-lateral-1200.png",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Cinta (Z2)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Cinta",
+        "series": 1,
+        "repeticiones": 20,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "20 min a ritmo cómodo. Mantén postura erguida y zancada natural."
+      },
+      {
+        "orden": 2,
+        "nombre": "Remo (intervalos)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Remo",
+        "series": 6,
+        "repeticiones": 1,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "1 min fuerte / 1 min suave. Empuja con piernas, luego tira con brazos."
+      },
+      {
+        "orden": 3,
+        "nombre": "Bici suave (recuperación)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Bici indoor",
+        "series": 1,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "10 min suave para bajar pulsaciones."
+      },
+      {
+        "orden": 4,
+        "nombre": "Dead bug",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Espalda baja pegada al suelo. Extiende pierna y brazo contrario sin perder control."
+      },
+      {
+        "orden": 5,
+        "nombre": "Plancha lateral",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 30,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Cadera alineada, hombro encima del codo. Mantén abdomen activo."
+      },
+      {
+        "orden": 6,
+        "nombre": "Pallof press",
+        "tipo": "core",
+        "maquinaSugerida": "Polea / banda",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Resiste la rotación. Mantén costillas abajo y glúteo activo."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000003",
+    "nombre": "Hipertrofia Tren Superior",
+    "objetivo": "ganar_masa",
+    "nivel": "avanzado",
+    "diasPorSemana": 4,
+    "duracionMinutos": 70,
+    "descripcion": "Rutina de hipertrofia para tren superior (pecho/espalda/hombro/brazos). Volumen moderado-alto, ideal para ganar masa con buena técnica y control del tempo.",
+    "puntosClave": [
+      "Prioriza rango completo y control en la bajada (2–3 s)",
+      "Descanso 90–120 s en compuestos; 60–90 s en aislados",
+      "Mantén hombros sanos: incluye face pulls / deltoide posterior",
+      "Progresión: añade 1–2 repeticiones antes de subir carga"
+    ],
+    "ejerciciosEjemplo": [
+      "Press inclinado",
+      "Jalón al pecho",
+      "Remo",
+      "Elevaciones laterales",
+      "Curl bíceps",
+      "Extensión tríceps"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Press banca inclinado",
+        "tipo": "pecho",
+        "maquinaSugerida": "Banco inclinado + mancuernas",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Baja controlado hasta línea del pecho. Mantén escápulas estables."
+      },
+      {
+        "orden": 2,
+        "nombre": "Jalón al pecho",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea alta",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Tira con codos hacia abajo. Pecho arriba, sin balanceo."
+      },
+      {
+        "orden": 3,
+        "nombre": "Remo sentado",
+        "tipo": "espalda",
+        "maquinaSugerida": "Remo en polea / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Pausa 1 s atrás, controla el regreso."
+      },
+      {
+        "orden": 4,
+        "nombre": "Press hombro",
+        "tipo": "hombro",
+        "maquinaSugerida": "Máquina / mancuernas",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "No bloquees agresivo. Abdomen firme."
+      },
+      {
+        "orden": 5,
+        "nombre": "Elevaciones laterales",
+        "tipo": "hombro",
+        "maquinaSugerida": "Mancuernas",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos ligeramente flexionados. Sube hasta línea de hombro."
+      },
+      {
+        "orden": 6,
+        "nombre": "Curl bíceps",
+        "tipo": "brazo",
+        "maquinaSugerida": "Mancuernas / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Sin balanceo. Controla la bajada."
+      },
+      {
+        "orden": 7,
+        "nombre": "Extensión tríceps (polea)",
+        "tipo": "brazo",
+        "maquinaSugerida": "Polea",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos pegados al cuerpo. Extiende completo sin despegar hombros."
+      },
+      {
+        "orden": 8,
+        "nombre": "Face pull",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea / banda",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Tira hacia la cara con codos altos. Mejora postura y hombro."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000004",
+    "nombre": "Pierna & Glúteo Progresivo",
+    "objetivo": "ganar_masa",
+    "nivel": "intermedio",
+    "diasPorSemana": 3,
+    "duracionMinutos": 65,
+    "descripcion": "Rutina específica para ganar masa en pierna y glúteo con progresión semanal. Sesiones de 60–70 min, combinando patrones de sentadilla, bisagra y accesorios para glúteo.",
+    "puntosClave": [
+      "Empieza con movilidad de cadera y 2 series de activación de glúteo",
+      "En compuestos deja 1–2 reps en reserva; en aislados llega cerca del fallo",
+      "Descanso 90–150 s en básicos; 60–90 s en accesorios",
+      "Progresión: sube carga o reps cada semana manteniendo técnica"
+    ],
+    "ejerciciosEjemplo": [
+      "Hip thrust",
+      "Prensa de piernas",
+      "Peso muerto rumano",
+      "Extensión cuádriceps",
+      "Curl femoral",
+      "Abductores"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Hip thrust",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina / banco",
+        "series": 4,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Pies firmes, barbilla recogida. Sube hasta extensión de cadera y pausa 1 s arriba."
+      },
+      {
+        "orden": 2,
+        "nombre": "Prensa de piernas 45°",
+        "tipo": "pierna",
+        "maquinaSugerida": "Prensa",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Baja hasta 90° sin despegar lumbares. Empuja con toda la planta."
+      },
+      {
+        "orden": 3,
+        "nombre": "Peso muerto rumano",
+        "tipo": "pierna",
+        "maquinaSugerida": "Barra / mancuernas",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Bisagra de cadera. Mantén espalda neutra y siente estiramiento en isquios."
+      },
+      {
+        "orden": 4,
+        "nombre": "Extensión de cuádriceps",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina extensiones",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Sube fuerte, baja lento (2–3 s). No bloquees con golpe."
+      },
+      {
+        "orden": 5,
+        "nombre": "Curl femoral",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina femoral",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Controla la bajada. Mantén cadera pegada al banco."
+      },
+      {
+        "orden": 6,
+        "nombre": "Abductores",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina abductores",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Pausa 1 s abierto. Controla el regreso."
+      },
+      {
+        "orden": 7,
+        "nombre": "Gemelos sentado",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina gemelos",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Recorrido completo: baja estirando y sube apretando."
+      },
+      {
+        "orden": 8,
+        "nombre": "Plancha (core)",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Core firme para proteger lumbar en días de pierna."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000005",
+    "nombre": "Movilidad + Core",
+    "objetivo": "salud",
+    "nivel": "principiante",
+    "diasPorSemana": 2,
+    "duracionMinutos": 35,
+    "descripcion": "Sesión corta (30–45 min) para mejorar movilidad, postura y estabilidad del core. Ideal como día extra o para recuperarte si vienes cargado.",
+    "puntosClave": [
+      "Movilidad sin dolor: busca tensión controlada, no molestias",
+      "Respira profundo (nariz) y suelta aire al final del rango",
+      "Core: piensa en ‘costillas abajo’ y pelvis neutra",
+      "Constancia: 2–3 veces/semana se nota mucho"
+    ],
+    "ejerciciosEjemplo": [
+      "90/90 cadera",
+      "Rotación torácica",
+      "Flexor cadera",
+      "Dead bug",
+      "Plancha lateral",
+      "Bird-dog"
+    ],
+    "imagenUrl": "https://images.ctfassets.net/ztnn01luatek/2mkRC2FYL2T0mWws2mYcxl/3663873c0b123ada46941eb989da5f8e/webimage-Basicfit-groepslessen-20-10-2514147.png",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Movilidad de cadera (90/90)",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 2,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 30,
+        "explicacion": "Transiciones controladas. Mantén espalda recta."
+      },
+      {
+        "orden": 2,
+        "nombre": "Rotación torácica (open book)",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 2,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 30,
+        "explicacion": "Rodillas juntas, rota desde la parte alta de la espalda."
+      },
+      {
+        "orden": 3,
+        "nombre": "Estiramiento de flexores de cadera",
+        "tipo": "pierna",
+        "maquinaSugerida": "Colchoneta",
+        "series": 2,
+        "repeticiones": 30,
+        "pesoSugerido": null,
+        "descansoSegundos": 30,
+        "explicacion": "Aprieta glúteo de la pierna atrasada para sentir el estiramiento."
+      },
+      {
+        "orden": 4,
+        "nombre": "Bird-dog",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Extiende brazo y pierna contraria sin mover pelvis."
+      },
+      {
+        "orden": 5,
+        "nombre": "Dead bug",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Mantén zona lumbar pegada al suelo."
+      },
+      {
+        "orden": 6,
+        "nombre": "Plancha lateral",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 30,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Cadera arriba, cuello neutro."
+      },
+      {
+        "orden": 7,
+        "nombre": "Respiración diafragmática",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 2,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "4 s inhalar / 6 s exhalar. Relaja cuello y hombros."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000006",
+    "nombre": "Recomposición (fuerza+cardio)",
+    "objetivo": "mantenimiento",
+    "nivel": "intermedio",
+    "diasPorSemana": 4,
+    "duracionMinutos": 60,
+    "descripcion": "Rutina híbrida para recomposición corporal: fuerza con cargas moderadas + cardio estratégico. Te ayuda a ganar músculo mientras mejoras condición física y controlas grasa.",
+    "puntosClave": [
+      "Bloque fuerza primero, cardio al final",
+      "Mantén ritmo: descansos medidos (60–90 s)",
+      "Elige cargas que te permitan técnica sólida",
+      "Cardio: alterna Z2 e intervalos según energía"
+    ],
+    "ejerciciosEjemplo": [
+      "Sentadilla goblet",
+      "Press pecho",
+      "Remo",
+      "Kettlebell swing",
+      "Assault bike",
+      "Plancha"
+    ],
+    "imagenUrl": "https://gymfactory.net/wp-content/uploads/2024/12/Basic-Fit.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Sentadilla goblet",
+        "tipo": "pierna",
+        "maquinaSugerida": "Mancuerna / kettlebell",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Pecho arriba, codos dentro. Baja controlado."
+      },
+      {
+        "orden": 2,
+        "nombre": "Press pecho en máquina",
+        "tipo": "pecho",
+        "maquinaSugerida": "Máquina press pecho",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Escápulas estables y recorrido completo."
+      },
+      {
+        "orden": 3,
+        "nombre": "Remo en polea",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Tira con codos y pausa atrás 1 s."
+      },
+      {
+        "orden": 4,
+        "nombre": "Kettlebell swing",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Kettlebell",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Bisagra de cadera. La potencia sale del glúteo, no del brazo."
+      },
+      {
+        "orden": 5,
+        "nombre": "Assault bike (intervalos)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Assault Bike / bici",
+        "series": 8,
+        "repeticiones": 1,
+        "pesoSugerido": null,
+        "descansoSegundos": 30,
+        "explicacion": "20 s fuerte / 40 s suave. Mantén técnica."
+      },
+      {
+        "orden": 6,
+        "nombre": "Plancha",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Core firme, glúteo activo."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000007",
+    "nombre": "HIIT Metabólico",
+    "objetivo": "perder_grasa",
+    "nivel": "avanzado",
+    "diasPorSemana": 3,
+    "duracionMinutos": 35,
+    "descripcion": "Entrenamiento HIIT para disparar el gasto energético y mejorar tu capacidad anaeróbica. Corto, intenso y con ejercicios seguros. Recomendado si ya tienes base.",
+    "puntosClave": [
+      "Calienta 8–10 min antes (movilidad + 2 rondas suaves)",
+      "Mantén técnica: reduce intensidad si la forma se rompe",
+      "RPE 8–9 en intervalos; recuperación activa suave",
+      "Termina con 5 min suaves para bajar pulsaciones"
+    ],
+    "ejerciciosEjemplo": [
+      "Assault bike",
+      "Battle ropes",
+      "Thruster",
+      "Step-up",
+      "Burpee mod.",
+      "Plancha"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/on/demandware.static/-/Library-Sites-basic-fit-shared-library/default/dwc76eb19a/Blogs/New%20fitness%20routine/Landscape-Basicfit%20Hometools%2018%20mei%20204277.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Calentamiento (bici suave)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Bici",
+        "series": 1,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "8 min suave + movilidad de tobillo/cadera."
+      },
+      {
+        "orden": 2,
+        "nombre": "Assault bike (sprints)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Assault Bike / bici",
+        "series": 10,
+        "repeticiones": 1,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "15 s fuerte / 45 s suave. Mantén cadencia alta."
+      },
+      {
+        "orden": 3,
+        "nombre": "Battle ropes",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Cuerdas de batalla",
+        "series": 6,
+        "repeticiones": 20,
+        "pesoSugerido": null,
+        "descansoSegundos": 40,
+        "explicacion": "Ondas potentes. Rodillas flexionadas, core firme."
+      },
+      {
+        "orden": 4,
+        "nombre": "Thruster (mancuernas)",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Mancuernas",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Sentadilla + press. Controla bajada y empuja explosivo."
+      },
+      {
+        "orden": 5,
+        "nombre": "Step-up",
+        "tipo": "pierna",
+        "maquinaSugerida": "Cajón / step",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Sube con control, cambia pierna cada repetición."
+      },
+      {
+        "orden": 6,
+        "nombre": "Burpee (modificado)",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Opción sin salto si estás cansado. Mantén core firme."
+      },
+      {
+        "orden": 7,
+        "nombre": "Plancha",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Respira sin perder tensión."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000008",
+    "nombre": "Espalda y Postura",
+    "objetivo": "salud",
+    "nivel": "principiante",
+    "diasPorSemana": 3,
+    "duracionMinutos": 50,
+    "descripcion": "Rutina para fortalecer espalda y mejorar postura: dorsales, romboides y deltoide posterior. Ideal si pasas muchas horas sentado o quieres compensar trabajo de pecho.",
+    "puntosClave": [
+      "Prioriza retracción escapular (hombros atrás y abajo)",
+      "Evita encoger hombros hacia las orejas",
+      "Incluye trabajo de core para estabilidad de columna",
+      "Controla la fase excéntrica (bajada) 2–3 s"
+    ],
+    "ejerciciosEjemplo": [
+      "Jalón al pecho",
+      "Remo sentado",
+      "Face pull",
+      "Pájaros",
+      "Extensión lumbar",
+      "Dead bug"
+    ],
+    "imagenUrl": "https://gymfactory.net/wp-content/uploads/2024/12/Basic-Fit.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Jalón al pecho",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea alta",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Pecho arriba, tira con codos. No balancees el torso."
+      },
+      {
+        "orden": 2,
+        "nombre": "Remo sentado",
+        "tipo": "espalda",
+        "maquinaSugerida": "Remo en polea / máquina",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Pausa 1 s atrás. Mantén columna neutra."
+      },
+      {
+        "orden": 3,
+        "nombre": "Face pull",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea / banda",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos altos. Aprieta escápulas al final."
+      },
+      {
+        "orden": 4,
+        "nombre": "Pájaros (deltoide posterior)",
+        "tipo": "hombro",
+        "maquinaSugerida": "Mancuernas / máquina",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Movimiento corto y controlado. No subas trapecio."
+      },
+      {
+        "orden": 5,
+        "nombre": "Extensión lumbar",
+        "tipo": "espalda",
+        "maquinaSugerida": "Banco romano / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Sube hasta neutro, no hiperextiendas."
+      },
+      {
+        "orden": 6,
+        "nombre": "Dead bug",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Controla respiración y pelvis neutra."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000009",
+    "nombre": "Push/Pull/Legs",
+    "objetivo": "ganar_masa",
+    "nivel": "avanzado",
+    "diasPorSemana": 6,
+    "duracionMinutos": 75,
+    "descripcion": "División Push/Pull/Legs (empuje/tirón/pierna) para entrenar 3–6 días/semana. Ejemplo de semana tipo con ejercicios clave y progresión.",
+    "puntosClave": [
+      "Reparte días: Push (pecho/hombro/tríceps), Pull (espalda/bíceps), Legs (pierna/glúteo)",
+      "Mantén 10–20 series/semana por grupo muscular",
+      "No llegues al fallo en todos los ejercicios: reserva energía en básicos",
+      "Aumenta reps antes de subir carga (progresión doble)"
+    ],
+    "ejerciciosEjemplo": [
+      "Push: Press banca",
+      "Pull: Jalón al pecho",
+      "Legs: Prensa",
+      "Elevaciones laterales",
+      "Curl bíceps",
+      "Hip thrust"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Día Push · Press banca",
+        "tipo": "pecho",
+        "maquinaSugerida": "Banco + barra / máquina",
+        "series": 4,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Escápulas atrás, recorrido completo."
+      },
+      {
+        "orden": 2,
+        "nombre": "Día Push · Press hombro",
+        "tipo": "hombro",
+        "maquinaSugerida": "Máquina / mancuernas",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Core firme. Evita arquear lumbar."
+      },
+      {
+        "orden": 3,
+        "nombre": "Día Push · Extensión tríceps",
+        "tipo": "brazo",
+        "maquinaSugerida": "Polea",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos pegados y control en la bajada."
+      },
+      {
+        "orden": 4,
+        "nombre": "Día Pull · Jalón al pecho",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea alta",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Tira con codos, pecho arriba."
+      },
+      {
+        "orden": 5,
+        "nombre": "Día Pull · Remo sentado",
+        "tipo": "espalda",
+        "maquinaSugerida": "Remo en polea",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Pausa atrás 1 s."
+      },
+      {
+        "orden": 6,
+        "nombre": "Día Pull · Curl bíceps",
+        "tipo": "brazo",
+        "maquinaSugerida": "Mancuernas / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Sin balanceo."
+      },
+      {
+        "orden": 7,
+        "nombre": "Día Legs · Prensa de piernas",
+        "tipo": "pierna",
+        "maquinaSugerida": "Prensa",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Rango seguro, controlando lumbares."
+      },
+      {
+        "orden": 8,
+        "nombre": "Día Legs · Hip thrust",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina / banco",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Pausa arriba, activa glúteo."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000010",
+    "nombre": "Upper/Lower",
+    "objetivo": "ganar_masa",
+    "nivel": "intermedio",
+    "diasPorSemana": 4,
+    "duracionMinutos": 65,
+    "descripcion": "Split Upper/Lower (tren superior / tren inferior) 4 días/semana. Buen equilibrio entre fuerza e hipertrofia, con recuperación suficiente.",
+    "puntosClave": [
+      "Semana tipo: Upper A, Lower A, descanso, Upper B, Lower B",
+      "Compuestos primero, accesorios después",
+      "RIR 1–2 en compuestos, 0–1 en aislados",
+      "Anota cargas: progresión semanal"
+    ],
+    "ejerciciosEjemplo": [
+      "Upper: Press + Jalón",
+      "Upper: Remo + Hombro",
+      "Lower: Prensa + RDL",
+      "Lower: Sentadilla + Gemelos"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Upper A · Press pecho",
+        "tipo": "pecho",
+        "maquinaSugerida": "Máquina / banco",
+        "series": 4,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Escápulas estables, control en bajada."
+      },
+      {
+        "orden": 2,
+        "nombre": "Upper A · Jalón al pecho",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea alta",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Codos abajo, sin balanceo."
+      },
+      {
+        "orden": 3,
+        "nombre": "Upper B · Remo",
+        "tipo": "espalda",
+        "maquinaSugerida": "Remo en polea / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Pausa atrás 1 s."
+      },
+      {
+        "orden": 4,
+        "nombre": "Upper B · Elevaciones laterales",
+        "tipo": "hombro",
+        "maquinaSugerida": "Mancuernas",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Control y rango cómodo."
+      },
+      {
+        "orden": 5,
+        "nombre": "Lower A · Prensa de piernas",
+        "tipo": "pierna",
+        "maquinaSugerida": "Prensa",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Recorrido seguro, empuja con planta completa."
+      },
+      {
+        "orden": 6,
+        "nombre": "Lower A · Peso muerto rumano",
+        "tipo": "pierna",
+        "maquinaSugerida": "Barra / mancuernas",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Bisagra de cadera, espalda neutra."
+      },
+      {
+        "orden": 7,
+        "nombre": "Lower B · Sentadilla",
+        "tipo": "pierna",
+        "maquinaSugerida": "Rack / multipower",
+        "series": 4,
+        "repeticiones": 6,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Técnica sólida, profundidad controlada."
+      },
+      {
+        "orden": 8,
+        "nombre": "Lower B · Gemelos",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina gemelos",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Recorrido completo, pausa arriba."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000011",
+    "nombre": "Cardio Resistencia Z2",
+    "objetivo": "perder_grasa",
+    "nivel": "principiante",
+    "diasPorSemana": 4,
+    "duracionMinutos": 40,
+    "descripcion": "Plan de cardio en zona 2 (Z2) para mejorar base aeróbica, salud cardiovascular y recuperación. Ideal para complementar fuerza o bajar grasa sin machacarte.",
+    "puntosClave": [
+      "Z2: puedes hablar con frases cortas sin ahogarte",
+      "Empieza con 20–25 min y sube hasta 40–50 min",
+      "Varía máquinas para evitar sobrecarga",
+      "Mantén postura y técnica (especialmente en remo)"
+    ],
+    "ejerciciosEjemplo": [
+      "Cinta Z2",
+      "Bici Z2",
+      "Elíptica",
+      "Remo suave",
+      "Escaladora moderada",
+      "Movilidad final"
+    ],
+    "imagenUrl": "https://palco23.mundodeportivo.com/thumb/eyJ0IjoiZCIsInciOjEyMDAsImgiOjY3NSwibSI6MSwidiI6IjEuMC4xIn0/palco23/files/2025/19-fitness/basic-fit/basic-fit-lateral-1200.png",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Cinta (Z2)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Cinta",
+        "series": 1,
+        "repeticiones": 25,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Ritmo estable 25 min. Respiración controlada."
+      },
+      {
+        "orden": 2,
+        "nombre": "Bici (Z2)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Bici indoor",
+        "series": 1,
+        "repeticiones": 20,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Cadencia constante. Mantén cadera estable."
+      },
+      {
+        "orden": 3,
+        "nombre": "Elíptica (Z2)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Elíptica",
+        "series": 1,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Movimiento fluido, sin forzar rodillas."
+      },
+      {
+        "orden": 4,
+        "nombre": "Remo suave",
+        "tipo": "cardio",
+        "maquinaSugerida": "Remo",
+        "series": 1,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Técnica: piernas-torso-brazos. Intensidad baja."
+      },
+      {
+        "orden": 5,
+        "nombre": "Movilidad final",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 1,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Estira flexores de cadera e isquios 30–40 s."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000012",
+    "nombre": "Fuerza 5x5",
+    "objetivo": "ganar_masa",
+    "nivel": "intermedio",
+    "diasPorSemana": 3,
+    "duracionMinutos": 60,
+    "descripcion": "Programa clásico 5x5 para ganar fuerza en básicos. Pocas repeticiones, cargas altas y progresión lineal. 3 días/semana.",
+    "puntosClave": [
+      "Calienta bien: 2–4 series de aproximación antes del 5x5",
+      "Descanso 2–3 min en básicos",
+      "Progresión: +2.5 kg en press/remo y +5 kg en sentadilla si completas",
+      "Mantén técnica: si falla, baja 10% y reconstruye"
+    ],
+    "ejerciciosEjemplo": [
+      "Sentadilla 5x5",
+      "Press banca 5x5",
+      "Remo 5x5",
+      "Press militar 5x5",
+      "Peso muerto 1x5",
+      "Core"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Sentadilla 5x5",
+        "tipo": "pierna",
+        "maquinaSugerida": "Rack / multipower",
+        "series": 5,
+        "repeticiones": 5,
+        "pesoSugerido": null,
+        "descansoSegundos": 180,
+        "explicacion": "Profundidad controlada, espalda neutra, brace fuerte."
+      },
+      {
+        "orden": 2,
+        "nombre": "Press banca 5x5",
+        "tipo": "pecho",
+        "maquinaSugerida": "Banco + barra",
+        "series": 5,
+        "repeticiones": 5,
+        "pesoSugerido": null,
+        "descansoSegundos": 180,
+        "explicacion": "Escápulas atrás, pies firmes. No rebotes."
+      },
+      {
+        "orden": 3,
+        "nombre": "Remo con barra / máquina",
+        "tipo": "espalda",
+        "maquinaSugerida": "Barra / remo",
+        "series": 5,
+        "repeticiones": 5,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Torso estable. Tira con codos."
+      },
+      {
+        "orden": 4,
+        "nombre": "Press militar 5x5",
+        "tipo": "hombro",
+        "maquinaSugerida": "Barra / máquina",
+        "series": 5,
+        "repeticiones": 5,
+        "pesoSugerido": null,
+        "descansoSegundos": 150,
+        "explicacion": "Glúteo y abdomen apretados. Barra en línea recta."
+      },
+      {
+        "orden": 5,
+        "nombre": "Peso muerto 1x5",
+        "tipo": "pierna",
+        "maquinaSugerida": "Barra",
+        "series": 1,
+        "repeticiones": 5,
+        "pesoSugerido": null,
+        "descansoSegundos": 180,
+        "explicacion": "Espalda neutra, barra pegada a piernas. Sube con piernas y cadera."
+      },
+      {
+        "orden": 6,
+        "nombre": "Plancha",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Core firme, respira sin perder tensión."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000013",
+    "nombre": "Circuito Funcional",
+    "objetivo": "salud",
+    "nivel": "intermedio",
+    "diasPorSemana": 3,
+    "duracionMinutos": 45,
+    "descripcion": "Circuito funcional de cuerpo completo para mejorar condición física, coordinación y fuerza útil. Perfecto si te gusta entrenar dinámico.",
+    "puntosClave": [
+      "Haz 3–5 rondas según tu nivel",
+      "Descansa 60–90 s entre rondas",
+      "Prioriza técnica en movimientos balísticos (kettlebell)",
+      "Si vas muy justo, reduce reps antes de perder forma"
+    ],
+    "ejerciciosEjemplo": [
+      "Kettlebell swing",
+      "Goblet squat",
+      "Remo",
+      "Push press",
+      "Battle ropes",
+      "Farmer walk"
+    ],
+    "imagenUrl": "https://gymfactory.net/wp-content/uploads/2024/12/Basic-Fit.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Kettlebell swing",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Kettlebell",
+        "series": 4,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Bisagra de cadera. Explosivo al subir, controla bajada."
+      },
+      {
+        "orden": 2,
+        "nombre": "Goblet squat",
+        "tipo": "pierna",
+        "maquinaSugerida": "Mancuerna / kettlebell",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Pecho arriba, rodillas siguen la punta del pie."
+      },
+      {
+        "orden": 3,
+        "nombre": "Remo en polea/TRX",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea / TRX",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Aprieta escápulas al final."
+      },
+      {
+        "orden": 4,
+        "nombre": "Push press",
+        "tipo": "hombro",
+        "maquinaSugerida": "Mancuernas",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Pequeña flexión de piernas y empuja arriba."
+      },
+      {
+        "orden": 5,
+        "nombre": "Battle ropes",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Cuerdas",
+        "series": 4,
+        "repeticiones": 20,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Ondas rápidas. Core firme."
+      },
+      {
+        "orden": 6,
+        "nombre": "Farmer walk",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Mancuernas",
+        "series": 4,
+        "repeticiones": 30,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Camina erguido, hombros abajo, abdomen apretado."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000014",
+    "nombre": "Core Express",
+    "objetivo": "salud",
+    "nivel": "principiante",
+    "diasPorSemana": 2,
+    "duracionMinutos": 25,
+    "descripcion": "Rutina rápida para reforzar abdomen y estabilidad (anti-extensión, anti-rotación y anti-inclinación). Ideal como extra 2–3 veces/semana.",
+    "puntosClave": [
+      "Mejor 10 repeticiones perfectas que 20 sin control",
+      "Evita dolor lumbar: costillas abajo y pelvis neutra",
+      "Descansa poco pero mantén calidad",
+      "Respira durante el esfuerzo"
+    ],
+    "ejerciciosEjemplo": [
+      "Plancha",
+      "Plancha lateral",
+      "Dead bug",
+      "Pallof press",
+      "Hollow hold",
+      "Crunch controlado"
+    ],
+    "imagenUrl": "https://images.ctfassets.net/ztnn01luatek/2mkRC2FYL2T0mWws2mYcxl/3663873c0b123ada46941eb989da5f8e/webimage-Basicfit-groepslessen-20-10-2514147.png",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Plancha",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Alineación perfecta, glúteo activo."
+      },
+      {
+        "orden": 2,
+        "nombre": "Plancha lateral",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 30,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Cadera arriba, cuello neutro."
+      },
+      {
+        "orden": 3,
+        "nombre": "Dead bug",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Controla lumbar, exhala al extender."
+      },
+      {
+        "orden": 4,
+        "nombre": "Pallof press",
+        "tipo": "core",
+        "maquinaSugerida": "Polea / banda",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Resiste rotación, costillas abajo."
+      },
+      {
+        "orden": 5,
+        "nombre": "Hollow hold (modificado)",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 25,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Aplana lumbar. Si cuesta, flexiona rodillas."
+      },
+      {
+        "orden": 6,
+        "nombre": "Crunch controlado",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Sube corto y exhala. No tires del cuello."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000015",
+    "nombre": "Tonificación Full Body",
+    "objetivo": "mantenimiento",
+    "nivel": "principiante",
+    "diasPorSemana": 3,
+    "duracionMinutos": 50,
+    "descripcion": "Rutina de tonificación para todo el cuerpo con máquinas y pesos moderados. Ideal si quieres sentirte fuerte, mejorar composición corporal y entrenar con seguridad.",
+    "puntosClave": [
+      "Elige cargas que te permitan 2–3 reps en reserva",
+      "Controla la bajada 2 s y sube 1 s",
+      "Descanso 60–90 s",
+      "Si eres principiante, prioriza máquinas antes de libres"
+    ],
+    "ejerciciosEjemplo": [
+      "Prensa",
+      "Press pecho máquina",
+      "Jalón",
+      "Press hombro máquina",
+      "Abductores",
+      "Crunch"
+    ],
+    "imagenUrl": "https://gymfactory.net/wp-content/uploads/2024/12/Basic-Fit.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Prensa de piernas",
+        "tipo": "pierna",
+        "maquinaSugerida": "Prensa",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Recorrido cómodo, controla lumbares."
+      },
+      {
+        "orden": 2,
+        "nombre": "Press pecho máquina",
+        "tipo": "pecho",
+        "maquinaSugerida": "Máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "No bloquees agresivo, controla bajada."
+      },
+      {
+        "orden": 3,
+        "nombre": "Jalón al pecho",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea alta",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 90,
+        "explicacion": "Tira con codos y mantén pecho arriba."
+      },
+      {
+        "orden": 4,
+        "nombre": "Press hombro máquina",
+        "tipo": "hombro",
+        "maquinaSugerida": "Máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Core firme. Empuja sin arquear."
+      },
+      {
+        "orden": 5,
+        "nombre": "Abductores",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina abductores",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Pausa arriba, controla regreso."
+      },
+      {
+        "orden": 6,
+        "nombre": "Crunch en máquina/colchoneta",
+        "tipo": "core",
+        "maquinaSugerida": "Máquina / colchoneta",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Exhala al subir y controla bajada."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000016",
+    "nombre": "Cardio Intervalos",
+    "objetivo": "perder_grasa",
+    "nivel": "intermedio",
+    "diasPorSemana": 3,
+    "duracionMinutos": 35,
+    "descripcion": "Entrenamiento de intervalos para mejorar VO2 y quemar calorías. Alterna esfuerzos cortos con recuperaciones activas. 2–3 veces/semana.",
+    "puntosClave": [
+      "Siempre calienta 5–8 min antes",
+      "En intervalos fuertes apunta a RPE 8–9",
+      "Recuperación activa: no te pares por completo",
+      "Enfriamiento 5 min para bajar pulsaciones"
+    ],
+    "ejerciciosEjemplo": [
+      "Bici intervalos",
+      "Remo intervalos",
+      "Cinta tempo",
+      "Enfriamiento"
+    ],
+    "imagenUrl": "https://palco23.mundodeportivo.com/thumb/eyJ0IjoiZCIsInciOjEyMDAsImgiOjY3NSwibSI6MSwidiI6IjEuMC4xIn0/palco23/files/2025/19-fitness/basic-fit/basic-fit-lateral-1200.png",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Calentamiento",
+        "tipo": "cardio",
+        "maquinaSugerida": "Cinta / bici",
+        "series": 1,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "8 min suave, subiendo poco a poco."
+      },
+      {
+        "orden": 2,
+        "nombre": "Intervalos (bici)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Bici indoor",
+        "series": 10,
+        "repeticiones": 1,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "30 s fuerte / 45 s suave. Mantén cadencia."
+      },
+      {
+        "orden": 3,
+        "nombre": "Intervalos (remo)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Remo",
+        "series": 8,
+        "repeticiones": 1,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "45 s fuerte / 60 s suave. Técnica primero."
+      },
+      {
+        "orden": 4,
+        "nombre": "Cinta (tempo)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Cinta",
+        "series": 1,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "10 min a ritmo ‘difícil pero sostenible’."
+      },
+      {
+        "orden": 5,
+        "nombre": "Enfriamiento + estiramientos",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 1,
+        "repeticiones": 6,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Respira, estira gemelos e isquios 30–40 s."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000017",
+    "nombre": "Hombro y Brazos",
+    "objetivo": "ganar_masa",
+    "nivel": "intermedio",
+    "diasPorSemana": 3,
+    "duracionMinutos": 55,
+    "descripcion": "Rutina específica para hombros y brazos con volumen adecuado para hipertrofia. Incluye deltoide lateral/posterior y trabajo equilibrado de bíceps/tríceps.",
+    "puntosClave": [
+      "Evita dolor: no subas hombros (trapecio) en laterales",
+      "Controla excéntrica 2–3 s",
+      "Descanso 60–90 s",
+      "Añade face pulls para salud del hombro"
+    ],
+    "ejerciciosEjemplo": [
+      "Press hombro",
+      "Elevaciones laterales",
+      "Deltoide posterior",
+      "Curl bíceps",
+      "Extensión tríceps",
+      "Face pull"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Press hombro",
+        "tipo": "hombro",
+        "maquinaSugerida": "Máquina / mancuernas",
+        "series": 4,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Abdomen firme. Empuja en línea vertical."
+      },
+      {
+        "orden": 2,
+        "nombre": "Elevaciones laterales",
+        "tipo": "hombro",
+        "maquinaSugerida": "Mancuernas",
+        "series": 4,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Sube hasta hombro, codos suaves. Controla bajada."
+      },
+      {
+        "orden": 3,
+        "nombre": "Pájaros (posterior)",
+        "tipo": "hombro",
+        "maquinaSugerida": "Mancuernas / máquina",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Pecho apoyado si puedes. No balancees."
+      },
+      {
+        "orden": 4,
+        "nombre": "Curl bíceps",
+        "tipo": "brazo",
+        "maquinaSugerida": "Mancuernas / máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos fijos, sin impulso."
+      },
+      {
+        "orden": 5,
+        "nombre": "Curl martillo",
+        "tipo": "brazo",
+        "maquinaSugerida": "Mancuernas",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Neutral grip, controla bajada."
+      },
+      {
+        "orden": 6,
+        "nombre": "Extensión tríceps (polea)",
+        "tipo": "brazo",
+        "maquinaSugerida": "Polea",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos pegados. Extiende completo."
+      },
+      {
+        "orden": 7,
+        "nombre": "Face pull",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea / banda",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Codos altos, aprieta escápulas."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000018",
+    "nombre": "Pierna sin Impacto",
+    "objetivo": "salud",
+    "nivel": "principiante",
+    "diasPorSemana": 3,
+    "duracionMinutos": 50,
+    "descripcion": "Rutina de pierna enfocada a máquinas y movimientos de bajo impacto (sin saltos). Ideal si quieres cuidar rodillas/tobillos y aun así progresar.",
+    "puntosClave": [
+      "Calienta con elíptica/bici 6–8 min",
+      "Prioriza rango cómodo: sin dolor articular",
+      "Descanso 60–120 s según ejercicio",
+      "Añade 1–2 reps por semana antes de subir carga"
+    ],
+    "ejerciciosEjemplo": [
+      "Prensa",
+      "Extensión cuádriceps",
+      "Curl femoral",
+      "Abductores",
+      "Hip thrust",
+      "Gemelos"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7379b3ac/images/ClubsES/2023/alcorc%C3%B3n_extra.jpg?q=100",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Elíptica (calentamiento)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Elíptica",
+        "series": 1,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "8 min suave + movilidad tobillo/cadera."
+      },
+      {
+        "orden": 2,
+        "nombre": "Prensa de piernas",
+        "tipo": "pierna",
+        "maquinaSugerida": "Prensa",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Recorrido cómodo, controla lumbares."
+      },
+      {
+        "orden": 3,
+        "nombre": "Extensión cuádriceps",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Sube fuerte, baja lento."
+      },
+      {
+        "orden": 4,
+        "nombre": "Curl femoral",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Controla la bajada 2 s."
+      },
+      {
+        "orden": 5,
+        "nombre": "Abductores",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina",
+        "series": 3,
+        "repeticiones": 15,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Pausa 1 s abierto."
+      },
+      {
+        "orden": 6,
+        "nombre": "Hip thrust",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina / banco",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 120,
+        "explicacion": "Pausa arriba. Glúteo activo."
+      },
+      {
+        "orden": 7,
+        "nombre": "Gemelos",
+        "tipo": "pierna",
+        "maquinaSugerida": "Máquina gemelos",
+        "series": 4,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Recorrido completo."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000019",
+    "nombre": "Acondicionamiento General",
+    "objetivo": "salud",
+    "nivel": "principiante",
+    "diasPorSemana": 3,
+    "duracionMinutos": 45,
+    "descripcion": "Rutina mixta para mejorar condición general (cardio + fuerza básica). Ideal si quieres sentirte ‘en forma’ para el día a día.",
+    "puntosClave": [
+      "Mantén ritmo constante sin perder técnica",
+      "Descansa lo mínimo necesario para mantener calidad",
+      "Haz 3–4 rondas según nivel",
+      "Termina con 5 min suaves"
+    ],
+    "ejerciciosEjemplo": [
+      "Remo",
+      "Sentadilla",
+      "Push-up",
+      "Remo polea",
+      "Farmer walk",
+      "Plancha"
+    ],
+    "imagenUrl": "https://gymfactory.net/wp-content/uploads/2024/12/Basic-Fit.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Remo (calentamiento)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Remo",
+        "series": 1,
+        "repeticiones": 6,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "6 min suave, técnica limpia."
+      },
+      {
+        "orden": 2,
+        "nombre": "Sentadilla (goblet)",
+        "tipo": "pierna",
+        "maquinaSugerida": "Mancuerna / kettlebell",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Controla bajada. Rodillas siguen la punta del pie."
+      },
+      {
+        "orden": 3,
+        "nombre": "Push-up / press máquina",
+        "tipo": "pecho",
+        "maquinaSugerida": "Suelo / máquina",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Cuerpo alineado. Si cuesta, usa máquina o apoyo."
+      },
+      {
+        "orden": 4,
+        "nombre": "Remo en polea",
+        "tipo": "espalda",
+        "maquinaSugerida": "Polea",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Pausa 1 s atrás."
+      },
+      {
+        "orden": 5,
+        "nombre": "Step-up",
+        "tipo": "pierna",
+        "maquinaSugerida": "Step/cajón",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Sube controlando. Alterna piernas."
+      },
+      {
+        "orden": 6,
+        "nombre": "Farmer walk",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Mancuernas",
+        "series": 3,
+        "repeticiones": 30,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Erguido, abdomen firme."
+      },
+      {
+        "orden": 7,
+        "nombre": "Plancha",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 3,
+        "repeticiones": 40,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Respira sin perder tensión."
+      }
+    ]
+  },
+  {
+    "id": "c0a80101-1111-4a4a-9b9b-000000000020",
+    "nombre": "Rendimiento y Potencia",
+    "objetivo": "mantenimiento",
+    "nivel": "avanzado",
+    "diasPorSemana": 5,
+    "duracionMinutos": 60,
+    "descripcion": "Sesión para mejorar potencia y rendimiento: movimientos explosivos controlados + cardio intenso. Ideal si ya tienes base y buscas ir un paso más allá.",
+    "puntosClave": [
+      "Potencia = velocidad + técnica. No sacrifiques forma por ir rápido",
+      "Descansos completos en explosivos (60–90 s)",
+      "Si no puedes saltar, cambia por step-ups rápidos",
+      "En sprints, mantén postura y core firme"
+    ],
+    "ejerciciosEjemplo": [
+      "Kettlebell swing",
+      "Assault bike sprint",
+      "Battle ropes",
+      "Step-ups",
+      "Thruster",
+      "Core anti-rotación"
+    ],
+    "imagenUrl": "https://www.basic-fit.com/on/demandware.static/-/Library-Sites-basic-fit-shared-library/default/dwc76eb19a/Blogs/New%20fitness%20routine/Landscape-Basicfit%20Hometools%2018%20mei%20204277.jpg",
+    "plan": [
+      {
+        "orden": 1,
+        "nombre": "Calentamiento dinámico",
+        "tipo": "core",
+        "maquinaSugerida": "Colchoneta",
+        "series": 1,
+        "repeticiones": 8,
+        "pesoSugerido": null,
+        "descansoSegundos": 0,
+        "explicacion": "Movilidad de tobillo/cadera + 5 min cardio suave."
+      },
+      {
+        "orden": 2,
+        "nombre": "Kettlebell swing",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Kettlebell",
+        "series": 5,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Explosivo desde cadera. Controla bajada."
+      },
+      {
+        "orden": 3,
+        "nombre": "Assault bike (sprints)",
+        "tipo": "cardio",
+        "maquinaSugerida": "Assault Bike / bici",
+        "series": 10,
+        "repeticiones": 1,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "10 s muy fuerte / 45 s suave."
+      },
+      {
+        "orden": 4,
+        "nombre": "Battle ropes",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Cuerdas",
+        "series": 5,
+        "repeticiones": 20,
+        "pesoSugerido": null,
+        "descansoSegundos": 45,
+        "explicacion": "Ondas potentes, rodillas flexionadas."
+      },
+      {
+        "orden": 5,
+        "nombre": "Step-up rápido",
+        "tipo": "pierna",
+        "maquinaSugerida": "Cajón/step",
+        "series": 4,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Alterna piernas. Controla bajada."
+      },
+      {
+        "orden": 6,
+        "nombre": "Thruster",
+        "tipo": "cuerpo_completo",
+        "maquinaSugerida": "Mancuernas",
+        "series": 3,
+        "repeticiones": 10,
+        "pesoSugerido": null,
+        "descansoSegundos": 75,
+        "explicacion": "Sentadilla + press fluido. Mantén core firme."
+      },
+      {
+        "orden": 7,
+        "nombre": "Woodchop",
+        "tipo": "core",
+        "maquinaSugerida": "Polea",
+        "series": 3,
+        "repeticiones": 12,
+        "pesoSugerido": null,
+        "descansoSegundos": 60,
+        "explicacion": "Controla giro. No tires con brazos."
+      }
+    ]
+  }
+]

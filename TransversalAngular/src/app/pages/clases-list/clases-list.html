@@ -1,80 +1,94 @@
-<section class="basicfit-clases">
+<div class="container mt-4 bf-container">
 
-  <header>
-    <div>
-      <span>Clases colectivas</span>
-      <h1>Entrena en grupo. Motívate más.</h1>
-      <p>
-        Descubre nuestras clases.
-      </p>
-    </div>
-  </header>
+  <!-- Filtros (mismo estilo que Gimnasios/Noticias) -->
+  <div class="p-4 rounded-3 mb-4 shadow-sm bf-panel">
+    <h5 class="fw-semibold mb-3 bf-title"><i class="bi bi-funnel-fill me-2"></i>Filtros</h5>
 
-  <div class="container contenido">
+    <div class="row g-3 align-items-end">
 
-    <div class="panel-filtros">
-      <div class="panel-filtros_titulo">
-        <h2>Buscar clases</h2>
-        <!-- <button class="btn btn-limpiar" type="button" (click)="limpiarFiltros()">Limpiar</button> -->
-      </div>
-
-      <div class="panel-filtros__grid">
-        <div class="campo">
-          <label>Nombre / tipo</label>
+      <div class="col-md-6 col-lg-4">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-search me-1"></i>Buscar por nombre
+        </label>
+        <div class="input-group">
+          <span class="input-group-text bf-input-icon"><i class="bi bi-search"></i></span>
           <input
             class="form-control"
-            type="text"
-            placeholder="Ej: cardio, fuerza..."
+            style="border-left: 0;"
             [(ngModel)]="textoBusqueda"
-            (input)="aplicarFiltros()"
-          />
+            (ngModelChange)="aplicarFiltros()"
+            placeholder="Ej. Spinning, Yoga…" />
         </div>
+      </div>
 
-        <div class="campo">
-          <label>Fecha</label>
-          <input
-            class="form-control"
-            type="date"
-            [(ngModel)]="filtroFecha"
-            (change)="aplicarFiltros()"
-          />
-        </div>
+      <div class="col-md-6 col-lg-3">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-building me-1"></i>Gimnasio
+        </label>
+        <select class="form-select" [(ngModel)]="filtroGimnasioId" (ngModelChange)="aplicarFiltros()">
+          <option value="">Todos</option>
+          @for (gimnasio of gimnasios; track gimnasio.id) {
+            <option [value]="gimnasio.id">{{ gimnasio.nombre }} ({{ gimnasio.ciudad }})</option>
+          }
+        </select>
+      </div>
 
-        <div class="campo campo--check">
-          <label class="check">
-            <input type="checkbox" [(ngModel)]="soloFuturas" (change)="aplicarFiltros()" />
-            <span>Solo futuras</span>
-          </label>
+      <div class="col-md-6 col-lg-2">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-bar-chart-steps me-1"></i>Nivel
+        </label>
+        <select class="form-select" [(ngModel)]="filtroNivel" (ngModelChange)="aplicarFiltros()">
+          <option value="">Todos</option>
+          <option value="principiante">Principiante</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="avanzado">Avanzado</option>
+        </select>
+      </div>
+
+      <div class="col-md-6 col-lg-2">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-calendar3 me-1"></i>Fecha
+        </label>
+        <input class="form-control" type="date" [(ngModel)]="filtroFecha" (change)="aplicarFiltros()" />
+      </div>
+
+      <div class="col-lg-1 d-flex align-items-end">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="soloFuturas" (change)="aplicarFiltros()" id="soloFuturas" style="border-color: #FE7000;" />
+          <label class="form-check-label fw-semibold" for="soloFuturas">Futuras</label>
         </div>
       </div>
     </div>
 
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <small style="color: #FE7000;">
+        <i class="bi bi-calendar-event me-1"></i>
+        {{ clasesFiltradas.length }} clase{{ clasesFiltradas.length !== 1 ? 's' : '' }} encontrada{{ clasesFiltradas.length !== 1 ? 's' : '' }}
+      </small>
+      <button class="btn btn-bf-outline btn-sm" (click)="cargarClases()"><i class="bi bi-arrow-clockwise me-1"></i>Actualizar</button>
+    </div>
+  </div>
+
+  @if (cargando) {
+    <div class="alert alert-info">Cargando clases…</div>
+  } @else {
     @if (error) {
-      <div class="alerta alerta--warning">
-        {{ error }}
-      </div>
-    }
-
-    @if (cargando) {
-      <div class="alerta alerta--info">
-        Cargando clases.
-      </div>
+      <div class="alert alert-danger">{{ error }}</div>
     } @else {
+      <div class="row g-3">
+        @for (clase of clasesFiltradas; track clase.id) {
+          <div class="col-12 col-md-6 col-xl-4">
+            <app-clases-card [clase]="clase" [nombreGimnasio]="nombreGimnasio(clase.gimnasioId)"></app-clases-card>
+          </div>
+        }
+      </div>
 
-      @if (clasesFiltradas && clasesFiltradas.length > 0) {
-        <div class="grid-clases">
-          @for (clase of clasesFiltradas; track clase.id) {
-            <app-clases-card [clase]="clase"></app-clases-card>
-          }
-        </div>
-      } @else {
-        <div class="estado-vacio">
-          <h3>No se encuentra la clase buscada</h3>
-          <p>Prueba con otra fecha o tipo.</p>
+      @if (clasesFiltradas.length === 0) {
+        <div class="text-center py-5" style="color: #555;">
+          <i class="bi bi-search fs-1" style="color: #FE7000;"></i>
+          <p class="mt-3 fs-5">No se encontraron clases con esos filtros.</p>
         </div>
       }
     }
-
-  </div>
-
-</section>
+  }
+</div>

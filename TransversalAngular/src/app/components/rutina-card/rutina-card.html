@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="top">
+    <div>
+      <h3>{{ rutina.nombre }}</h3>
+      <div class="meta">
+        <span><strong>Objetivo:</strong> {{ rutina.objetivo | textoEnum }}</span>
+        <span class="sep">·</span>
+        <span><strong>Nivel:</strong> {{ rutina.nivel | textoEnum }}</span>
+        <span class="sep">·</span>
+        <span><strong>Días/semana:</strong> {{ rutina.diasPorSemana }}</span>
+      </div>
+    </div>
+
+    @if (puedeGuardar) {
+      <button class="btn" [class.saved]="guardada" (click)="onGuardar()">
+        @if (guardada) { Guardada ✓ } @else { Guardar }
+      </button>
+    }
+  </div>
+
+  @if (rutina.notas) {
+    <p class="notas">{{ rutina.notas }}</p>
+  }
+</div>

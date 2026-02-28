@@ -1,0 +1,121 @@
+<div class="container mt-4 bf-container">
+
+  <div class="p-4 rounded-3 mb-4 shadow-sm bf-panel">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+      <div>
+        <h5 class="fw-semibold mb-2 bf-title"><i class="bi bi-journal-text me-2"></i>Rutinas</h5>
+        <div class="bf-muted">Descubre rutinas por objetivo y nivel. Guarda tus favoritas para verlas en tu perfil.</div>
+      </div>
+
+      <a class="btn btn-bf" routerLink="/rutinas/crear"><i class="bi bi-plus-circle me-2"></i>Crear mi rutina</a>
+    </div>
+  </div>
+
+  <!-- Filtros (mismo estilo que Gimnasios/Noticias) -->
+  <div class="p-4 rounded-3 mb-4 shadow-sm bf-panel">
+    <h5 class="fw-semibold mb-3 bf-title"><i class="bi bi-funnel-fill me-2"></i>Filtros</h5>
+
+    <div class="row g-3 align-items-end">
+      <div class="col-md-6">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-search me-1"></i>Buscar
+        </label>
+        <div class="input-group">
+          <span class="input-group-text bf-input-icon"><i class="bi bi-search"></i></span>
+          <input class="form-control" style="border-left: 0;" [(ngModel)]="filtroTexto" placeholder="Full body, cardio, fuerza…" />
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-bullseye me-1"></i>Objetivo
+        </label>
+        <select class="form-select" [(ngModel)]="filtroObjetivo">
+          <option value="">Todos</option>
+          <option value="perder_grasa">Pérdida de grasa</option>
+          <option value="ganar_masa">Ganar masa muscular</option>
+          <option value="mantenimiento">Mantenimiento</option>
+          <option value="salud">Salud</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">
+          <i class="bi bi-bar-chart-steps me-1"></i>Nivel
+        </label>
+        <select class="form-select" [(ngModel)]="filtroNivel">
+          <option value="">Todos</option>
+          <option value="principiante">Principiante</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="avanzado">Avanzado</option>
+        </select>
+      </div>
+
+      <div class="col-md-1 d-flex align-items-end">
+        <button class="btn btn-bf-outline w-100" (click)="filtroTexto=''; filtroObjetivo=''; filtroNivel=''">
+          <i class="bi bi-x-circle"></i>
+        </button>
+      </div>
+    </div>
+
+    <small class="mt-3 d-block" style="color: #FE7000;">
+      <i class="bi bi-list-check me-1"></i>
+      {{ rutinasFiltradas.length }} rutina{{ rutinasFiltradas.length !== 1 ? 's' : '' }} encontrada{{ rutinasFiltradas.length !== 1 ? 's' : '' }}
+    </small>
+  </div>
+
+  @if (cargando) {
+    <div class="estado">Cargando catálogo…</div>
+  } @else if (error) {
+    <div class="estado error">{{ error }}</div>
+  } @else {
+    <div class="row">
+      @for (rutina of rutinasFiltradas; track rutina.id) {
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card shadow-sm h-100" style="border: 1px solid #dee2e6; border-radius: 1rem;">
+            @if (rutina.imagenUrl) {
+              <img [src]="rutina.imagenUrl" class="card-img-top" alt="{{ rutina.nombre }}"
+                   style="height: 170px; object-fit: cover; border-top-left-radius: 1rem; border-top-right-radius: 1rem;" />
+            }
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-start gap-2">
+                <div>
+                  <div class="fw-bold fs-5">{{ rutina.nombre }}</div>
+                  <div class="mt-2 d-flex flex-wrap gap-2">
+                    <span class="badge" style="background: #FE7000;">{{ rutina.objetivo | textoEnum }}</span>
+                    <span class="badge" style="background: #6f2dbd;">{{ rutina.nivel | textoEnum }}</span>
+                    <span class="badge text-dark" style="background: #f8f9fa; border: 1px solid #dee2e6;">{{ rutina.diasPorSemana }} días/sem</span>
+                    <span class="badge text-dark" style="background: #f8f9fa; border: 1px solid #dee2e6;">{{ rutina.duracionMinutos }} min</span>
+                  </div>
+                </div>
+                <div>
+                  @if (esRutinaGuardada(rutina.id)) {
+                    <button class="btn btn-bf-outline btn-sm" (click)="quitarRutina(rutina.id)">Guardada ✓</button>
+                  } @else {
+                    <button class="btn btn-bf btn-sm" (click)="guardarRutina(rutina.id)">Guardar</button>
+                  }
+                </div>
+              </div>
+
+              <p class="text-muted mt-3 mb-3">{{ rutina.descripcion }}</p>
+
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <a class="btn btn-bf-outline btn-sm" [routerLink]="['/rutinas/catalogo', rutina.id]">
+                  Ver rutina
+                </a>
+                <small class="text-secondary">Plan completo</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+
+      @if (rutinasFiltradas.length === 0) {
+        <div class="text-center py-5" style="color: #555;">
+          <i class="bi bi-search fs-1" style="color: #FE7000;"></i>
+          <p class="mt-3 fs-5">No se encontraron rutinas con esos filtros.</p>
+        </div>
+      }
+    </div>
+  }
+</div>

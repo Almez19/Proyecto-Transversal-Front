@@ -7,7 +7,7 @@
 
                 <!-- Header con imagen -->
                 <div class="position-relative">
-                    <img [src]="gimnasio.UrlImagen" [alt]="gimnasio.nombre" class="w-100"
+                    <img [src]="gimnasio.urlImagen" [alt]="gimnasio.nombre" class="w-100"
                         style="height: 320px; object-fit: cover;">
 
                     <!-- Overlay degradado -->
@@ -100,12 +100,121 @@
                     <!-- Botones de acción -->
                     <div class="d-flex flex-wrap gap-2 justify-content-end mt-3">
 
+                        <button class="btn btn-warning px-4" (click)="alternarGuardar()">
+                            @if (guardado) { <i class="bi bi-bookmark-check me-2"></i>Guardado } @else { <i class="bi bi-bookmark me-2"></i>Guardar gimnasio }
+                        </button>
+
                         <a class="btn btn-outline-light px-4" [routerLink]="['/gimnasios']">
                             <i class="bi bi-arrow-left me-2"></i>Volver
                         </a>
 
                     </div>
 
+                </div>
+            </div>
+
+            <!-- Máquinas del gimnasio -->
+            <div class="card shadow-lg border-0 overflow-hidden mt-4">
+                <div class="card-body p-4" style="background-color: #1a1a2e; color: #f0f0f0;">
+                    <h5 class="fw-semibold mb-3" style="color: #FE7000;">
+                        <i class="bi bi-tools me-2"></i>Máquinas del gimnasio
+                    </h5>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <input class="form-control" [(ngModel)]="filtroMaquinaTexto" placeholder="Buscar máquina…">
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-select" [(ngModel)]="filtroGrupoMuscular">
+                                <option value="">Todas las categorías</option>
+                                <option value="pecho">Pecho</option>
+                                <option value="espalda">Espalda</option>
+                                <option value="pierna">Pierna</option>
+                                <option value="hombro">Hombro</option>
+                                <option value="brazo">Brazo</option>
+                                <option value="core">Core</option>
+                                <option value="cardio">Cardio</option>
+                                <option value="cuerpo_completo">Cuerpo completo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    @if (maquinasFiltradas.length === 0) {
+                        <div class="text-secondary">No hay máquinas que coincidan con el filtro.</div>
+                    } @else {
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Máquina</th>
+                                        <th>Descripción</th>
+                                        <th class="text-end">Categoría</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (m of maquinasFiltradas; track m.id) {
+                                        <tr>
+                                            <td class="fw-semibold">{{ m.nombre }}</td>
+                                            <td class="text-secondary">{{ m.descripcion }}</td>
+                                            <td class="text-end text-secondary">{{ (m.grupoMuscular ?? '') | textoEnum }}</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Clases y horarios -->
+            <div class="card shadow-lg border-0 overflow-hidden mt-4">
+                <div class="card-body p-4" style="background-color: #1a1a2e; color: #f0f0f0;">
+                    <h5 class="fw-semibold mb-3" style="color: #FE7000;">
+                        <i class="bi bi-calendar-event me-2"></i>Clases y horarios
+                    </h5>
+
+                    @if (!estaLogueado) {
+                        <div class="text-secondary mb-2">Puedes ver los horarios sin iniciar sesión. Para reservar, inicia sesión.</div>
+                    } @else if (!esCliente) {
+                        <div class="text-secondary mb-2">Has iniciado sesión como staff. Para reservar clases necesitas una cuenta de cliente.</div>
+                    }
+
+                    @if (cargandoClases) {
+                        <div class="text-secondary">Cargando clases…</div>
+                    } @else if (errorClases) {
+                        <div class="text-danger">{{ errorClases }}</div>
+                    } @else if (clases.length === 0) {
+                        <div class="text-secondary">Este gimnasio no tiene clases programadas.</div>
+                    } @else {
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Clase</th>
+                                        <th>Fecha</th>
+                                        <th>Horario</th>
+                                        <th>Nivel</th>
+                                        <th class="text-end">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (c of clases; track c.id) {
+                                        <tr>
+                                            <td class="fw-semibold">{{ c.nombre }}</td>
+                                            <td>{{ c.fecha | date:'longDate' }}</td>
+                                            <td>de {{ formatearHora(c.horaInicio) }} a {{ formatearHora(c.horaFinal) }}</td>
+                                            <td class="text-secondary">{{ c.nivel }}</td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-bf" (click)="reservar(c.id)" [disabled]="!estaLogueado || !esCliente || !esClaseFutura(c)">
+                                                    @if (!esClaseFutura(c)) { Finalizada } @else { Reservar }
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
                 </div>
             </div>
 

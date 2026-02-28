@@ -1,76 +1,195 @@
-<section class="cuerpo container mt-4 bf-section">
-
-  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
-    <h2 class="bf-title mb-0">Reservas</h2>
-    <span class="bf-chip">Basic-Fit</span>
-  </div>
-  <hr class="bf-hr">
-
-  @if (mensaje) {
-    <div class="alert alert-success">{{ mensaje }}</div>
-  }
-  @if (error) {
-    <div class="alert alert-danger">{{ error }}</div>
-  }
-
-  <div class="row g-3 mb-4">
-
-    <div class="col-12 col-lg-6">
-      <div class="card bf-card">
-        <div class="card-body">
-          <h5 class="card-title bf-card-title">Filtrar</h5>
-          <div class="mb-2">
-            <label class="form-label">Cliente</label>
-            <input class="form-control" [(ngModel)]="filtroClienteId" placeholder="Cliente" />
-          </div>
-          <div class="mb-2">
-            <label class="form-label">Clase</label>
-            <input class="form-control" [(ngModel)]="filtroClaseId" placeholder="Clase" />
-          </div>
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="soloActivas" [(ngModel)]="soloActivas" />
-            <label class="form-check-label" for="soloActivas">Solo activas</label>
-          </div>
-          <button class="btn btn-basicfit" (click)="cargarReservas()">Cargar reservas</button>
-        </div>
-      </div>
+<div class="container py-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+    <div>
+      <h1 class="h3 mb-1">Reservas</h1>
+      @if (esCliente) {
+        <div class="text-muted">Gestiona tus reservas de clases.</div>
+      } @else {
+        <div class="text-muted">Gestión de reservas (personal).</div>
+      }
     </div>
 
-    <div class="col-12 col-lg-6">
-      <div class="card bf-card">
-        <div class="card-body">
-          <h5 class="card-title bf-card-title">Crear reserva</h5>
-          <div class="mb-2">
-            <label class="form-label">Cliente</label>
-            <input class="form-control" [(ngModel)]="nuevoClienteId" placeholder="Cliente" />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Clase</label>
-            <input class="form-control" [(ngModel)]="nuevaClaseId" placeholder="Clase" />
-          </div>
-          <button class="btn btn-basicfit" (click)="crearReserva()">Crear</button>
-        </div>
+    @if (esCliente) {
+      <div class="input-group" style="max-width: 380px;">
+        <span class="input-group-text">🔎</span>
+        <input class="form-control" placeholder="Buscar por clase, gimnasio, estado…" [(ngModel)]="filtroTexto" />
       </div>
-    </div>
-
-    <div class="col-12">
-      <div class="card bf-card">
-        <div class="card-body">
-          <h5 class="card-title bf-card-title">Buscar</h5>
-          <div class="input-group">
-            <input class="form-control" [(ngModel)]="buscarId" placeholder="Reserva" />
-            <button class="btn btn-basicfit-dark" (click)="buscarReservaPorId()">Buscar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    }
   </div>
 
-  <app-reservas-list
-    [reservas]="reservas"
-    (cancelar)="cancelarReserva($event)"
-    (eliminar)="eliminarReserva($event)"
-  ></app-reservas-list>
+  @if (esCliente) {
+    @if (cargandoMis) {
+      <div class="alert alert-info">Cargando tus reservas…</div>
+    } @else if (errorMis) {
+      <div class="alert alert-danger">{{ errorMis }}</div>
+    } @else {
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="text-muted">{{ misReservasFiltradas.length }} reserva(s)</div>
+        <button class="btn btn-outline-secondary btn-sm" (click)="cargarMisReservas()">Actualizar</button>
+      </div>
 
-</section>
+      @if (misReservasFiltradas.length === 0) {
+        <div class="alert alert-warning">No tienes reservas.</div>
+      }
+
+      <div class="row g-3">
+        @for (detalle of misReservasFiltradas; track detalle.reserva.id) {
+          <div class="col-12 col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start gap-3">
+                  <div>
+                    <div class="fw-semibold">{{ detalle.clase?.nombre || 'Clase' }}</div>
+                    <div class="text-muted small">
+                      {{ detalle.nombreGimnasio || 'Gimnasio' }}
+                      @if (detalle.clase?.fecha) { · {{ detalle.clase?.fecha | date:'fullDate' }} }
+                      @if (detalle.clase?.horaInicio) { · {{ detalle.clase?.horaInicio }} }
+                    </div>
+                  </div>
+
+                  <span
+                    class="badge"
+                    [class.text-bg-success]="detalle.reserva.estado === 'activa'"
+                    [class.text-bg-secondary]="detalle.reserva.estado !== 'activa'">
+                    {{ detalle.reserva.estado }}
+                  </span>
+                </div>
+
+                @if (detalle.reserva.estado === 'activa') {
+                  <hr class="my-3" />
+
+                  @if (cancelandoId === detalle.reserva.id) {
+                    <div class="border rounded-3 p-3 bg-light">
+                      <div class="fw-semibold mb-2">Motivo de la cancelación</div>
+                      <textarea
+                        class="form-control mb-2"
+                        rows="2"
+                        [(ngModel)]="motivoCancelacion"
+                        placeholder="Ej.: No puedo asistir" ></textarea>
+
+                      <div class="d-flex flex-wrap gap-2 justify-content-end">
+                        <button class="btn btn-outline-secondary btn-sm" (click)="cerrarCancelacion()" [disabled]="procesandoCancelacion">
+                          Volver
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="confirmarCancelacion(detalle.reserva.id)" [disabled]="procesandoCancelacion">
+                          @if (procesandoCancelacion) {
+                            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                          }
+                          Confirmar cancelación
+                        </button>
+                      </div>
+                    </div>
+                  } @else {
+                    <div class="d-flex justify-content-end">
+                      <button class="btn btn-outline-danger btn-sm" (click)="abrirCancelacion(detalle.reserva.id)">
+                        Cancelar
+                      </button>
+                    </div>
+                  }
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  } @else {
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-4">
+        <label class="form-label">Filtrar por DNI/NIE</label>
+        <input class="form-control" [(ngModel)]="filtroClienteDniNie" placeholder="DNI/NIE del cliente" />
+      </div>
+
+      <div class="col-12 col-md-4">
+        <label class="form-label">Filtrar por claseId</label>
+        <input class="form-control" [(ngModel)]="filtroClaseId" placeholder="UUID de la clase" />
+      </div>
+
+      <div class="col-12 col-md-4">
+        <label class="form-label">Estado</label>
+        <select class="form-select" [(ngModel)]="filtroEstado">
+          <option value="">Todos</option>
+          <option value="activa">Activa</option>
+          <option value="cancelada">Cancelada</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mb-4">
+      <button class="btn btn-primary" (click)="cargarReservasStaff()">Aplicar filtros</button>
+      <button class="btn btn-outline-secondary" (click)="cargarReservasStaff()">Actualizar</button>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+          <div class="fw-semibold">Crear reserva</div>
+          <div class="text-muted small">(Uso interno / pruebas)</div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <label class="form-label">DNI/NIE</label>
+            <input class="form-control" [(ngModel)]="nuevaClienteDniNie" placeholder="DNI/NIE del cliente" />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label class="form-label">ClaseId</label>
+            <input class="form-control" [(ngModel)]="nuevaClaseId" placeholder="UUID de la clase" />
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+          <button class="btn btn-success" (click)="crearReserva()" [disabled]="creando || !nuevaClienteDniNie || !nuevaClaseId">
+            @if (creando) {
+              <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+            }
+            Crear
+          </button>
+        </div>
+
+        @if (errorStaff) {
+          <div class="alert alert-danger mt-3">{{ errorStaff }}</div>
+        }
+      </div>
+    </div>
+
+    @if (cargandoStaff) {
+      <div class="alert alert-info">Cargando reservas…</div>
+    } @else {
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="text-muted">{{ reservasStaff.length }} reserva(s)</div>
+      </div>
+
+      <div class="row g-3">
+        @for (reserva of reservasStaff; track reserva.id) {
+          <div class="col-12 col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start gap-3">
+                  <div>
+                    <div class="fw-semibold">Reserva</div>
+                    <div class="text-muted small">Cliente: {{ reserva.dniNie || reserva.clienteId }}</div>
+                    <div class="text-muted small">Clase: {{ reserva.claseId }}</div>
+                  </div>
+                  <span class="badge" [class.text-bg-success]="reserva.estado === 'activa'" [class.text-bg-secondary]="reserva.estado !== 'activa'">
+                    {{ reserva.estado }}
+                  </span>
+                </div>
+
+                <hr class="my-3" />
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-outline-danger btn-sm" (click)="eliminarReserva(reserva.id)">Eliminar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (reservasStaff.length === 0) {
+        <div class="alert alert-warning mt-3">No hay reservas para mostrar.</div>
+      }
+    }
+  }
+</div>

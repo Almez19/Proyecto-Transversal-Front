@@ -2,16 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { LoginInterface } from '../interfaces/login-interface';
+import { API_URL } from '../config/api';
+import { AuthService } from './auth-service';
+import { FavoritosService } from './favoritos-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  
-  public isLoggedIn :boolean = false;
-
   private httpClient = inject(HttpClient);
-  private baseURL : string = "http://localhost:8080/api/login";
+  private authService = inject(AuthService);
+  private favoritos = inject(FavoritosService);
+  private baseURL : string = `${API_URL}/login`;
 
   public login (credentials:{email: string, contrasena : string}) : Observable<LoginInterface>{
 
@@ -19,7 +21,9 @@ export class LoginService {
     .pipe(
       tap( response =>{
 
-      localStorage.setItem('token', response.token)
+      this.authService.setToken(response.token);
+      // Migramos favoritos guardados como 'anonimo' a la cuenta real
+      this.favoritos.migrarDesdeAnonimo();
 
     })
   )

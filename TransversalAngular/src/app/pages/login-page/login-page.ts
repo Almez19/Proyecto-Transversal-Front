@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from '../../service/login-service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
 })
@@ -19,7 +19,9 @@ export class LoginPage {
   constructor() {
     this.modelForm = new FormGroup({
       email: new FormControl(null, [Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),]),
-      contrasena: new FormControl(null, [Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&._-])[A-Za-z\\d@$!%*?&._-]{8,}$'),]),
+      // En desarrollo (seed), las contraseñas no siempre cumplen complejidad.
+      // Validamos solo que exista; la seguridad real la aplica el backend.
+      contrasena: new FormControl(null, [Validators.required]),
 
 
     });
@@ -33,7 +35,6 @@ export class LoginPage {
 
     this.loginService.login(credenciales).subscribe({
       next: () => {
-        this.loginService.isLoggedIn = true;
         this.router.navigateByUrl('/');
       },
 

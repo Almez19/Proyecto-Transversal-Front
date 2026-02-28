@@ -1,63 +1,74 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary navegacion">
-
   <div class="container-fluid">
 
-    <a class="navbar-brand" [routerLink]="['home']"><img src="" alt=""></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" [routerLink]="['/home']">
+      <span class="fw-bold">BasiFit</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-
-      <ul class="navbar-nav">
-
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
-
-          <a class="nav-link active" aria-current="page" [routerLink]="['home']">Inicio</a>
-
+          <a class="nav-link" [routerLink]="['/home']">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/gimnasios']">Gimnasios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/clases']">Clases</a>
         </li>
 
         <li class="nav-item">
-
-          <a class="nav-link" [routerLink]="['gimnasios']">Gimnasios</a>
-
+          <a class="nav-link" [routerLink]="['/rutinas']">Rutinas</a>
         </li>
 
         <li class="nav-item">
-
-          <a class="nav-link" [routerLink]="['clases']">Clases</a>
-
+          <a class="nav-link" [routerLink]="['/membresias']">Membresías</a>
         </li>
+        @if (logueado && esCliente) {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/perfil']">Mi perfil</a>
+          </li>
+        }
+
+        @if (logueado && esStaff) {
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Gestión
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/gestion/clases']">Clases</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/gestion/reservas']">Reservas</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/gestion/rutinas']">Rutinas</a></li>
+            </ul>
+          </li>
+        }
 
         <li class="nav-item">
-
-          <a class="nav-link" [routerLink]="['reservas']">Reservas</a>
-
-        </li>
-
-        <li class="nav-item">
-
-          <a class="nav-link" [routerLink]="['rutinas']">Rutinas</a>
-
-        </li>
-
-        <li class="nav-item">
-
-          <a class="nav-link" [routerLink]="['noticias']">Noticias</a>
-
-        </li>
-
-        <li class="nav-item">
-
-          <a class="nav-link" [routerLink]="['perfil']">Sobre mi</a>
-
+          <a class="nav-link" [routerLink]="['/noticias']">Noticias</a>
         </li>
 
 
       </ul>
 
+      <div class="d-flex gap-2">
+        @if (!logueado) {
+          <a class="btn btn-outline-primary" [routerLink]="['/login']">Iniciar sesión</a>
+        } @else {
+          <button class="btn btn-outline-danger" (click)="cerrarSesion()">Cerrar sesión</button>
+        }
+      </div>
     </div>
 
   </div>
-
 </nav>

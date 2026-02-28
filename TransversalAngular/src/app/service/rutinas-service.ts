@@ -1,52 +1,68 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
-import { UUIDTypes } from 'uuid';
+import { API_URL } from '../config/api';
 import { RutinaInterface } from '../interfaces/rutina-interface';
 import { EjercicioInterface } from '../interfaces/ejercicio-interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class RutinasService {
+  private http = inject(HttpClient);
 
-  private httpClient = inject(HttpClient);
+  private baseUrl = `${API_URL}/rutinas`;
+  private ejerciciosUrl = `${API_URL}/ejercicios`;
+  private miCuentaUrl = `${API_URL}/mi-cuenta`;
 
-  baseUrl: string = 'http://localhost:8080/api/rutinas';
-
-  constructor() {}
-
-  private authHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({'Content-Type': 'application/json',});
-
-    return token ? headers.set('Authorization', `Bearer ${token}`) : headers;
+  // cliente
+  getMisRutinas(): Promise<RutinaInterface[]> {
+    return lastValueFrom(this.http.get<RutinaInterface[]>(`${this.miCuentaUrl}/rutinas`));
   }
 
-  async getAllRutinas(clienteId?: string): Promise<RutinaInterface[]> {
+  getEjerciciosDeMiRutina(rutinaId: string): Promise<EjercicioInterface[]> {
+    return lastValueFrom(this.http.get<EjercicioInterface[]>(`${this.miCuentaUrl}/rutinas/${rutinaId}/ejercicios`));
+  }
+
+  // staff
+  /**
+   * Filtra por DNI/NIE del cliente (evita usar UID en el front).
+   * Si tu backend usa otro nombre de parámetro, cámbialo aquí.
+   */
+  getRutinas(dniNie?: string): Promise<RutinaInterface[]> {
     let params = new HttpParams();
-    if (clienteId) params = params.set('clienteId', clienteId);
-
-    return lastValueFrom(this.httpClient.get<RutinaInterface[]>(this.baseUrl, { headers: this.authHeaders(), params }));
+    if (dniNie) params = params.set('dniNie', dniNie);
+    return lastValueFrom(this.http.get<RutinaInterface[]>(this.baseUrl, { params }));
   }
 
-  async getRutinaById(id: UUIDTypes | string): Promise<RutinaInterface> {
-
-    return lastValueFrom(this.httpClient.get<RutinaInterface>(`${this.baseUrl}/${id}`, { headers: this.authHeaders() }));
+  createRutina(rutina: Partial<RutinaInterface>): Promise<RutinaInterface> {
+    return lastValueFrom(this.http.post<RutinaInterface>(this.baseUrl, rutina));
   }
 
-  async createRutina(rutina: Partial<RutinaInterface>): Promise<RutinaInterface> {
-
-    return lastValueFrom(this.httpClient.post<RutinaInterface>(this.baseUrl, rutina, { headers: this.authHeaders() }));
+  deleteRutina(id: string): Promise<void> {
+    return lastValueFrom(this.http.delete<void>(`${this.baseUrl}/${id}`));
   }
 
-  async deleteRutina(id: UUIDTypes | string): Promise<void> {
-
-    await lastValueFrom(this.httpClient.delete<void>(`${this.baseUrl}/${id}`, { headers: this.authHeaders() }));
+  getEjerciciosDeRutinaStaff(rutinaId: string): Promise<EjercicioInterface[]> {
+    const params = new HttpParams().set('rutinaId', rutinaId);
+    return lastValueFrom(this.http.get<EjercicioInterface[]>(this.ejerciciosUrl, { params }));
   }
 
-  async getEjerciciosDeRutina(rutinaId: UUIDTypes | string): Promise<EjercicioInterface[]> {
+  // --- Compatibilidad con nombres usados por el front antiguo ---
+  getAllRutinas(dniNie?: string): Promise<RutinaInterface[]> {
+    return this.getRutinas(dniNie);
+  }
 
-    return lastValueFrom(this.httpClient.get<EjercicioInterface[]>(`${this.baseUrl}/${rutinaId}/ejercicios`, { headers: this.authHeaders() }));
+  async getRutinaById(id: string): Promise<RutinaInterface> {
+    try {
+      return await lastValueFrom(this.http.get<RutinaInterface>(`${this.baseUrl}/${id}`));
+    } catch (error) {
+      const rutinas = await this.getRutinas();
+      const encontrada = rutinas.find((r) => r.id === id);
+      if (!encontrada) throw error;
+      return encontrada;
+    }
+  }
+
+  getEjerciciosDeRutina(rutinaId: string): Promise<EjercicioInterface[]> {
+    return this.getEjerciciosDeRutinaStaff(rutinaId);
   }
 }

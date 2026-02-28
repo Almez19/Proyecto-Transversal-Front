@@ -12,3 +12,85 @@ app-root {
   display: block;
   min-height: 100%; 
 }
+
+/* ------------------------------------------------------------------
+   BASIFIT UI (estilo unificado: blanco + morado + naranja)
+   Nota: No se toca el markup de Inicio/Gimnasios/Noticias.
+-------------------------------------------------------------------*/
+:root {
+  --bf-purple: #6f2dbd;
+  --bf-purple-2: #55218f;
+  --bf-orange: #FE7000;
+  --bf-bg: #ffffff;
+  --bf-text: #1a1a2e;
+  --bf-border: #dee2e6;
+}
+
+body {
+  background: var(--bf-bg);
+  color: var(--bf-text);
+}
+
+/* Contenedores */
+.bf-container {
+  max-width: 1140px;
+}
+
+.bf-panel {
+  background: #ffffff;
+  border: 1px solid var(--bf-border);
+  border-radius: 1rem;
+}
+
+.bf-title {
+  color: var(--bf-orange);
+}
+
+.bf-muted {
+  color: #6c757d;
+}
+
+/* Botones */
+.btn-bf {
+  background: var(--bf-purple);
+  border: 2px solid var(--bf-orange);
+  color: #fff;
+  font-weight: 600;
+}
+.btn-bf:hover {
+  background: var(--bf-purple-2);
+  border-color: var(--bf-orange);
+  color: #fff;
+}
+
+.btn-bf-outline {
+  background: transparent;
+  border: 2px solid var(--bf-orange);
+  color: var(--bf-purple);
+  font-weight: 600;
+}
+.btn-bf-outline:hover {
+  background: rgba(111, 45, 189, 0.08);
+  color: var(--bf-purple);
+}
+
+/* Inputs */
+.bf-input-icon {
+  background-color: #f8f9fa;
+  color: var(--bf-orange);
+  border-right: 0;
+}
+
+/* Tabs de perfil */
+.nav-pills .nav-link {
+  border: 2px solid var(--bf-border);
+  color: var(--bf-text);
+  border-radius: 999px;
+  font-weight: 600;
+}
+.nav-pills .nav-link.active {
+  background: var(--bf-purple);
+  border-color: var(--bf-orange);
+  color: #fff;
+}
+

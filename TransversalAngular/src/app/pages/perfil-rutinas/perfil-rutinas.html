@@ -1,0 +1,130 @@
+<div class="p-4 rounded-3 shadow-sm bf-panel">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+    <div>
+      <h5 class="fw-semibold mb-2 bf-title"><i class="bi bi-heart-pulse me-2"></i>Mis rutinas</h5>
+      <div class="bf-muted">Aquí verás tus rutinas guardadas y las asignadas por el gimnasio.</div>
+    </div>
+    <a class="btn btn-bf" routerLink="/rutinas"><i class="bi bi-search me-2"></i>Explorar catálogo</a>
+  </div>
+
+  @if (cargando) {
+    <div class="text-secondary mt-3">Cargando…</div>
+  } @else if (error) {
+    <div class="text-danger mt-3">{{ error }}</div>
+  } @else {
+
+    <!-- Guardadas -->
+    <div class="mt-4">
+      <div class="fw-semibold mb-2" style="color:#FE7000;">Rutinas guardadas del catálogo</div>
+      @if (rutinasCatalogo.length === 0) {
+        <div class="text-muted">Aún no has guardado ninguna rutina del catálogo.</div>
+      } @else {
+        <div class="row">
+          @for (rutina of rutinasCatalogo; track rutina.id) {
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card shadow-sm h-100" style="border: 1px solid #dee2e6; border-radius: 1rem;">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <div class="fw-bold">{{ rutina.nombre }}</div>
+                      <div class="mt-2 d-flex flex-wrap gap-2">
+                        <span class="badge" style="background:#FE7000;">{{ rutina.objetivo | textoEnum }}</span>
+                        <span class="badge" style="background:#6f2dbd;">{{ rutina.nivel | textoEnum }}</span>
+                        <span class="badge text-dark" style="background:#f8f9fa; border: 1px solid #dee2e6;">{{ rutina.diasPorSemana }} días/sem</span>
+                      </div>
+                    </div>
+                    <button class="btn btn-bf-outline btn-sm" (click)="quitarCatalogo(rutina.id)">Quitar</button>
+                  </div>
+                  <p class="text-muted mt-3 mb-3">{{ rutina.descripcion }}</p>
+
+                  <a class="btn btn-bf w-100" [routerLink]="['/rutinas/catalogo', rutina.id]">Ver rutina</a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Personalizadas -->
+    <div class="mt-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="fw-semibold" style="color:#FE7000;">Mis rutinas personalizadas</div>
+        <a class="btn btn-bf btn-sm" routerLink="/rutinas/crear"><i class="bi bi-plus-circle me-1"></i>Crear nueva</a>
+      </div>
+
+      @if (rutinasPersonalizadas.length === 0) {
+        <div class="text-muted">Aún no has creado ninguna rutina.</div>
+      } @else {
+        <div class="row">
+          @for (rutina of rutinasPersonalizadas; track rutina.id) {
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card shadow-sm h-100" style="border: 1px solid #dee2e6; border-radius: 1rem;">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <div class="fw-bold">{{ rutina.nombre }}</div>
+                      <div class="mt-2 d-flex flex-wrap gap-2">
+                        <span class="badge" style="background:#FE7000;">{{ rutina.objetivo | textoEnum }}</span>
+                        <span class="badge" style="background:#6f2dbd;">{{ rutina.nivel | textoEnum }}</span>
+                        <span class="badge text-dark" style="background:#f8f9fa; border: 1px solid #dee2e6;">{{ rutina.diasPorSemana }} días/sem</span>
+                        <span class="badge text-dark" style="background:#f8f9fa; border: 1px solid #dee2e6;">{{ rutina.ejercicios.length }} ejercicios</span>
+                      </div>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm" (click)="eliminarPersonalizada(rutina.id)">Eliminar</button>
+                  </div>
+
+                  @if (rutina.notas) {
+                    <p class="text-muted mt-3 mb-2">{{ rutina.notas }}</p>
+                  }
+
+                  <a class="btn btn-bf w-100 mt-2" [routerLink]="['/rutinas/personalizada', rutina.id]">Ver rutina</a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Asignadas -->
+    <div class="mt-4">
+      <div class="fw-semibold mb-2" style="color:#FE7000;">Rutinas asignadas por el entrenador</div>
+      @if (rutinasAsignadas.length === 0) {
+        <div class="text-muted">Todavía no tienes rutinas asignadas.</div>
+      } @else {
+        <div class="row">
+          @for (rutina of rutinasAsignadas; track rutina.id) {
+            <div class="col-md-6 col-lg-4 mb-3">
+              <div class="card shadow-sm h-100" style="border: 1px solid #dee2e6; border-radius: 1rem;">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <div class="fw-bold">{{ rutina.nombre }}</div>
+                      <div class="mt-2 d-flex flex-wrap gap-2">
+                        <span class="badge" style="background:#FE7000;">{{ rutina.objetivo | textoEnum }}</span>
+                        <span class="badge" style="background:#6f2dbd;">{{ rutina.nivel | textoEnum }}</span>
+                        <span class="badge text-dark" style="background:#f8f9fa; border: 1px solid #dee2e6;">{{ rutina.diasPorSemana }} días/sem</span>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                      <a class="btn btn-bf btn-sm" [routerLink]="linkDetalleAsignada(rutina)">Ver rutina</a>
+                    </div>
+                  </div>
+
+                  @if (rutina.notas) {
+                    <p class="text-muted mt-3 mb-2">{{ rutina.notas }}</p>
+                  }
+
+                  <div class="text-muted mt-3">
+                    Consulta la rutina completa con ejercicios, series y descansos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

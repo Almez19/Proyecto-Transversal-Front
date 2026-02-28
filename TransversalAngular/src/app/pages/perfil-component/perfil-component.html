@@ -1,1 +1,39 @@
-<p>perfil-component works!</p>
+<div class="container mt-4 bf-container">
+
+  <div class="p-4 rounded-3 mb-3 shadow-sm bf-panel">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-2">
+      <div>
+        <h5 class="fw-semibold mb-1 bf-title"><i class="bi bi-person-circle me-2"></i>Mi perfil</h5>
+        @if (perfil) {
+          <div class="bf-muted">{{ perfil.nombre }} {{ perfil.apellido1 }} {{ perfil.apellido2 }} · {{ perfil.email }}</div>
+        } @else {
+          <div class="bf-muted">Accede a tus reservas, rutinas, gimnasios y suscripción.</div>
+        }
+      </div>
+
+      @if (cargando) {
+        <span class="badge" style="background:#6f2dbd;">Cargando…</span>
+      }
+    </div>
+  </div>
+
+  <ul class="nav nav-pills mb-4 gap-2">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/perfil/reservas" routerLinkActive="active">Mis reservas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/perfil/rutinas" routerLinkActive="active">Mis rutinas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/perfil/gimnasios" routerLinkActive="active">Mis gimnasios</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/perfil/suscripcion" routerLinkActive="active">Mi suscripción</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/perfil/datos" routerLinkActive="active">Mis datos</a>
+    </li>
+  </ul>
+
+  <router-outlet />
+</div>

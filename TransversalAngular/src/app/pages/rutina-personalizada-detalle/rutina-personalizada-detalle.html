@@ -1,0 +1,63 @@
+<div class="p-4 rounded-3 shadow-sm bf-panel">
+  <div class="d-flex justify-content-between align-items-start gap-3">
+    <div>
+      <h5 class="fw-semibold mb-1 bf-title"><i class="bi bi-journal-check me-2"></i>Rutina personalizada</h5>
+      <div class="bf-muted">Rutina creada por ti (solo visible para tu cuenta en este dispositivo).</div>
+    </div>
+    <a class="btn btn-bf-outline" routerLink="/perfil/rutinas"><i class="bi bi-arrow-left me-1"></i>Volver</a>
+  </div>
+
+  @if (cargando) {
+    <div class="text-secondary mt-3">Cargando…</div>
+  } @else if (error) {
+    <div class="text-danger mt-3">{{ error }}</div>
+  } @else if (rutina) {
+    <div class="card shadow-sm mt-3" style="border: 1px solid #dee2e6; border-radius: 1rem;">
+      <div class="card-body p-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+          <div>
+            <div class="fw-bold fs-4">{{ rutina.nombre }}</div>
+            <div class="mt-2 d-flex flex-wrap gap-2">
+              <span class="badge" style="background:#FE7000;">{{ rutina.objetivo | textoEnum }}</span>
+              <span class="badge" style="background:#6f2dbd;">{{ rutina.nivel | textoEnum }}</span>
+              <span class="badge text-dark" style="background:#f8f9fa; border: 1px solid #dee2e6;">{{ rutina.diasPorSemana }} días/sem</span>
+            </div>
+            @if (rutina.notas) {
+              <div class="text-muted mt-3">{{ rutina.notas }}</div>
+            }
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="fw-semibold" style="color:#FE7000;">Plan de ejercicios</div>
+        <div class="table-responsive mt-2">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Ejercicio</th>
+                <th class="text-nowrap">Series x Reps</th>
+                <th class="text-nowrap">Peso</th>
+                <th class="text-nowrap">Descanso</th>
+                <th>Notas / ejecución</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (e of rutina.ejercicios; track $index) {
+                <tr>
+                  <td>{{ $index + 1 }}</td>
+                  <td class="fw-semibold">{{ e.nombre }}</td>
+                  <td>{{ e.series }} x {{ e.repeticiones }}</td>
+                  <td>@if (e.peso) { {{ e.peso }} kg } @else { — }</td>
+                  <td>{{ e.descansoSegundos }} s</td>
+                  <td class="text-muted">{{ e.notas || '—' }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  }
+</div>

@@ -1,40 +1,95 @@
-<div class="bf-class-card">
-
-  <div class="bf-class-header">
-    <span class="bf-badge">{{ obtenerDeporte() }}</span>
-
-    <div class="bf-date">
-      <span class="bf-date-label">Fecha</span>
-      <span class="bf-date-value">{{ formatearFecha(obtenerFecha()) }}</span>
+<div class="card h-100 shadow-sm">
+  <div class="card-body d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-start gap-2">
+      <h5 class="card-title mb-1">{{ clase.nombre }}</h5>
+      <span class="badge text-bg-secondary">{{ clase.nivel }}</span>
     </div>
-  </div>
 
-  <div class="bf-class-body">
-
-    <div class="bf-time-row">
-      <div class="bf-time">
-        <span class="bf-time-label">Inicio</span>
-        <span class="bf-time-value">{{ formatearHora(obtenerHoraInicio()) }}</span>
-      </div>
-
-      <div class="bf-time">
-        <span class="bf-time-label">Fin</span>
-        <span class="bf-time-value">{{ formatearHora(obtenerHoraFinal()) }}</span>
+    <div class="text-muted small mb-2">
+      @if (nombreGimnasio) {
+        <div><strong>{{ nombreGimnasio }}</strong></div>
+      }
+      <div>
+        {{ clase.fecha | date: 'fullDate' }} · de {{ formatearHora(clase.horaInicio) }} a {{ formatearHora(clase.horaFinal) }} · {{ clase.duracionMinutos }} min
       </div>
     </div>
 
-    <div class="bf-chips">
-      <span class="bf-chip">{{ textoSala || ('Sala (' + obtenerSalaId() + ')') }}</span>
-      <span class="bf-chip">{{ textoEntrenador || ('Entrenador (' + obtenerEntrenadorId() + ')') }}</span>
+    <p class="card-text">{{ clase.descripcion }}</p>
+
+    <div class="mb-2">
+      <button class="btn btn-bf-outline btn-sm" (click)="alternarDetalles()">
+        @if (detallesAbiertos) { Ocultar info } @else { Más info }
+      </button>
+
+      @if (detallesAbiertos) {
+        <div class="mt-2 p-3 rounded-3 border bg-light">
+          @if (info) {
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="fw-semibold">¿Qué trabajas?</div>
+                <ul class="mb-0">
+                  @for (i of info.queTrabajas; track i) {
+                    <li>{{ i }}</li>
+                  }
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <div class="fw-semibold">Beneficios</div>
+                <ul class="mb-0">
+                  @for (b of info.beneficios; track b) {
+                    <li>{{ b }}</li>
+                  }
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <div class="fw-semibold">Recomendaciones</div>
+                <ul class="mb-0">
+                  @for (r of info.recomendaciones; track r) {
+                    <li>{{ r }}</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          } @else {
+            <div class="text-muted">Próximamente más información sobre esta clase.</div>
+          }
+        </div>
+      }
     </div>
 
-    <button class="bf-btn-primary" type="button">
-      Reservar
-    </button>
+    <div class="mt-auto">
+      <div class="d-flex flex-wrap gap-2 align-items-center">
+        <span class="badge text-bg-light border">Capacidad: {{ clase.capacidad }}</span>
+        @if (clase.estado) {
+          <span class="badge text-bg-light border">Estado: {{ clase.estado }}</span>
+        }
+      </div>
 
-    <small class="bf-hint">
-      Para reservar, ve a “Reservas” y selecciona la clase.
-    </small>
+      @if (mensaje) {
+        <div class="alert alert-success py-2 mt-3 mb-0">{{ mensaje }}</div>
+      }
+      @if (error) {
+        <div class="alert alert-danger py-2 mt-3 mb-0">{{ error }}</div>
+      }
 
+      @if (esCliente) {
+        <button
+          class="btn btn-bf w-100 mt-3"
+          [disabled]="reservando || !esFutura || clase.estado !== 'programada'"
+          (click)="reservar()">
+          @if (reservando) {
+            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+          }
+          Reservar
+        </button>
+      }
+
+      @if (!esFutura) {
+        <div class="text-muted small mt-2">Esta clase ya ha pasado.</div>
+      }
+      @if (clase.estado === 'cancelada') {
+        <div class="text-danger small mt-2">Clase cancelada.</div>
+      }
+    </div>
   </div>
 </div>

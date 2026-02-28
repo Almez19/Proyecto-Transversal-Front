@@ -1,0 +1,78 @@
+<div class="container mt-4 bf-container">
+
+  <div class="p-4 rounded-3 mb-4 shadow-sm bf-panel">
+    <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+      <div>
+        <h2 class="bf-title mb-1">Clases</h2>
+        <p class="text-secondary mb-0">Aquí ves qué clases ofrece BasiFit. Los horarios y la reserva se consultan desde cada gimnasio.</p>
+      </div>
+      <a class="btn btn-bf-outline" [routerLink]="['/gimnasios']"><i class="bi bi-building me-1"></i>Ver gimnasios</a>
+    </div>
+
+    <div class="row g-3 mt-3 align-items-end">
+      <div class="col-md-7">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">Buscar</label>
+        <div class="input-group">
+          <span class="input-group-text bf-input-icon"><i class="bi bi-search"></i></span>
+          <input class="form-control" style="border-left: 0;" [(ngModel)]="filtroTexto" placeholder="Ej. Spinning, Yoga…" />
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <label class="form-label text-secondary fw-semibold text-uppercase" style="font-size: 0.78rem;">Nivel recomendado</label>
+        <select class="form-select" [(ngModel)]="filtroNivel">
+          <option value="">Todos</option>
+          <option value="principiante">Principiante</option>
+          <option value="intermedio">Intermedio</option>
+          <option value="avanzado">Avanzado</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <small style="color: #FE7000;">
+        <i class="bi bi-grid-1x2-fill me-1"></i>
+        {{ catalogoFiltrado.length }} clase{{ catalogoFiltrado.length !== 1 ? 's' : '' }}
+      </small>
+    </div>
+  </div>
+
+  @if (cargando) {
+    <div class="alert alert-info">Cargando catálogo…</div>
+  } @else {
+    @if (error) {
+      <div class="alert alert-danger">{{ error }}</div>
+    } @else {
+      <div class="row g-3">
+        @for (c of catalogoFiltrado; track c.id) {
+          <div class="col-12 col-md-6 col-xl-4">
+            <div class="card shadow-sm bf-card h-100">
+              <img [src]="imagenClase(c)" class="card-img-top" alt="{{ c.nombre }}" style="height: 160px; object-fit: cover;" />
+              <div class="card-body">
+                <h5 class="mb-1" style="color:#FE7000; font-weight: 800;">{{ c.nombre }}</h5>
+                <span class="badge rounded-pill" style="border:1px solid rgba(254,112,0,.55); color:#6F2DBD; background:#fff;">
+                  Nivel: {{ c.nivelRecomendado | titlecase }}
+                </span>
+
+                <p class="mt-3 mb-0" style="color:#333;">{{ c.descripcion }}</p>
+              </div>
+
+              <div class="card-footer bg-white" style="border-top: 1px solid rgba(254,112,0,0.25);">
+                <a class="btn btn-bf w-100" [routerLink]="['/clases', c.id]">
+                  <i class="bi bi-info-circle me-1"></i>Más info
+                </a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (catalogoFiltrado.length === 0) {
+        <div class="text-center py-5" style="color: #555;">
+          <i class="bi bi-search fs-1" style="color: #FE7000;"></i>
+          <p class="mt-3 fs-5">No se encontraron clases.</p>
+        </div>
+      }
+    }
+  }
+</div>

@@ -7,6 +7,6 @@ export interface ClasesInterface {
     id: string,
     salaId: string,
     usuarioClaseId: string,
-    
+
 
 }

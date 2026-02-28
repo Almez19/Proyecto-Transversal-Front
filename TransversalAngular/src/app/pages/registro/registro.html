@@ -1,0 +1,55 @@
+<div class="page">
+  <section class="hero">
+    <div>
+      <h1>Crear cuenta</h1>
+      <p class="subtitle">Regístrate para reservar clases, guardar rutinas y gestionar tu suscripción.</p>
+    </div>
+    <a class="btn btn-outline" routerLink="/login">Volver al login</a>
+  </section>
+
+  <section class="panel">
+    <div class="grid">
+      <div class="campo">
+        <label>Nombre</label>
+        <input class="form-control" [(ngModel)]="nombre" />
+      </div>
+      <div class="campo">
+        <label>Apellidos</label>
+        <input class="form-control" [(ngModel)]="apellidos" />
+      </div>
+      <div class="campo">
+        <label>Email</label>
+        <input class="form-control" [(ngModel)]="email" type="email" />
+      </div>
+      <div class="campo">
+        <label>DNI/NIE</label>
+        <input class="form-control" [(ngModel)]="dniNie" />
+      </div>
+
+      <div class="campo">
+        <label>Contraseña</label>
+        <input class="form-control" [(ngModel)]="password" type="password" />
+      </div>
+      <div class="campo">
+        <label>Repetir contraseña</label>
+        <input class="form-control" [(ngModel)]="password2" type="password" />
+      </div>
+    </div>
+
+    @if (error) {
+      <div class="alert error">{{ error }}</div>
+    }
+    @if (mensaje) {
+      <div class="alert ok">{{ mensaje }}</div>
+    }
+
+    <div class="acciones">
+      <button class="btn btn-primary" (click)="registrar()" [disabled]="procesando">Crear cuenta</button>
+    </div>
+  </section>
+
+  <section class="nota">
+    <strong>Nota:</strong> este formulario llama a <code>POST /auth/registro</code>. Si tu backend usa otra ruta,
+    cámbiala en <code>auth-public-service.ts</code>.
+  </section>
+</div>

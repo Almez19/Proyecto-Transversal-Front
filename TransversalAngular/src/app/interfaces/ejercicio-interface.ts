@@ -1,8 +1,12 @@
-import { UUIDTypes } from "uuid";
-
 export interface EjercicioInterface {
-  id: UUIDTypes;
+  id: string;
   nombre: string;
-  rutinaId: UUIDTypes | null;
-  maquinaId: UUIDTypes | null;
+  orden: number;
+  series: number;
+  repeticiones: number;
+  peso?: number | null;
+  descansoSegundos: number;
+  notas?: string | null;
+  rutinaId: string;
+  maquinaId?: string | null;
 }

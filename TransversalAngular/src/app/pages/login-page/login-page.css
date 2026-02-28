@@ -1,0 +1,11 @@
+
+.small-link {
+  font-weight: 700;
+  color: #fe7000;
+  text-decoration: none;
+}
+
+.small-link:hover {
+  text-decoration: underline;
+}
+

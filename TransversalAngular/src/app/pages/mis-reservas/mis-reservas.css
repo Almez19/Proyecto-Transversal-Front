@@ -1,0 +1,112 @@
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.muted {
+  margin: 6px 0 0;
+  color: #666;
+}
+
+.estado {
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff7f0;
+  border-left: 6px solid #fe7000;
+}
+
+.estado.error {
+  background: #ffe9eb;
+  border-left-color: #dc3545;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.top h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.info {
+  color: #333;
+  font-size: 14px;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  background: #e9f5ff;
+  color: #0b5ed7;
+}
+
+.badge.cancelada {
+  background: #ffe9eb;
+  color: #dc3545;
+}
+
+.acciones {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #fe7000;
+  color: #fe7000;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

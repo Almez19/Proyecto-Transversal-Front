@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6F2DBD" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#FE7000" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="520" rx="32" fill="url(#g)" stroke="#FE7000" stroke-opacity="0.35"/>
+  <circle cx="180" cy="300" r="90" fill="#6F2DBD" fill-opacity="0.22"/>
+  <circle cx="1040" cy="220" r="120" fill="#FE7000" fill-opacity="0.16"/>
+  <text x="120" y="330" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="64" fill="#FE7000">CLASE</text>
+  <text x="120" y="395" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="54" fill="#6F2DBD">SPINNING</text>
+  <text x="120" y="450" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#333">Imagen de ejemplo (puedes sustituirla por una foto real)</text>
+</svg>

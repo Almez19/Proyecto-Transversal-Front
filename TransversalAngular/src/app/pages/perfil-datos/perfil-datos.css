@@ -1,0 +1,5 @@
+/* Mantener la misma estética que el resto del proyecto (botones morados + acentos naranjas) */
+
+.bf-panel {
+  background: #fff;
+}

@@ -1,0 +1,43 @@
+<div class="panel">
+  <div class="head">
+    <div>
+      <h2>Mis reservas</h2>
+      <p class="muted">Aquí puedes ver y gestionar tus clases reservadas.</p>
+    </div>
+    <button class="btn btn-outline" (click)="cargar()">Actualizar</button>
+  </div>
+
+  @if (cargando) {
+    <div class="estado">Cargando…</div>
+  } @else if (error) {
+    <div class="estado error">{{ error }}</div>
+  } @else if (reservas.length === 0) {
+    <div class="estado">No tienes reservas activas.</div>
+  } @else {
+    <div class="grid">
+      @for (r of reservas; track r.id) {
+        @let c = claseDe(r);
+        <article class="card">
+          <div class="top">
+            <h3>{{ c?.nombre ?? ('Clase ' + r.claseId) }}</h3>
+            <span class="badge" [class.cancelada]="r.estado === 'cancelada'">{{ r.estado | titlecase }}</span>
+          </div>
+
+          @if (c) {
+            <div class="info">
+              <div><strong>Fecha:</strong> {{ c.fecha | date:'longDate' }}</div>
+              <div><strong>Horario:</strong> de {{ formatearHora(c.horaInicio) }} a {{ formatearHora(c.horaFinal) }}</div>
+              <div><strong>Nivel:</strong> {{ c.nivel }}</div>
+            </div>
+          }
+
+          <div class="acciones">
+            <button class="btn btn-danger" (click)="cancelar(r.id)" [disabled]="r.estado === 'cancelada'">
+              Cancelar
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</div>
