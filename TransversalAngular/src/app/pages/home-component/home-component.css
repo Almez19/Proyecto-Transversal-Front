@@ -1,42 +1,106 @@
 /* ===== GENERAL ===== */
 .home-section {
-    background-color: #EFEFEF; /* White */
+    background-color: #EFEFEF;
     font-family: 'Segoe UI', sans-serif;
-    color: #2D2D2D; /* Anthracite */
+    color: #2D2D2D;
 }
 
 /* ===== HERO ===== */
-.hero {
-    background-color: #FE7000; /* Basic-Fit Orange */
-    padding: 120px 0;
-    color: #EFEFEF; /* White */
+.hero-banner {
+    display: flex;
+    overflow: hidden;
+    min-height: 340px;
+    background-color: #FE7000;
 }
 
-.hero-content {
-    max-width: 700px;
+.hero-left {
+    position: relative;
+    flex: 0 0 42%;
+    padding: 60px 50px 60px 60px;
+    background-color: #FE7000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
 }
 
-.hero h1 {
+/* Corte diagonal */
+.hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -60px;
+    width: 120px;
+    height: 100%;
+    background-color: #FE7000;
+    clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+    z-index: 3;
+}
+
+/* Puntos decorativos */
+.hero-left::before {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    width: 90px;
+    height: 60px;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.35) 2px, transparent 2px);
+    background-size: 12px 12px;
+    z-index: 4;
+}
+
+.hero-left h1 {
     font-size: 3.2rem;
     font-weight: 800;
     margin-bottom: 20px;
+    color: #FFFFFF;
 }
 
-.hero p {
-    font-size: 1.2rem;
+.hero-left p {
+    font-size: 1.1rem;
     margin-bottom: 30px;
+    color: #FFFFFF;
     opacity: 0.9;
+    max-width: 320px;
+}
+
+.hero-right {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* Degradado naranja en el borde derecho */
+.hero-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to left, #FE7000 0%, transparent 100%);
+    z-index: 2;
 }
 
 /* ===== BOTÓN CORPORATIVO ===== */
 .btn-basic {
-    background-color: #2D2D2D; /* Anthracite */
-    color: #FE7000; /* Basic-Fit Orange */
+    background-color: #2D2D2D;
+    color: #FFFFFF;
     font-weight: 700;
     padding: 14px 35px;
     border-radius: 40px;
     transition: all 0.3s ease;
     border: none;
+    align-self: flex-start;
 }
 
 .btn-basic:hover {
@@ -47,13 +111,13 @@
 /* ===== INTRO ===== */
 .intro-section {
     padding: 80px 0;
-    background-color: #EFEFEF; /* Jersey Grey */
+    background-color: #EFEFEF;
 }
 
 .section-title {
     font-weight: 800;
     margin-bottom: 20px;
-    color: #6131AD; /* Purple */
+    color: #6131AD;
 }
 
 .section-text {
@@ -64,7 +128,7 @@
 
 /* ===== NEWS SECTION ===== */
 .news-section {
-    background-color: #7ADEC9; /* Mint */
+    background-color: #7ADEC9;
     padding: 80px 0;
 }
 
@@ -90,19 +154,33 @@
 }
 
 .carousel-info h4 {
-    color: #2D2D2D; /* Anthracite */
+    color: #2D2D2D;
     font-weight: 700;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 
-    .hero {
-        padding: 80px 0;
+    .hero-banner {
+        flex-direction: column;
+        min-height: auto;
     }
 
-    .hero h1 {
+    .hero-left {
+        flex: none;
+        padding: 50px 30px 60px;
+    }
+
+    .hero-left::after {
+        display: none;
+    }
+
+    .hero-left h1 {
         font-size: 2.2rem;
+    }
+
+    .hero-right {
+        height: 260px;
     }
 
     .carousel-card img {

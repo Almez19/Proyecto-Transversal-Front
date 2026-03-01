@@ -3,8 +3,9 @@
     <router-outlet (activate)="onActivate($event)"></router-outlet>
 
     <!-- HERO -->
-    <div class="hero">
-        <div class="container hero-content">
+    <div class="hero-banner">
+
+        <div class="hero-left">
             <h1>Más que un gimnasio</h1>
             <p>
                 Entrena cuando quieras, como quieras y sin complicaciones.
@@ -12,6 +13,14 @@
             </p>
             <a class="btn btn-basic" [routerLink]="['/gimnasios']">Encuentra tu gimnasio</a>
         </div>
+
+        <div class="hero-right">
+            <img
+                src="https://www.basic-fit.com/dw/image/v2/BDFP_PRD/on/demandware.static/-/Library-Sites-basic-fit-shared-library/default/dw34e4ff1a/1.%20new%20VI%20images/Homepage/ES.mob.fgc.header.png?sw=744&sh=500&sm=fit"
+                alt="El club que te sienta bien"
+            >
+        </div>
+
     </div>
 
     <!-- INTRO -->
