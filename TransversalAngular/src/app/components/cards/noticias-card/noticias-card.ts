@@ -1,9 +1,9 @@
 import { Component, inject, Input } from '@angular/core';
-import { NoticiasService } from '../../service/noticias-service';
+import { NoticiasService } from '../../../service/noticias-service';
 import { Router, RouterModule } from '@angular/router';
-import { Igimnasio } from '../../interfaces/igimnasio';
+import { Igimnasio } from '../../../interfaces/igimnasio';
 import { CommonModule } from '@angular/common';
-import { NoticiasInterface } from '../../interfaces/noticias-interface';
+import { NoticiasInterface } from '../../../interfaces/noticias-interface';
 
 @Component({
   selector: 'app-noticias-card',

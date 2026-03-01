@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReservaInterface } from '../../interfaces/reserva-interface';
-import { ClientesService } from '../../service/clientes-service';
-import { ClasesService } from '../../service/clases-service';
+import { ReservaInterface } from '../../../interfaces/reserva-interface';
+import { ClientesService } from '../../../service/clientes-service';
+import { ClasesService } from '../../../service/clases-service';
 
 @Component({
   selector: 'app-reservas-card',

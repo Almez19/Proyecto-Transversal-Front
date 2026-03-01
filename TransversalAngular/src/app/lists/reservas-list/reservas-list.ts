@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReservasCard } from '../../cards/reservas-card/reservas-card';
+import { ReservasCard } from '../../components/cards/reservas-card/reservas-card';
 import { ReservaInterface } from '../../interfaces/reserva-interface';
 
 @Component({

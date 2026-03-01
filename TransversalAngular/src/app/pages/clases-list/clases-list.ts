@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ClaseInterface } from '../../interfaces/clase-interface';
 import { ClasesService } from '../../service/clases-service';
-import { ClasesCard } from '../../cards/clases-card/clases-card';
+import { ClasesCard } from '../../components/cards/clases-card/clases-card';
 
 @Component({
   selector: 'app-clases-list',

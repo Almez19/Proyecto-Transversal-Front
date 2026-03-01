@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
-import { ClaseInterface } from '../../interfaces/clase-interface';
-import { SalasService } from '../../service/salas-service';
-import { UsuariosService } from '../../service/usuarios-service';
+import { ClaseInterface } from '../../../interfaces/clase-interface';
+import { SalasService } from '../../../service/salas-service';
+import { UsuariosService } from '../../../service/usuarios-service';
 
 @Component({
   selector: 'app-clases-card',

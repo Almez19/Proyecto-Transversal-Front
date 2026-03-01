@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RutinaInterface } from '../../interfaces/rutina-interface';
+import { RutinaInterface } from '../../../interfaces/rutina-interface';
 
 @Component({
   selector: 'app-rutinas-card-component',

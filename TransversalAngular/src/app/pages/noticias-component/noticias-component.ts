@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NoticiasInterface } from '../../interfaces/noticias-interface';
 import { NoticiasService } from '../../service/noticias-service';
-import { NoticiasCard } from "../../cards/noticias-card/noticias-card";
+import { NoticiasCard } from "../../components/cards/noticias-card/noticias-card";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
